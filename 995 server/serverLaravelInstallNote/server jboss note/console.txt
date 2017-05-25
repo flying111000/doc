@@ -1,0 +1,186 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-jboss-on-ubuntu-12-10-64bit
+
+like tomcat,we can just copy  a windows jboss to linux.
+
+
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-20-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Ubuntu 12.04 LTS ('precise') end-of-life was April 28, 2017
+   ongoing security updates for 12.04 are available with Ubuntu Advantage
+   http://j.mp/U1204esm
+
+
+20 packages can be updated.
+0 updates are security updates.
+
+Last login: Fri May 12 10:32:04 2017 from 192.168.1.140
+root1@root1-VirtualBox:~$ sudo adduser appserver
+[sudo] password for root1:
+Adding user `appserver' ...
+Adding new group `appserver' (1001) ...
+Adding new user `appserver' (1001) with group `appserver' ...
+Creating home directory `/home/appserver' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:appserver
+Retype new UNIX password:appserver
+passwd: password updated successfully
+Changing the user information for appserver
+Enter the new value, or press ENTER for the default
+        Full Name []: appserver
+        Room Number []: appserver
+        Work Phone []: appserver
+        Home Phone []: appserver
+        Other []: appserver
+Is the information correct? [Y/n] Y
+root1@root1-VirtualBox:~$ sudo chown -R appserver /usr/local/share/jboss
+root1@root1-VirtualBox:~$ su appserver
+Password:
+appserver@root1-VirtualBox:/home/root1$ cd /usr/local/share/jboss/bin
+appserver@root1-VirtualBox:/usr/local/share/jboss/bin$ ./add-user.sh
+bash: ./add-user.sh: Permission denied
+appserver@root1-VirtualBox:/usr/local/share/jboss/bin$ cd ../..
+appserver@root1-VirtualBox:/usr/local/share$ ls
+ca-certificates  emacs  fonts  jboss  man  sgml  xml
+appserver@root1-VirtualBox:/usr/local/share$ chmod -R 777 jboss
+appserver@root1-VirtualBox:/usr/local/share$ cd /usr/local/share/jboss/bin
+appserver@root1-VirtualBox:/usr/local/share/jboss/bin$ ./add-user.sh
+
+What type of user do you wish to add?
+ a) Management User (mgmt-users.properties)
+ b) Application User (application-users.properties)
+(a): a
+
+Enter the details of the new user to add.
+Using realm 'ManagementRealm' as discovered from the existing property files.
+Username : admin
+The username 'admin' is easy to guess
+Are you sure you want to add user 'admin' yes/no? yes
+Password requirements are listed below. To modify these restrictions edit the add-user.properties configuration file.
+ - The password must not be one of the following restricted values {root, admin, administrator}
+ - The password must contain at least 8 characters, 1 alphabetic character(s), 1 digit(s), 1 non-alphanumeric symbol(s)
+ - The password must be different from the username
+Password :r00tr00t!
+Re-enter Password :r00tr00t!
+What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[  ]: admin
+About to add user 'admin' for realm 'ManagementRealm'
+Is this correct yes/no? yes
+Added user 'admin' to file '/usr/local/share/jboss/standalone/configuration/mgmt-users.properties'
+Added user 'admin' to file '/usr/local/share/jboss/domain/configuration/mgmt-users.properties'
+Added user 'admin' with groups admin to file '/usr/local/share/jboss/standalone/configuration/mgmt-groups.properties'
+Added user 'admin' with groups admin to file '/usr/local/share/jboss/domain/configuration/mgmt-groups.properties'
+Is this new user going to be used for one AS process to connect to another AS process?
+e.g. for a slave host controller connecting to the master or for a Remoting connection for server to server EJB calls.
+yes/no? no
+appserver@root1-VirtualBox:/usr/local/share/jboss/bin$ ./standalone.sh -Djboss.bind.address=192.168.1.178 -Djboss.bind.address.management=192.168.1.178&
+[1] 2521
+appserver@root1-VirtualBox:/usr/local/share/jboss/bin$ =========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /usr/local/share/jboss
+
+  JAVA: /usr/lib/jvm/java-8-oracle/bin/java
+
+  JAVA_OPTS:  -server -XX:+UseCompressedOops -verbose:gc -Xloggc:"/usr/local/share/jboss/standalone/log/gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1303m -Xmx1303m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true
+
+=========================================================================
+
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+11:43:42,181 INFO  [org.jboss.modules] (main) JBoss Modules version 1.3.6.Final-redhat-1
+11:43:42,487 INFO  [org.jboss.msc] (main) JBoss MSC version 1.1.5.Final-redhat-1
+11:43:42,583 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015899: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) starting
+11:43:44,163 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) JBAS015003: Found backend.war in deployment directory. To trigger deployment create a file called backend.war.dodeploy
+11:43:44,191 INFO  [org.xnio] (MSC service thread 1-2) XNIO Version 3.0.13.GA-redhat-1
+11:43:44,208 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.0.13.GA-redhat-1
+11:43:44,232 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015888: Creating http management service using socket-binding (management-http)
+11:43:44,303 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 3.3.4.Final-redhat-1
+11:43:44,391 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 31) JBAS010280: Activating Infinispan subsystem.
+11:43:44,472 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 37) JBAS012615: Activated the following JSF Implementations: [main, 1.2]
+11:43:44,504 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 39) JBAS011800: Activating Naming Subsystem
+11:43:44,527 INFO  [org.jboss.as.connector.logging] (MSC service thread 1-2) JBAS010408: Starting JCA Subsystem (IronJacamar 1.0.31.Final-redhat-1)
+11:43:44,539 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 44) JBAS013371: Activating Security Subsystem
+11:43:44,544 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 46) JBAS010153: Node identifier property is set to the default value. Please make sure it is unique.
+11:43:44,556 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 48) JBAS015537: Activating WebServices Extension
+11:43:44,580 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 27) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+11:43:44,723 INFO  [org.jboss.as.security] (MSC service thread 1-1) JBAS013370: Current PicketBox version=4.1.1.Final-redhat-1
+11:43:44,778 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) JBAS015400: Bound mail session [java:jboss/mail/Default]
+11:43:44,787 INFO  [org.jboss.as.naming] (MSC service thread 1-1) JBAS011802: Starting Naming Service
+11:43:45,437 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) JBWEB003001: Coyote HTTP/1.1 initializing on : http-/192.168.1.178:8080
+11:43:45,485 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) JBWEB003000: Coyote HTTP/1.1 starting on: http-/192.168.1.178:8080
+11:43:45,676 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) JBAS015012: Started FileSystemDeploymentService for directory /usr/local/share/jboss/standalone/deployments
+11:43:45,694 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "backend.war" (runtime-name: "backend.war")
+11:43:45,832 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBoss Web Services - Stack CXF Server 4.3.4.Final-redhat-1
+11:43:46,058 INFO  [org.jboss.as.remoting] (MSC service thread 1-1) JBAS017100: Listening on 192.168.1.178:9999
+11:43:46,123 INFO  [org.jboss.as.remoting] (MSC service thread 1-1) JBAS017100: Listening on 192.168.1.178:4447
+11:43:46,232 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) JBAS010400: Bound data source [java:jboss/datasources/ExampleDS]
+11:43:48,420 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015960: Class Path entry jaxb-api.jar in /usr/local/share/jboss/standalone/deployments/backend.war/WEB-INF/lib/jaxb-impl-2.1.12.jar  does not point to a valid jar for a Class-Path reference.
+11:43:48,422 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015960: Class Path entry activation.jar in /usr/local/share/jboss/standalone/deployments/backend.war/WEB-INF/lib/jaxb-impl-2.1.12.jar  does not point to a valid jar for a Class-Path reference.
+11:43:48,423 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015960: Class Path entry jsr173_1.0_api.jar in /usr/local/share/jboss/standalone/deployments/backend.war/WEB-INF/lib/jaxb-impl-2.1.12.jar  does not point to a valid jar for a Class-Path reference.
+11:43:48,424 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015960: Class Path entry jaxb1-impl.jar in /usr/local/share/jboss/standalone/deployments/backend.war/WEB-INF/lib/jaxb-impl-2.1.12.jar  does not point to a valid jar for a Class-Path reference.
+11:43:48,442 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015960: Class Path entry activation.jar in /usr/local/share/jboss/standalone/deployments/backend.war/WEB-INF/lib/mail-1.4.jar  does not point to a valid jar for a Class-Path reference.
+11:43:49,182 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+11:43:49,266 INFO  [org.jboss.web] (ServerService Thread Pool -- 52) JBAS018210: Register web context: /backend
+11:43:49,565 INFO  [org.hibernate.validator.internal.util.Version] (ServerService Thread Pool -- 52) HV000001: Hibernate Validator 4.3.2.Final-redhat-2
+11:43:49,926 ERROR [stderr] (ServerService Thread Pool -- 52) ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+11:43:49,956 ERROR [stderr] (ServerService Thread Pool -- 52) ScriptEngineManager providers.next(): javax.script.ScriptEngineFactory: Provider com.sun.script.javascript.RhinoScriptEngineFactory not found
+11:43:50,210 INFO  [org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/backend]] (ServerService Thread Pool -- 52) Initializing Spring root WebApplicationContext
+11:43:50,219 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 52) Root WebApplicationContext: initialization started
+11:43:50,285 INFO  [org.springframework.web.context.support.XmlWebApplicationContext] (ServerService Thread Pool -- 52) Refreshing Root WebApplicationContext: startup date [Fri May 12 11:43:50 PDT 2017]; root of context hierarchy
+11:43:50,371 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] (ServerService Thread Pool -- 52) Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+11:43:50,646 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+11:43:50,660 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+11:43:50,787 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+11:43:50,787 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+11:43:50,796 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+11:43:50,796 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+11:43:50,805 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+11:43:50,805 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+11:43:51,071 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+11:43:51,071 INFO  [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] (ServerService Thread Pool -- 52) JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+11:43:51,075 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] (ServerService Thread Pool -- 52) Loading XML bean definitions from ServletContext resource [/WEB-INF/dataSource.xml]
+11:43:52,334 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 52) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+11:43:52,512 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 52) Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@340b277b: defining beans [hotelServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,restHotelService,restSearchHotelsService,restHotelServiceTest,transactionDelegate,hotelServiceDelegate,writeDataSource,readDataSource,transactionManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,checkAuthAspect,userTxAdvice,dataSourceAspect,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#1,delegate,org.springframework.aop.aspectj.AspectJPointcutAdvisor#2,org.springframework.aop.aspectj.AspectJPointcutAdvisor#3,checkAuth,connectionFactory,jedisPoolConfig,redisTemplate,applicationContextProvder,partnerRatioDao,requestResponseLogDao,porderRoomDao,hotelDao,voucherDetailsDao,partnerDao,mapDestinationDao,mapHotelDao,porderDao,destinationDao,paternerTransactionDao,hotelVoucherremarkTouricoDao,hotelRoomlDao,porderPaxDao]; root of factory hierarchy
+11:43:53,487 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 52) Root WebApplicationContext: initialization completed in 3266 ms
+11:43:53,603 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS015859: Deployed "backend.war" (runtime-name : "backend.war")
+11:43:53,645 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015961: Http management interface listening on http://192.168.1.178:9990/management
+11:43:53,647 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015951: Admin console listening on http://192.168.1.178:9990
+11:43:53,649 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015874: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) started in 11991ms - Started 218 of 256 services (60 services are lazy, passive or on-demand)
+11:47:36,038 INFO  [org.apache.catalina.core] (MSC service thread 1-2) JBWEB001079: Container org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/] has not been started
+11:47:36,040 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) JBAS010409: Unbound data source [java:jboss/datasources/ExampleDS]
+11:47:36,049 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-1) JBWEB003075: Coyote HTTP/1.1 pausing on: http-/192.168.1.178:8080
+11:47:36,050 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-1) JBWEB003077: Coyote HTTP/1.1 stopping on : http-/192.168.1.178:8080
+11:47:36,052 INFO  [org.jboss.web] (ServerService Thread Pool -- 57) JBAS018224: Unregister web context: /backend
+11:47:36,096 INFO  [org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/backend]] (ServerService Thread Pool -- 57) Closing Spring root WebApplicationContext
+11:47:36,103 INFO  [org.springframework.web.context.support.XmlWebApplicationContext] (ServerService Thread Pool -- 57) Closing Root WebApplicationContext: startup date [Fri May 12 11:43:50 PDT 2017]; root of context hierarchy
+11:47:36,111 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 57) Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@340b277b: defining beans [hotelServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,restHotelService,restSearchHotelsService,restHotelServiceTest,transactionDelegate,hotelServiceDelegate,writeDataSource,readDataSource,transactionManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,checkAuthAspect,userTxAdvice,dataSourceAspect,org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#1,delegate,org.springframework.aop.aspectj.AspectJPointcutAdvisor#2,org.springframework.aop.aspectj.AspectJPointcutAdvisor#3,checkAuth,connectionFactory,jedisPoolConfig,redisTemplate,applicationContextProvder,partnerRatioDao,requestResponseLogDao,porderRoomDao,hotelDao,voucherDetailsDao,partnerDao,mapDestinationDao,mapHotelDao,porderDao,destinationDao,paternerTransactionDao,hotelVoucherremarkTouricoDao,hotelRoomlDao,porderPaxDao]; root of factory hierarchy
+11:47:36,175 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015877: Stopped deployment backend.war (runtime-name: backend.war) in 146ms
+11:47:36,180 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015950: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) stopped in 136ms
+
+
+another conole
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-20-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Ubuntu 12.04 LTS ('precise') end-of-life was April 28, 2017
+   ongoing security updates for 12.04 are available with Ubuntu Advantage
+   http://j.mp/U1204esm
+
+
+20 packages can be updated.
+0 updates are security updates.
+
+Last login: Fri May 12 11:29:33 2017 from 192.168.1.140
+root1@root1-VirtualBox:~$ cd /usr/local/share/jboss/bin
+root1@root1-VirtualBox:/usr/local/share/jboss/bin$ ./jboss-cli.sh --connect --controller=192.168.1.178:9999 command=:shutdown
+{"outcome" => "success"}
+root1@root1-VirtualBox:/usr/local/share/jboss/bin$
+

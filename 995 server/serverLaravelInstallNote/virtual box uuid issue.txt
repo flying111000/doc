@@ -1,0 +1,9 @@
+C:\Program Files\Oracle\VirtualBox>cd C:\Program Files\Oracle\VirtualBox\
+
+C:\Program Files\Oracle\VirtualBox>VBOXMANAGE.EXE internalcommands sethduuid "C:\Users\Geoffrey.Chen\VirtualBox VMs\ubuntu002\ubuntu002.vdi"
+UUID changed to: 88e0d6ca-01ad-477a-bfb1-18062ac79806
+
+C:\Program Files\Oracle\VirtualBox>
+
+Then!!!:
+Text edit ubuntu002.vbox

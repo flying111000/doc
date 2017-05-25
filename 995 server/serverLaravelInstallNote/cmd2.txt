@@ -1,0 +1,490 @@
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-19-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Ubuntu 12.04 LTS end-of-life was April 28, 2017 -- Upgrade your Precise systems!
+ $ sudo do-release-upgrade -m server
+
+46 packages can be updated.
+35 updates are security updates.
+
+Last login: Mon May  1 09:14:07 2017 from 192.168.1.25
+root1@root1-VirtualBox:~$ sudo apt-get install git
+[sudo] password for root1:
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  git-man liberror-perl
+Suggested packages:
+  git-daemon-run | git-daemon-sysvinit git-doc git-el git-email git-gui gitk gitweb git-arch git-cvs git-mediawiki git-svn
+The following NEW packages will be installed:
+  git git-man liberror-perl
+0 upgraded, 3 newly installed, 0 to remove and 42 not upgraded.
+Need to get 3,772 kB of archives.
+After this operation, 28.7 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 liberror-perl all 0.17024-1 [23.0 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 git-man all 1:2.11.0-2 [768 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 git amd64 1:2.11.0-2 [2,981 kB]
+Fetched 3,772 kB in 0s (3,824 kB/s)
+Selecting previously unselected package liberror-perl.
+(Reading database ... 172291 files and directories currently installed.)
+Preparing to unpack .../liberror-perl_0.17024-1_all.deb ...
+Unpacking liberror-perl (0.17024-1) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../git-man_1%3a2.11.0-2_all.deb ...
+Unpacking git-man (1:2.11.0-2) ...
+Selecting previously unselected package git.
+Preparing to unpack .../git_1%3a2.11.0-2_amd64.deb ...
+Unpacking git (1:2.11.0-2) ...
+Setting up git-man (1:2.11.0-2) ...
+Setting up liberror-perl (0.17024-1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up git (1:2.11.0-2) ...
+root1@root1-VirtualBox:~$ sudo apt-get install zip
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+zip is already the newest version (3.0-11).
+zip set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 42 not upgraded.
+root1@root1-VirtualBox:~$ sudo apt-get install tasksel
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  tasksel-data
+The following NEW packages will be installed:
+  tasksel tasksel-data
+0 upgraded, 2 newly installed, 0 to remove and 42 not upgraded.
+Need to get 40.6 kB of archives.
+After this operation, 373 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 tasksel-data all 3.34ubuntu5 [8,230 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 tasksel all 3.34ubuntu5 [32.3 kB]
+Fetched 40.6 kB in 0s (104 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package tasksel-data.
+(Reading database ... 173147 files and directories currently installed.)
+Preparing to unpack .../tasksel-data_3.34ubuntu5_all.deb ...
+Unpacking tasksel-data (3.34ubuntu5) ...
+Selecting previously unselected package tasksel.
+Preparing to unpack .../tasksel_3.34ubuntu5_all.deb ...
+Unpacking tasksel (3.34ubuntu5) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up tasksel-data (3.34ubuntu5) ...
+Setting up tasksel (3.34ubuntu5) ...
+root1@root1-VirtualBox:~$ sudo tasksel install lamp-server
+root1@root1-VirtualBox:~$ sudo apt-get install curl php-curl php-mcrypt php-mbstring php-gettext
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libcurl3 libmcrypt4 php-pear php-php-gettext php-xml php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-xml
+Suggested packages:
+  libmcrypt-dev mcrypt
+The following NEW packages will be installed:
+  libmcrypt4 php-curl php-gettext php-mbstring php-mcrypt php-pear php-php-gettext php-xml php7.0-curl php7.0-mbstring php7.0-mcrypt php7.0-xml
+The following packages will be upgraded:
+  curl libcurl3
+2 upgraded, 12 newly installed, 0 to remove and 40 not upgraded.
+Need to get 991 kB/1,331 kB of archives.
+After this operation, 4,627 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 libmcrypt4 amd64 2.5.8-3.3 [63.0 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php7.0-curl amd64 7.0.15-1ubuntu4 [27.5 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php-curl all 1:7.0+49 [1,914 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php7.0-xml amd64 7.0.15-1ubuntu4 [113 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-xml all 1:7.0+49 [1,938 B]
+Get:6 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php-pear all 1:1.10.1+submodules+notgz-9 [282 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php7.0-mbstring amd64 7.0.15-1ubuntu4 [465 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-mbstring all 1:7.0+49 [1,920 B]
+Get:9 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-php-gettext all 1.0.12-0.1 [16.2 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-gettext all 1.0.12-0.1 [1,508 B]
+Get:11 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php7.0-mcrypt amd64 7.0.15-1ubuntu4 [14.4 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-mcrypt all 1:7.0+49 [1,916 B]
+Fetched 991 kB in 0s (1,301 kB/s)
+(Reading database ... 173604 files and directories currently installed.)
+Preparing to unpack .../00-curl_7.52.1-4ubuntu1.1_amd64.deb ...
+Unpacking curl (7.52.1-4ubuntu1.1) over (7.52.1-4ubuntu1) ...
+Preparing to unpack .../01-libcurl3_7.52.1-4ubuntu1.1_amd64.deb ...
+Unpacking libcurl3:amd64 (7.52.1-4ubuntu1.1) over (7.52.1-4ubuntu1) ...
+Selecting previously unselected package libmcrypt4.
+Preparing to unpack .../02-libmcrypt4_2.5.8-3.3_amd64.deb ...
+Unpacking libmcrypt4 (2.5.8-3.3) ...
+Selecting previously unselected package php7.0-curl.
+Preparing to unpack .../03-php7.0-curl_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-curl (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-curl.
+Preparing to unpack .../04-php-curl_1%3a7.0+49_all.deb ...
+Unpacking php-curl (1:7.0+49) ...
+Selecting previously unselected package php7.0-xml.
+Preparing to unpack .../05-php7.0-xml_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-xml (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-xml.
+Preparing to unpack .../06-php-xml_1%3a7.0+49_all.deb ...
+Unpacking php-xml (1:7.0+49) ...
+Selecting previously unselected package php-pear.
+Preparing to unpack .../07-php-pear_1%3a1.10.1+submodules+notgz-9_all.deb ...
+Unpacking php-pear (1:1.10.1+submodules+notgz-9) ...
+Selecting previously unselected package php7.0-mbstring.
+Preparing to unpack .../08-php7.0-mbstring_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-mbstring (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-mbstring.
+Preparing to unpack .../09-php-mbstring_1%3a7.0+49_all.deb ...
+Unpacking php-mbstring (1:7.0+49) ...
+Selecting previously unselected package php-php-gettext.
+Preparing to unpack .../10-php-php-gettext_1.0.12-0.1_all.deb ...
+Unpacking php-php-gettext (1.0.12-0.1) ...
+Selecting previously unselected package php-gettext.
+Preparing to unpack .../11-php-gettext_1.0.12-0.1_all.deb ...
+Unpacking php-gettext (1.0.12-0.1) ...
+Selecting previously unselected package php7.0-mcrypt.
+Preparing to unpack .../12-php7.0-mcrypt_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-mcrypt (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-mcrypt.
+Preparing to unpack .../13-php-mcrypt_1%3a7.0+49_all.deb ...
+Unpacking php-mcrypt (1:7.0+49) ...
+Setting up php7.0-mbstring (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/mbstring.ini with new version
+Setting up libcurl3:amd64 (7.52.1-4ubuntu1.1) ...
+Processing triggers for libapache2-mod-php7.0 (7.0.15-1ubuntu4) ...
+Setting up php7.0-curl (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/curl.ini with new version
+Processing triggers for libc-bin (2.24-9ubuntu2) ...
+Setting up php-mbstring (1:7.0+49) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up php7.0-xml (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/dom.ini with new version
+
+Creating config file /etc/php/7.0/mods-available/simplexml.ini with new version
+
+Creating config file /etc/php/7.0/mods-available/wddx.ini with new version
+
+Creating config file /etc/php/7.0/mods-available/xml.ini with new version
+
+Creating config file /etc/php/7.0/mods-available/xmlreader.ini with new version
+
+Creating config file /etc/php/7.0/mods-available/xmlwriter.ini with new version
+
+Creating config file /etc/php/7.0/mods-available/xsl.ini with new version
+Setting up libmcrypt4 (2.5.8-3.3) ...
+Setting up curl (7.52.1-4ubuntu1.1) ...
+Setting up php-curl (1:7.0+49) ...
+Setting up php7.0-mcrypt (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/mcrypt.ini with new version
+Setting up php-xml (1:7.0+49) ...
+Setting up php-pear (1:1.10.1+submodules+notgz-9) ...
+Setting up php-mcrypt (1:7.0+49) ...
+Setting up php-php-gettext (1.0.12-0.1) ...
+Setting up php-gettext (1.0.12-0.1) ...
+Processing triggers for libapache2-mod-php7.0 (7.0.15-1ubuntu4) ...
+Processing triggers for libc-bin (2.24-9ubuntu2) ...
+root1@root1-VirtualBox:~$ sudo phpenmod mcrypt
+root1@root1-VirtualBox:~$ sudo phpenmod mbstring
+root1@root1-VirtualBox:~$ sudo a2enmod rewrite
+Enabling module rewrite.
+To activate the new configuration, you need to run:
+  systemctl restart apache2
+root1@root1-VirtualBox:~$ sudo systemctl restart apache2
+root1@root1-VirtualBox:~$ curl -sS https://getcomposer.org/installer | php
+All settings correct for using Composer
+Downloading...
+
+Composer (version 1.4.1) successfully installed to: /home/root1/composer.phar
+Use it: php composer.phar
+
+root1@root1-VirtualBox:~$ sudo mv composer.phar /usr/local/bin/composer
+root1@root1-VirtualBox:~$ sudo apt-get install phpmyadmin
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  dbconfig-common dbconfig-mysql javascript-common libjs-jquery libjs-sphinxdoc libjs-underscore libzip4 php php-bz2 php-gd php-phpseclib php-tcpdf php-zip php7.0 php7.0-bz2 php7.0-gd php7.0-zip
+Suggested packages:
+  php-libsodium php-gmp php-imagick
+The following NEW packages will be installed:
+  dbconfig-common dbconfig-mysql javascript-common libjs-jquery libjs-sphinxdoc libjs-underscore libzip4 php php-bz2 php-gd php-phpseclib php-tcpdf php-zip php7.0 php7.0-bz2 php7.0-gd php7.0-zip phpmyadmin
+0 upgraded, 18 newly installed, 0 to remove and 40 not upgraded.
+Need to get 12.8 MB of archives.
+After this operation, 49.5 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 dbconfig-common all 2.0.8 [600 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 dbconfig-mysql all 2.0.8 [1,032 B]
+Get:3 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 javascript-common all 11 [6,066 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libjs-jquery all 3.1.1-2 [151 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libjs-underscore all 1.8.3~dfsg-1 [59.9 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libjs-sphinxdoc all 1.5.3-1 [77.3 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 libzip4 amd64 1.1.2-1.1 [37.8 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php7.0 all 7.0.15-1ubuntu4 [5,590 B]
+Get:9 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php all 1:7.0+49 [2,860 B]
+Get:10 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php7.0-bz2 amd64 7.0.15-1ubuntu4 [10.0 kB]
+Get:11 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-bz2 all 1:7.0+49 [1,914 B]
+Get:12 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php7.0-gd amd64 7.0.15-1ubuntu4 [27.3 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 php-gd all 1:7.0+49 [1,910 B]
+Get:14 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-phpseclib all 2.0.4-1 [174 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-tcpdf all 6.2.12+dfsg2-1ubuntu1 [7,788 kB]
+Get:16 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php7.0-zip amd64 7.0.15-1ubuntu4 [20.0 kB]
+Get:17 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 php-zip all 1:7.0+49 [1,910 B]
+Get:18 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 phpmyadmin all 4:4.6.6-4 [3,859 kB]
+Fetched 12.8 MB in 4s (3,175 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package dbconfig-common.
+(Reading database ... 173877 files and directories currently installed.)
+Preparing to unpack .../00-dbconfig-common_2.0.8_all.deb ...
+Unpacking dbconfig-common (2.0.8) ...
+Selecting previously unselected package dbconfig-mysql.
+Preparing to unpack .../01-dbconfig-mysql_2.0.8_all.deb ...
+Unpacking dbconfig-mysql (2.0.8) ...
+Selecting previously unselected package javascript-common.
+Preparing to unpack .../02-javascript-common_11_all.deb ...
+Unpacking javascript-common (11) ...
+Selecting previously unselected package libjs-jquery.
+Preparing to unpack .../03-libjs-jquery_3.1.1-2_all.deb ...
+Unpacking libjs-jquery (3.1.1-2) ...
+Selecting previously unselected package libjs-underscore.
+Preparing to unpack .../04-libjs-underscore_1.8.3~dfsg-1_all.deb ...
+Unpacking libjs-underscore (1.8.3~dfsg-1) ...
+Selecting previously unselected package libjs-sphinxdoc.
+Preparing to unpack .../05-libjs-sphinxdoc_1.5.3-1_all.deb ...
+Unpacking libjs-sphinxdoc (1.5.3-1) ...
+Selecting previously unselected package libzip4:amd64.
+Preparing to unpack .../06-libzip4_1.1.2-1.1_amd64.deb ...
+Unpacking libzip4:amd64 (1.1.2-1.1) ...
+Selecting previously unselected package php7.0.
+Preparing to unpack .../07-php7.0_7.0.15-1ubuntu4_all.deb ...
+Unpacking php7.0 (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php.
+Preparing to unpack .../08-php_1%3a7.0+49_all.deb ...
+Unpacking php (1:7.0+49) ...
+Selecting previously unselected package php7.0-bz2.
+Preparing to unpack .../09-php7.0-bz2_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-bz2 (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-bz2.
+Preparing to unpack .../10-php-bz2_1%3a7.0+49_all.deb ...
+Unpacking php-bz2 (1:7.0+49) ...
+Selecting previously unselected package php7.0-gd.
+Preparing to unpack .../11-php7.0-gd_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-gd (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-gd.
+Preparing to unpack .../12-php-gd_1%3a7.0+49_all.deb ...
+Unpacking php-gd (1:7.0+49) ...
+Selecting previously unselected package php-phpseclib.
+Preparing to unpack .../13-php-phpseclib_2.0.4-1_all.deb ...
+Unpacking php-phpseclib (2.0.4-1) ...
+Selecting previously unselected package php-tcpdf.
+Preparing to unpack .../14-php-tcpdf_6.2.12+dfsg2-1ubuntu1_all.deb ...
+Unpacking php-tcpdf (6.2.12+dfsg2-1ubuntu1) ...
+Selecting previously unselected package php7.0-zip.
+Preparing to unpack .../15-php7.0-zip_7.0.15-1ubuntu4_amd64.deb ...
+Unpacking php7.0-zip (7.0.15-1ubuntu4) ...
+Selecting previously unselected package php-zip.
+Preparing to unpack .../16-php-zip_1%3a7.0+49_all.deb ...
+Unpacking php-zip (1:7.0+49) ...
+Selecting previously unselected package phpmyadmin.
+Preparing to unpack .../17-phpmyadmin_4%3a4.6.6-4_all.deb ...
+Unpacking phpmyadmin (4:4.6.6-4) ...
+Setting up libjs-jquery (3.1.1-2) ...
+Setting up php-tcpdf (6.2.12+dfsg2-1ubuntu1) ...
+Setting up php-phpseclib (2.0.4-1) ...
+Setting up libjs-underscore (1.8.3~dfsg-1) ...
+Setting up php7.0 (7.0.15-1ubuntu4) ...
+Processing triggers for libapache2-mod-php7.0 (7.0.15-1ubuntu4) ...
+Setting up php7.0-gd (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/gd.ini with new version
+Setting up libjs-sphinxdoc (1.5.3-1) ...
+Setting up libzip4:amd64 (1.1.2-1.1) ...
+Setting up php7.0-zip (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/zip.ini with new version
+Setting up php (1:7.0+49) ...
+Processing triggers for libc-bin (2.24-9ubuntu2) ...
+Processing triggers for doc-base (0.10.7) ...
+Processing 4 added doc-base files...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up javascript-common (11) ...
+apache2_invoke: Enable configuration javascript-common
+Setting up php-gd (1:7.0+49) ...
+Processing triggers for hicolor-icon-theme (0.15-1) ...
+Setting up dbconfig-common (2.0.8) ...
+
+Creating config file /etc/dbconfig-common/config with new version
+Setting up php7.0-bz2 (7.0.15-1ubuntu4) ...
+
+Creating config file /etc/php/7.0/mods-available/bz2.ini with new version
+Setting up dbconfig-mysql (2.0.8) ...
+Setting up php-bz2 (1:7.0+49) ...
+Setting up php-zip (1:7.0+49) ...
+Setting up phpmyadmin (4:4.6.6-4) ...
+dbconfig-common: writing config to /etc/dbconfig-common/phpmyadmin.conf
+
+Creating config file /etc/dbconfig-common/phpmyadmin.conf with new version
+
+Creating config file /etc/phpmyadmin/config-db.php with new version
+dbconfig-common: flushing administrative password
+Processing triggers for libapache2-mod-php7.0 (7.0.15-1ubuntu4) ...
+root1@root1-VirtualBox:~$ cd /var/www/html/
+root1@root1-VirtualBox:/var/www/html$ composer global require "laravel/installer"
+Changed current directory to /home/root1/.config/composer
+Using version ^1.3 for laravel/installer
+./composer.json has been created
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 10 installs, 0 updates, 0 removals
+  - Installing symfony/process (v3.2.7): Downloading (100%)
+  - Installing psr/log (1.0.2): Downloading (100%)
+  - Installing symfony/debug (v3.2.7): Downloading (100%)
+  - Installing symfony/polyfill-mbstring (v1.3.0): Downloading (100%)
+  - Installing symfony/console (v3.2.7): Downloading (100%)
+  - Installing guzzlehttp/promises (v1.3.1): Downloading (100%)
+  - Installing psr/http-message (1.0.1): Downloading (100%)
+  - Installing guzzlehttp/psr7 (1.4.2): Downloading (100%)
+  - Installing guzzlehttp/guzzle (6.2.3): Downloading (100%)
+  - Installing laravel/installer (v1.3.5): Downloading (100%)
+symfony/console suggests installing symfony/event-dispatcher ()
+symfony/console suggests installing symfony/filesystem ()
+Writing lock file
+Generating autoload files
+root1@root1-VirtualBox:/var/www/html$ composer create-project --prefer-dist laravel/laravel hotels "5.2.27"
+Installing laravel/laravel (v5.2.27)
+
+
+  [ErrorException]
+  mkdir(): Permission denied
+
+
+create-project [-s|--stability STABILITY] [--prefer-source] [--prefer-dist] [--repository REPOSITORY] [--repository-url REPOSITORY-URL] [--dev] [--no-dev] [--no-custom-installers] [--no-scripts] [--no-progress] [--no-secure-http] [--keep-vcs] [--no-install] [--ignore-platform-reqs] [--] [<package>] [<directory>] [<version>]
+
+root1@root1-VirtualBox:/var/www/html$ sudo composer create-project --prefer-dist laravel/laravel hotels "5.2.27"
+[sudo] password for root1:
+Do not run Composer as root/super user! See https://getcomposer.org/root for details
+Installing laravel/laravel (v5.2.27)
+  - Installing laravel/laravel (v5.2.27): Downloading (100%)
+Created project in hotels
+> php -r "copy('.env.example', '.env');"
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 56 installs, 0 updates, 0 removals
+  - Installing vlucas/phpdotenv (v2.4.0): Downloading (100%)
+  - Installing symfony/polyfill-mbstring (v1.3.0): Downloading (100%)
+  - Installing symfony/var-dumper (v3.0.9): Downloading (100%)
+  - Installing symfony/translation (v3.0.9): Downloading (100%)
+  - Installing symfony/routing (v3.0.9): Downloading (100%)
+  - Installing symfony/process (v3.0.9): Downloading (100%)
+  - Installing symfony/polyfill-util (v1.3.0): Downloading (100%)
+  - Installing symfony/polyfill-php56 (v1.3.0): Downloading (100%)
+  - Installing psr/log (1.0.2): Downloading (100%)
+  - Installing symfony/debug (v3.0.9): Downloading (100%)
+  - Installing symfony/http-foundation (v3.0.9): Downloading (100%)
+  - Installing symfony/event-dispatcher (v3.2.7): Downloading (100%)
+  - Installing symfony/http-kernel (v3.0.9): Downloading (100%)
+  - Installing symfony/finder (v3.0.9): Downloading (100%)
+  - Installing symfony/console (v3.0.9): Downloading (100%)
+  - Installing swiftmailer/swiftmailer (v5.4.7): Downloading (100%)
+  - Installing jakub-onderka/php-console-color (0.1): Downloading (100%)
+  - Installing jakub-onderka/php-console-highlighter (v0.3.2): Downloading (100%)
+  - Installing dnoegel/php-xdg-base-dir (0.1): Downloading (100%)
+  - Installing nikic/php-parser (v2.1.1): Downloading (100%)
+  - Installing psy/psysh (v0.7.2): Downloading (100%)
+  - Installing paragonie/random_compat (v1.4.2): Downloading (100%)
+  - Installing nesbot/carbon (1.22.1): Downloading (100%)
+  - Installing mtdowling/cron-expression (v1.2.0): Downloading (100%)
+  - Installing monolog/monolog (1.22.1): Downloading (100%)
+  - Installing league/flysystem (1.0.40): Downloading (100%)
+  - Installing jeremeamia/superclosure (2.3.0): Downloading (100%)
+  - Installing doctrine/inflector (v1.1.0): Downloading (100%)
+  - Installing classpreloader/classpreloader (3.1.0): Downloading (100%)
+  - Installing laravel/framework (v5.2.45): Downloading (100%)
+  - Installing fzaninotto/faker (v1.6.0): Downloading (100%)
+  - Installing hamcrest/hamcrest-php (v1.2.2): Downloading (100%)
+  - Installing mockery/mockery (0.9.9): Downloading (100%)
+  - Installing symfony/yaml (v3.2.7): Downloading (100%)
+  - Installing sebastian/version (1.0.6): Downloading (100%)
+  - Installing sebastian/global-state (1.1.1): Downloading (100%)
+  - Installing sebastian/recursion-context (1.0.5): Downloading (100%)
+  - Installing sebastian/exporter (1.2.2): Downloading (100%)
+  - Installing sebastian/environment (1.3.8): Downloading (100%)
+  - Installing sebastian/diff (1.4.1): Downloading (100%)
+  - Installing sebastian/comparator (1.2.4): Downloading (100%)
+  - Installing doctrine/instantiator (1.0.5): Downloading (100%)
+  - Installing phpunit/php-text-template (1.2.1): Downloading (100%)
+  - Installing phpunit/phpunit-mock-objects (2.3.8): Downloading (100%)
+  - Installing phpunit/php-timer (1.0.9): Downloading (100%)
+  - Installing phpunit/php-file-iterator (1.4.2): Downloading (100%)
+  - Installing phpunit/php-token-stream (1.4.11): Downloading (100%)
+  - Installing phpunit/php-code-coverage (2.2.4): Downloading (100%)
+  - Installing webmozart/assert (1.2.0): Downloading (100%)
+  - Installing phpdocumentor/reflection-common (1.0): Downloading (100%)
+  - Installing phpdocumentor/type-resolver (0.2.1): Downloading (100%)
+  - Installing phpdocumentor/reflection-docblock (3.1.1): Downloading (100%)
+  - Installing phpspec/prophecy (v1.7.0): Downloading (100%)
+  - Installing phpunit/phpunit (4.8.35): Downloading (100%)
+  - Installing symfony/css-selector (v3.0.9): Downloading (100%)
+  - Installing symfony/dom-crawler (v3.0.9): Downloading (100%)
+symfony/var-dumper suggests installing ext-symfony_debug ()
+symfony/translation suggests installing symfony/config ()
+symfony/routing suggests installing doctrine/annotations (For using the annotation loader)
+symfony/routing suggests installing symfony/config (For using the all-in-one router or any loader)
+symfony/routing suggests installing symfony/dependency-injection (For loading routes from a service)
+symfony/routing suggests installing symfony/expression-language (For using expression matching)
+symfony/event-dispatcher suggests installing symfony/dependency-injection ()
+symfony/http-kernel suggests installing symfony/browser-kit ()
+symfony/http-kernel suggests installing symfony/class-loader ()
+symfony/http-kernel suggests installing symfony/config ()
+symfony/http-kernel suggests installing symfony/dependency-injection ()
+psy/psysh suggests installing ext-pdo-sqlite (The doc command requires SQLite to work.)
+paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
+monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+league/flysystem suggests installing league/flysystem-aws-s3-v2 (Allows you to use S3 storage with AWS SDK v2)
+league/flysystem suggests installing league/flysystem-aws-s3-v3 (Allows you to use S3 storage with AWS SDK v3)
+league/flysystem suggests installing league/flysystem-azure (Allows you to use Windows Azure Blob storage)
+league/flysystem suggests installing league/flysystem-cached-adapter (Flysystem adapter decorator for metadata caching)
+league/flysystem suggests installing league/flysystem-copy (Allows you to use Copy.com storage)
+league/flysystem suggests installing league/flysystem-eventable-filesystem (Allows you to use EventableFilesystem)
+league/flysystem suggests installing league/flysystem-rackspace (Allows you to use Rackspace Cloud Files)
+league/flysystem suggests installing league/flysystem-sftp (Allows you to use SFTP server storage via phpseclib)
+league/flysystem suggests installing league/flysystem-webdav (Allows you to use WebDAV storage)
+league/flysystem suggests installing league/flysystem-ziparchive (Allows you to use ZipArchive adapter)
+league/flysystem suggests installing spatie/flysystem-dropbox (Allows you to use Dropbox storage)
+laravel/framework suggests installing aws/aws-sdk-php (Required to use the SQS queue driver and SES mail driver (~3.0).)
+laravel/framework suggests installing doctrine/dbal (Required to rename columns and drop SQLite columns (~2.4).)
+laravel/framework suggests installing guzzlehttp/guzzle (Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~5.3|~6.0).)
+laravel/framework suggests installing league/flysystem-aws-s3-v3 (Required to use the Flysystem S3 driver (~1.0).)
+laravel/framework suggests installing league/flysystem-rackspace (Required to use the Flysystem Rackspace driver (~1.0).)
+laravel/framework suggests installing pda/pheanstalk (Required to use the beanstalk queue driver (~3.0).)
+laravel/framework suggests installing predis/predis (Required to use the redis cache and queue drivers (~1.0).)
+laravel/framework suggests installing pusher/pusher-php-server (Required to use the Pusher broadcast driver (~2.0).)
+laravel/framework suggests installing symfony/psr-http-message-bridge (Required to use psr7 bridging features (0.2.*).)
+sebastian/global-state suggests installing ext-uopz (*)
+phpunit/phpunit-mock-objects suggests installing ext-soap (*)
+phpunit/php-code-coverage suggests installing ext-xdebug (>=2.2.1)
+phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
+Writing lock file
+Generating autoload files
+> Illuminate\Foundation\ComposerScripts::postUpdate
+> php artisan optimize
+Generating optimized class loader
+> php artisan key:generate
+Application key [base64:hb15sYRLaTc0V57jMZWGtnKqnYKW2Qe50CnGycQfARA=] set successfully.
+root1@root1-VirtualBox:/var/www/html$ sudo chmod -R 777 hotels
+[sudo] password for root1:
+root1@root1-VirtualBox:/var/www/html$

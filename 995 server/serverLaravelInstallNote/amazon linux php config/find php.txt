@@ -1,0 +1,32 @@
+Using username "root".
+Last login: Fri May 12 17:20:36 2017 from 76.79.234.181
+[root@ip-172-31-15-207 ~]# service nginx reload
+Redirecting to /bin/systemctl reload  nginx.service
+Failed to reload nginx.service: Unit not found.
+[root@ip-172-31-15-207 ~]# php -v
+PHP 7.1.0 (cli) (built: Dec 17 2016 13:17:04) ( NTS )
+Copyright (c) 1997-2016 The PHP Group
+Zend Engine v3.1.0-dev, Copyright (c) 1998-2016 Zend Technologies
+[root@ip-172-31-15-207 ~]# which php
+/usr/local/bin/php
+[root@ip-172-31-15-207 ~]# which nginx
+/usr/bin/which: no nginx in (/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin)
+[root@ip-172-31-15-207 ~]# php -i | grep "Loaded Configuration File"
+Loaded Configuration File => /usr/local/php/lib/php.ini
+[root@ip-172-31-15-207 ~]# which apache
+/usr/bin/which: no apache in (/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin)
+[root@ip-172-31-15-207 ~]# ps -ef|grep nginx
+root      2452  1684  0 17:37 pts/0    00:00:00 grep --color=auto nginx
+root      3324     1  0  2016 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+nobody   10349  3324  0  2016 ?        00:23:43 nginx: worker process
+[root@ip-172-31-15-207 ~]# ps -ef|grep php
+root      3421  1684  0 17:56 pts/0    00:00:00 grep --color=auto php
+nobody   21042 22370  0 Apr14 ?        02:23:32 php-fpm: pool www
+nobody   21145 22370  0 Apr14 ?        02:22:55 php-fpm: pool www
+nobody   21150 22370  0 Apr14 ?        02:23:04 php-fpm: pool www
+root     22370     1  0  2016 ?        00:04:06 php-fpm: master process (/usr/local/php7/etc/php-fpm.conf)
+[root@ip-172-31-15-207 ~]# ps -ef|grep http
+root      3456  1684  0 17:57 pts/0    00:00:00 grep --color=auto http
+[root@ip-172-31-15-207 ~]# ps -ef|grep apache
+root      3466  1684  0 17:57 pts/0    00:00:00 grep --color=auto apache
+[root@ip-172-31-15-207 ~]#

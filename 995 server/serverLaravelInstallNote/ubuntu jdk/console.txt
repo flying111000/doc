@@ -1,0 +1,273 @@
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-20-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Ubuntu 12.04 LTS end-of-life was April 28, 2017 -- Upgrade your Precise systems!
+ $ sudo do-release-upgrade -m server
+
+20 packages can be updated.
+0 updates are security updates.
+
+Last login: Fri May 12 09:57:48 2017 from 192.168.1.140
+root1@root1-VirtualBox:~$ apt-get update
+Reading package lists... Done
+W: chmod 0700 of directory /var/lib/apt/lists/partial failed - SetupAPTPartialDirectory (1: Operation not permitted)
+E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+E: Unable to lock directory /var/lib/apt/lists/
+W: Problem unlinking the file /var/cache/apt/pkgcache.bin - RemoveCaches (13: Permission denied)
+W: Problem unlinking the file /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Permission denied)
+root1@root1-VirtualBox:~$ sudo apt-get update
+[sudo] password for root1:
+Hit:1 http://us.archive.ubuntu.com/ubuntu zesty InRelease
+Hit:2 http://us.archive.ubuntu.com/ubuntu zesty-updates InRelease
+Hit:3 http://security.ubuntu.com/ubuntu zesty-security InRelease
+Hit:4 http://us.archive.ubuntu.com/ubuntu zesty-backports InRelease
+Reading package lists... Done
+root1@root1-VirtualBox:~$ java -version
+The program 'java' can be found in the following packages:
+ * default-jre
+ * openjdk-8-jre-headless
+ * gcj-4.8-jre-headless
+ * gcj-4.9-jre-headless
+ * gcj-5-jre-headless
+ * gcj-6-jre-headless
+ * openjdk-9-jre-headless
+Try: sudo apt install <selected package>
+root1@root1-VirtualBox:~$ sudo add-apt-repository ppa:webupd8team/java
+ Oracle Java (JDK) Installer (automatically downloads and installs Oracle JDK7 / JDK8 / JDK9). There are no actual Java files in this PPA.
+
+More info (and Ubuntu installation instructions):
+- for Oracle Java 7: http://www.webupd8.org/2012/01/install-oracle-java-jdk-7-in-ubuntu-via.html
+- for Oracle Java 8: http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+
+Debian installation instructions:
+- Oracle Java 7: http://www.webupd8.org/2012/06/how-to-install-oracle-java-7-in-debian.html
+- Oracle Java 8: http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
+
+Oracle Java 9 (for both Ubuntu and Debian): http://www.webupd8.org/2015/02/install-oracle-java-9-in-ubuntu-linux.html
+
+For JDK9, the PPA uses standard builds from: https://jdk9.java.net/download/ (and not the Jigsaw builds!).
+
+Important!!! For now, you should continue to use Java 8 because Oracle Java 9 is available as an early access release! You should only use Oracle Java 9 if you explicitly need it, because it may contain bugs and it might not include the latest security patches! Also, some Java options were removed in JDK9, so you may encounter issues with various Java apps. More information and installation instructions (Ubuntu / Linux Mint / Debian): http://www.webupd8.org/2015/02/install-oracle-java-9-in-ubuntu-linux.html
+ More info: https://launchpad.net/~webupd8team/+archive/ubuntu/java
+Press [ENTER] to continue or ctrl-c to cancel adding it
+
+gpg: keybox '/tmp/tmprdr9sf90/pubring.gpg' created
+gpg: /tmp/tmprdr9sf90/trustdb.gpg: trustdb created
+gpg: key C2518248EEA14886: public key "Launchpad VLC" imported
+gpg: no ultimately trusted keys found
+gpg: Total number processed: 1
+gpg:               imported: 1
+OK
+root1@root1-VirtualBox:~$ sudo apt-get update
+Hit:1 http://us.archive.ubuntu.com/ubuntu zesty InRelease
+Hit:2 http://us.archive.ubuntu.com/ubuntu zesty-updates InRelease
+Get:3 http://security.ubuntu.com/ubuntu zesty-security InRelease [89.2 kB]
+Hit:4 http://us.archive.ubuntu.com/ubuntu zesty-backports InRelease
+Get:5 http://ppa.launchpad.net/webupd8team/java/ubuntu zesty InRelease [15.4 kB]
+Get:6 http://ppa.launchpad.net/webupd8team/java/ubuntu zesty/main amd64 Packages [2,584 B]
+Get:7 http://security.ubuntu.com/ubuntu zesty-security/main amd64 DEP-11 Metadata [204 B]
+Get:8 http://ppa.launchpad.net/webupd8team/java/ubuntu zesty/main i386 Packages [2,584 B]
+Get:9 http://ppa.launchpad.net/webupd8team/java/ubuntu zesty/main Translation-en [1,200 B]
+Get:10 http://security.ubuntu.com/ubuntu zesty-security/universe amd64 DEP-11 Metadata [2,184 B]
+Fetched 113 kB in 0s (121 kB/s)
+Reading package lists... Done
+root1@root1-VirtualBox:~$ sudo apt-get install oracle-java8-installer
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  gsfonts-x11 java-common oracle-java8-set-default
+Suggested packages:
+  binfmt-support visualvm ttf-baekmuk | ttf-unfonts | ttf-unfonts-core ttf-kochi-gothic | ttf-sazanami-gothic ttf-kochi-mincho | ttf-sazanami-mincho ttf-arphic-uming
+The following NEW packages will be installed:
+  gsfonts-x11 java-common oracle-java8-installer oracle-java8-set-default
+0 upgraded, 4 newly installed, 0 to remove and 25 not upgraded.
+Need to get 54.4 kB of archives.
+After this operation, 272 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 java-common all 0.57ubuntu1 [7,492 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu zesty/universe amd64 gsfonts-x11 all 0.24 [7,314 B]
+Get:3 http://ppa.launchpad.net/webupd8team/java/ubuntu zesty/main amd64 oracle-java8-installer all 8u131-1~webupd8~2 [32.8 kB]
+Get:4 http://ppa.launchpad.net/webupd8team/java/ubuntu zesty/main amd64 oracle-java8-set-default all 8u131-1~webupd8~2 [6,696 B]
+Fetched 54.4 kB in 0s (70.9 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package java-common.
+(Reading database ... 205639 files and directories currently installed.)
+Preparing to unpack .../java-common_0.57ubuntu1_all.deb ...
+Unpacking java-common (0.57ubuntu1) ...
+Selecting previously unselected package oracle-java8-installer.
+Preparing to unpack .../oracle-java8-installer_8u131-1~webupd8~2_all.deb ...
+Unpacking oracle-java8-installer (8u131-1~webupd8~2) ...
+Setting up java-common (0.57ubuntu1) ...
+Setting up oracle-java8-installer (8u131-1~webupd8~2) ...
+No /var/cache/oracle-jdk8-installer/wgetrc file found.
+Creating /var/cache/oracle-jdk8-installer/wgetrc and
+using default oracle-java8-installer wgetrc settings for it.
+Downloading Oracle Java 8...
+--2017-05-12 10:11:25--  http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+Resolving download.oracle.com (download.oracle.com)... 23.215.100.155, 23.215.100.146
+Connecting to download.oracle.com (download.oracle.com)|23.215.100.155|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://edelivery.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz [following]
+--2017-05-12 10:11:25--  https://edelivery.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+Resolving edelivery.oracle.com (edelivery.oracle.com)... 184.86.93.166
+Connecting to edelivery.oracle.com (edelivery.oracle.com)|184.86.93.166|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz?AuthParam=1494609294_1262e5ad82bcd1edda7b9c834c2dcd59 [following]
+--2017-05-12 10:11:25--  http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz?AuthParam=1494609294_1262e5ad82bcd1edda7b9c834c2dcd59
+Connecting to download.oracle.com (download.oracle.com)|23.215.100.155|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 185540433 (177M) [application/x-gzip]
+Saving to: ‘jdk-8u131-linux-x64.tar.gz’
+
+     0K ........ ........ ........ ........ ........ ........  1% 6.76M 26s
+  3072K ........ ........ ........ ........ ........ ........  3% 7.08M 25s
+  6144K ........ ........ ........ ........ ........ ........  5% 10.9M 21s
+  9216K ........ ........ ........ ........ ........ ........  6% 11.2M 19s
+ 12288K ........ ........ ........ ........ ........ ........  8% 4.17M 23s
+ 15360K ........ ........ ........ ........ ........ ........ 10% 10.4M 21s
+ 18432K ........ ........ ........ ........ ........ ........ 11% 10.8M 20s
+ 21504K ........ ........ ........ ........ ........ ........ 13% 11.0M 19s
+ 24576K ........ ........ ........ ........ ........ ........ 15% 10.3M 18s
+ 27648K ........ ........ ........ ........ ........ ........ 16% 4.07M 20s
+ 30720K ........ ........ ........ ........ ........ ........ 18% 10.6M 19s
+ 33792K ........ ........ ........ ........ ........ ........ 20% 10.6M 18s
+ 36864K ........ ........ ........ ........ ........ ........ 22% 10.3M 17s
+ 39936K ........ ........ ........ ........ ........ ........ 23% 7.97M 17s
+ 43008K ........ ........ ........ ........ ........ ........ 25% 9.72M 16s
+ 46080K ........ ........ ........ ........ ........ ........ 27% 7.33M 16s
+ 49152K ........ ........ ........ ........ ........ ........ 28% 11.1M 15s
+ 52224K ........ ........ ........ ........ ........ ........ 30% 10.8M 15s
+ 55296K ........ ........ ........ ........ ........ ........ 32% 10.5M 14s
+ 58368K ........ ........ ........ ........ ........ ........ 33% 10.8M 14s
+ 61440K ........ ........ ........ ........ ........ ........ 35% 9.61M 13s
+ 64512K ........ ........ ........ ........ ........ ........ 37% 10.3M 13s
+ 67584K ........ ........ ........ ........ ........ ........ 38% 10.9M 12s
+ 70656K ........ ........ ........ ........ ........ ........ 40% 10.6M 12s
+ 73728K ........ ........ ........ ........ ........ ........ 42% 11.0M 12s
+ 76800K ........ ........ ........ ........ ........ ........ 44% 7.52M 11s
+ 79872K ........ ........ ........ ........ ........ ........ 45% 10.5M 11s
+ 82944K ........ ........ ........ ........ ........ ........ 47% 8.59M 11s
+ 86016K ........ ........ ........ ........ ........ ........ 49% 10.6M 10s
+ 89088K ........ ........ ........ ........ ........ ........ 50% 10.6M 10s
+ 92160K ........ ........ ........ ........ ........ ........ 52% 10.9M 9s
+ 95232K ........ ........ ........ ........ ........ ........ 54% 11.1M 9s
+ 98304K ........ ........ ........ ........ ........ ........ 55% 10.9M 9s
+101376K ........ ........ ........ ........ ........ ........ 57% 10.5M 8s
+104448K ........ ........ ........ ........ ........ ........ 59% 10.5M 8s
+107520K ........ ........ ........ ........ ........ ........ 61% 10.1M 8s
+110592K ........ ........ ........ ........ ........ ........ 62% 10.7M 7s
+113664K ........ ........ ........ ........ ........ ........ 64% 10.5M 7s
+116736K ........ ........ ........ ........ ........ ........ 66% 10.9M 6s
+119808K ........ ........ ........ ........ ........ ........ 67% 11.2M 6s
+122880K ........ ........ ........ ........ ........ ........ 69% 10.6M 6s
+125952K ........ ........ ........ ........ ........ ........ 71% 10.1M 5s
+129024K ........ ........ ........ ........ ........ ........ 72% 7.94M 5s
+132096K ........ ........ ........ ........ ........ ........ 74% 10.7M 5s
+135168K ........ ........ ........ ........ ........ ........ 76% 7.28M 5s
+138240K ........ ........ ........ ........ ........ ........ 77% 10.8M 4s
+141312K ........ ........ ........ ........ ........ ........ 79% 3.59M 4s
+144384K ........ ........ ........ ........ ........ ........ 81% 9.66M 4s
+147456K ........ ........ ........ ........ ........ ........ 83% 10.2M 3s
+150528K ........ ........ ........ ........ ........ ........ 84% 11.1M 3s
+153600K ........ ........ ........ ........ ........ ........ 86% 11.1M 3s
+156672K ........ ........ ........ ........ ........ ........ 88% 10.9M 2s
+159744K ........ ........ ........ ........ ........ ........ 89% 10.9M 2s
+162816K ........ ........ ........ ........ ........ ........ 91% 10.5M 2s
+165888K ........ ........ ........ ........ ........ ........ 93% 11.0M 1s
+168960K ........ ........ ........ ........ ........ ........ 94% 11.0M 1s
+172032K ........ ........ ........ ........ ........ ........ 96% 10.5M 1s
+175104K ........ ........ ........ ........ ........ ........ 98% 9.98M 0s
+178176K ........ ........ ........ ........ ........ ....... 100% 10.5M=19s
+
+2017-05-12 10:11:44 (9.29 MB/s) - ‘jdk-8u131-linux-x64.tar.gz’ saved [185540433/185540433]
+
+Download done.
+Removing outdated cached downloads...
+update-alternatives: error: no alternatives for java
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/ControlPanel to provide /usr/bin/ControlPanel (ControlPanel) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/java to provide /usr/bin/java (java) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/javaws to provide /usr/bin/javaws (javaws) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/jcontrol to provide /usr/bin/jcontrol (jcontrol) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/jjs to provide /usr/bin/jjs (jjs) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/keytool to provide /usr/bin/keytool (keytool) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/orbd to provide /usr/bin/orbd (orbd) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/pack200 to provide /usr/bin/pack200 (pack200) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/policytool to provide /usr/bin/policytool (policytool) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/rmid to provide /usr/bin/rmid (rmid) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/rmiregistry to provide /usr/bin/rmiregistry (rmiregistry) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/servertool to provide /usr/bin/servertool (servertool) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/tnameserv to provide /usr/bin/tnameserv (tnameserv) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/bin/unpack200 to provide /usr/bin/unpack200 (unpack200) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/lib/jexec to provide /usr/bin/jexec (jexec) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/appletviewer to provide /usr/bin/appletviewer (appletviewer) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/extcheck to provide /usr/bin/extcheck (extcheck) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/idlj to provide /usr/bin/idlj (idlj) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jar to provide /usr/bin/jar (jar) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jarsigner to provide /usr/bin/jarsigner (jarsigner) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/javac to provide /usr/bin/javac (javac) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/javadoc to provide /usr/bin/javadoc (javadoc) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/javafxpackager to provide /usr/bin/javafxpackager (javafxpackager) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/javah to provide /usr/bin/javah (javah) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/javap to provide /usr/bin/javap (javap) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/javapackager to provide /usr/bin/javapackager (javapackager) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jcmd to provide /usr/bin/jcmd (jcmd) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jconsole to provide /usr/bin/jconsole (jconsole) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jdb to provide /usr/bin/jdb (jdb) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jdeps to provide /usr/bin/jdeps (jdeps) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jhat to provide /usr/bin/jhat (jhat) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jinfo to provide /usr/bin/jinfo (jinfo) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jmap to provide /usr/bin/jmap (jmap) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jmc to provide /usr/bin/jmc (jmc) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jps to provide /usr/bin/jps (jps) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jrunscript to provide /usr/bin/jrunscript (jrunscript) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jsadebugd to provide /usr/bin/jsadebugd (jsadebugd) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jstack to provide /usr/bin/jstack (jstack) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jstat to provide /usr/bin/jstat (jstat) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jstatd to provide /usr/bin/jstatd (jstatd) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/jvisualvm to provide /usr/bin/jvisualvm (jvisualvm) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/native2ascii to provide /usr/bin/native2ascii (native2ascii) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/rmic to provide /usr/bin/rmic (rmic) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/schemagen to provide /usr/bin/schemagen (schemagen) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/serialver to provide /usr/bin/serialver (serialver) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/wsgen to provide /usr/bin/wsgen (wsgen) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/wsimport to provide /usr/bin/wsimport (wsimport) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/bin/xjc to provide /usr/bin/xjc (xjc) in auto mode
+update-alternatives: using /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so to provide /usr/lib/mozilla/plugins/libjavaplugin.so (mozilla-javaplugin.so) in auto mode
+Oracle JRE 8 browser plugin installed
+Oracle JDK 8 installed
+
+#####Important########
+To set Oracle JDK8 as default, install the "oracle-java8-set-default" package.
+E.g.: sudo apt install oracle-java8-set-default
+On Ubuntu systems, oracle-java8-set-default is most probably installed
+automatically with this package.
+######################
+
+Selecting previously unselected package oracle-java8-set-default.
+Processing triggers for shared-mime-info (1.8-1) ...
+Processing triggers for desktop-file-utils (0.23-1ubuntu2) ...
+Processing triggers for hicolor-icon-theme (0.15-1) ...
+(Reading database ... 205675 files and directories currently installed.)
+Preparing to unpack .../oracle-java8-set-default_8u131-1~webupd8~2_all.deb ...
+Unpacking oracle-java8-set-default (8u131-1~webupd8~2) ...
+Selecting previously unselected package gsfonts-x11.
+Preparing to unpack .../gsfonts-x11_0.24_all.deb ...
+Unpacking gsfonts-x11 (0.24) ...
+Setting up gsfonts-x11 (0.24) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Setting up oracle-java8-set-default (8u131-1~webupd8~2) ...
+Processing triggers for bamfdaemon (0.5.3+17.04.20170406-0ubuntu1) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for man-db (2.7.6.1-2) ...
+Processing triggers for gnome-menus (3.13.3-6ubuntu5) ...
+Processing triggers for fontconfig (2.11.94-0ubuntu2) ...
+root1@root1-VirtualBox:~$ java -version
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+root1@root1-VirtualBox:~$

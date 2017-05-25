@@ -1,0 +1,1 @@
+yum install kernel-devel kernel-headers bzip2 make gcc -y

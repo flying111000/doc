@@ -1,0 +1,41 @@
+Ubuntu Apache部署多个web工程
+
+2016-05-12 10:26 本站整理 浏览(12)
+关于Ubuntu下 Apache的安装和部署可以参考前几篇文章。
+
+今天主要介绍在一台服务器下通过apache来部署多个web工程。
+
+思路：使用同一个ip，使用不同端口，来映射到不同的工程
+
+主要需要更改以下的三个配置点：
+
+1. 修改/etc/apache下的prot.conf 文件
+
+多增加一个端口的监听，如下
+
+Listen 5001
+<IfModule ssl_module>
+        Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+        Listen 443
+</IfModule>
+2. 修改/etc/apache/sites-enabled 下000-default.conf
+增加映射的工程目录：
+
+<VirtualHost *:5001>
+        ServerName 127.0.0.1
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/wq/Downloads/spritesheet/
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+3.修改访问权限，修改/etc/apache2/apache2.conf
+<Directory /home/wqdata/Downloads/spritesheet/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+通过以上的三步，即可，Good Luck。

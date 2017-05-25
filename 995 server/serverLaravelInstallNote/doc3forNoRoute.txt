@@ -1,0 +1,29 @@
+ laravel routes除了默认路由，其他都无效 解决办法
+2014-10-13 16:33 2976人阅读 评论(0) 收藏 举报
+ 分类： ubuntu（4）  
+版权声明：本文为博主原创文章，未经博主允许不得转载。
+
+按照教程，把PHP升级到5.5，所有必须的扩展都打开了，默认路由可以进入，证明代码没错，一般是没开启rewrite导致的
+
+如果你其他路由，localhost/目录/public/index.php/home可以进去，但是localhost/目录/public/home无效，证明就是.htaccess的问题
+
+但是这个文件置换了几次，都还是无效，证明这个文件也没问题，那就是没有开启对这个文件的支持。
+
+sudo a2enmod rewrite
+
+修改/etc/apache2/sites-enabled/000-default
+ (该链接指向的是站点配置文件)
+
+
+[html] view plain copy 在CODE上查看代码片派生到我的代码片
+DocumentRoot "/var/www"  
+<Directory />  
+    Options FollowSymLinks  
+    AllowOverride All  
+</Directory>  
+<Directory "/var/www">  
+    Options Indexes FollowSymLinks ExecCGI Includes  
+    AllowOverride All  
+    Order allow,deny  
+    Allow from all  
+</Directory>  

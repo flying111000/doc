@@ -1,0 +1,1 @@
+nohup ./standalone.sh -Djboss.bind.address=192.168.1.178 -Djboss.bind.address.management=192.168.1.178&

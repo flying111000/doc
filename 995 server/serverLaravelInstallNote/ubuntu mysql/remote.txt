@@ -1,0 +1,6 @@
+ufw ok
+iptables ok
+
+Then!!!:
+mysql config file remove listen 127.0.0.1
+sudo /etc/init.d/mysql restart

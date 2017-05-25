@@ -1,0 +1,168 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04
+
+
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-19-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Ubuntu 12.04 LTS end-of-life was April 28, 2017 -- Upgrade your Precise systems!
+ $ sudo do-release-upgrade -m server
+
+46 packages can be updated.
+35 updates are security updates.
+
+Last login: Fri Apr 28 17:52:47 2017 from 192.168.1.225
+root1@root1-VirtualBox:~$ php -v
+The program 'php' can be found in the following packages:
+ * php7.0-cli
+ * hhvm
+Try: sudo apt install <selected package>
+root1@root1-VirtualBox:~$ dpkg -l | grep '\(php\|mysql\)'
+root1@root1-VirtualBox:~$ mysql -V
+The program 'mysql' can be found in the following packages:
+ * mysql-client-core-5.7
+ * mariadb-client-core-10.1
+Try: sudo apt install <selected package>
+root1@root1-VirtualBox:~$ sudo apt-get update
+[sudo] password for root1:
+Hit:1 http://us.archive.ubuntu.com/ubuntu zesty InRelease
+Get:2 http://security.ubuntu.com/ubuntu zesty-security InRelease [89.2 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu zesty-updates InRelease [89.2 kB]
+Hit:4 http://us.archive.ubuntu.com/ubuntu zesty-backports InRelease
+Fetched 178 kB in 0s (287 kB/s)
+Reading package lists... Done
+root1@root1-VirtualBox:~$ sudo apt-get install apache2
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0
+Suggested packages:
+  apache2-doc apache2-suexec-pristine | apache2-suexec-custom
+The following NEW packages will be installed:
+  apache2 apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0
+0 upgraded, 9 newly installed, 0 to remove and 42 not upgraded.
+Need to get 1,579 kB of archives.
+After this operation, 6,530 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libapr1 amd64 1.5.2-5 [85.8 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libaprutil1 amd64 1.5.4-3 [77.9 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libaprutil1-dbd-sqlite3 amd64 1.5.4-3 [10.6 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 libaprutil1-ldap amd64 1.5.4-3 [8,702 B]
+Get:5 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 liblua5.2-0 amd64 5.2.4-1.1build1 [108 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 apache2-bin amd64 2.4.25-3ubuntu2 [949 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 apache2-utils amd64 2.4.25-3ubuntu2 [82.1 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 apache2-data all 2.4.25-3ubuntu2 [161 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu zesty/main amd64 apache2 amd64 2.4.25-3ubuntu2 [95.8 kB]
+Fetched 1,579 kB in 0s (2,138 kB/s)
+Selecting previously unselected package libapr1:amd64.
+(Reading database ... 171595 files and directories currently installed.)
+Preparing to unpack .../0-libapr1_1.5.2-5_amd64.deb ...
+Unpacking libapr1:amd64 (1.5.2-5) ...
+Selecting previously unselected package libaprutil1:amd64.
+Preparing to unpack .../1-libaprutil1_1.5.4-3_amd64.deb ...
+Unpacking libaprutil1:amd64 (1.5.4-3) ...
+Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
+Preparing to unpack .../2-libaprutil1-dbd-sqlite3_1.5.4-3_amd64.deb ...
+Unpacking libaprutil1-dbd-sqlite3:amd64 (1.5.4-3) ...
+Selecting previously unselected package libaprutil1-ldap:amd64.
+Preparing to unpack .../3-libaprutil1-ldap_1.5.4-3_amd64.deb ...
+Unpacking libaprutil1-ldap:amd64 (1.5.4-3) ...
+Selecting previously unselected package liblua5.2-0:amd64.
+Preparing to unpack .../4-liblua5.2-0_5.2.4-1.1build1_amd64.deb ...
+Unpacking liblua5.2-0:amd64 (5.2.4-1.1build1) ...
+Selecting previously unselected package apache2-bin.
+Preparing to unpack .../5-apache2-bin_2.4.25-3ubuntu2_amd64.deb ...
+Unpacking apache2-bin (2.4.25-3ubuntu2) ...
+Selecting previously unselected package apache2-utils.
+Preparing to unpack .../6-apache2-utils_2.4.25-3ubuntu2_amd64.deb ...
+Unpacking apache2-utils (2.4.25-3ubuntu2) ...
+Selecting previously unselected package apache2-data.
+Preparing to unpack .../7-apache2-data_2.4.25-3ubuntu2_all.deb ...
+Unpacking apache2-data (2.4.25-3ubuntu2) ...
+Selecting previously unselected package apache2.
+Preparing to unpack .../8-apache2_2.4.25-3ubuntu2_amd64.deb ...
+Unpacking apache2 (2.4.25-3ubuntu2) ...
+Setting up libapr1:amd64 (1.5.2-5) ...
+Processing triggers for ufw (0.35-4) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Setting up apache2-data (2.4.25-3ubuntu2) ...
+Processing triggers for libc-bin (2.24-9ubuntu2) ...
+Setting up libaprutil1:amd64 (1.5.4-3) ...
+Processing triggers for systemd (232-21ubuntu2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up liblua5.2-0:amd64 (5.2.4-1.1build1) ...
+Setting up libaprutil1-ldap:amd64 (1.5.4-3) ...
+Setting up libaprutil1-dbd-sqlite3:amd64 (1.5.4-3) ...
+Setting up apache2-utils (2.4.25-3ubuntu2) ...
+Setting up apache2-bin (2.4.25-3ubuntu2) ...
+Setting up apache2 (2.4.25-3ubuntu2) ...
+Enabling module mpm_event.
+Enabling module authz_core.
+Enabling module authz_host.
+Enabling module authn_core.
+Enabling module auth_basic.
+Enabling module access_compat.
+Enabling module authn_file.
+Enabling module authz_user.
+Enabling module alias.
+Enabling module dir.
+Enabling module autoindex.
+Enabling module env.
+Enabling module mime.
+Enabling module negotiation.
+Enabling module setenvif.
+Enabling module filter.
+Enabling module deflate.
+Enabling module status.
+Enabling module reqtimeout.
+Enabling conf charset.
+Enabling conf localized-error-pages.
+Enabling conf other-vhosts-access-log.
+Enabling conf security.
+Enabling conf serve-cgi-bin.
+Enabling site 000-default.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+Processing triggers for libc-bin (2.24-9ubuntu2) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (232-21ubuntu2) ...
+Processing triggers for ufw (0.35-4) ...
+root1@root1-VirtualBox:~$ sudo apache2ctl configtest
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+Syntax OK
+root1@root1-VirtualBox:~$ sudo nano /etc/apache2/apache2.conf
+root1@root1-VirtualBox:~$ sudo nano /etc/apache2/apache2.conf
+root1@root1-VirtualBox:~$ sudo apache2ctl configtest
+apache2: Syntax error on line 174 of /etc/apache2/apache2.conf: </Directory> without matching <Directory> section
+Action 'configtest' failed.
+The Apache error log may have more information.
+root1@root1-VirtualBox:~$ sudo apache2ctl configtest
+apache2: Syntax error on line 174 of /etc/apache2/apache2.conf: </Directory> without matching <Directory> section
+Action 'configtest' failed.
+The Apache error log may have more information.
+root1@root1-VirtualBox:~$ sudo apache2ctl configtest
+Syntax OK
+root1@root1-VirtualBox:~$ sudo systemctl restart apache2
+root1@root1-VirtualBox:~$ sudo ufw app list
+Available applications:
+  Apache
+  Apache Full
+  Apache Secure
+  CUPS
+  OpenSSH
+root1@root1-VirtualBox:~$ sudo ufw app info "Apache Full"
+Profile: Apache Full
+Title: Web Server (HTTP,HTTPS)
+Description: Apache v2 is the next generation of the omnipresent Apache web
+server.
+
+Ports:
+  80,443/tcp
+root1@root1-VirtualBox:~$ sudo ufw allow in "Apache Full"
+Rules updated
+Rules updated (v6)
+root1@root1-VirtualBox:~$

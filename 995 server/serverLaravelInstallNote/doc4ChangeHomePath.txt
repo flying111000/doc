@@ -1,0 +1,1 @@
+usermod -m -d /var/www/html root1

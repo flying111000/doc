@@ -1,0 +1,2 @@
+sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) share ~/share
+sudo mount -t vboxsf sf_share /home/root1/share

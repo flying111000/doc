@@ -1,0 +1,1 @@
+sudo composer create-project --prefer-dist laravel/laravel hotel_b2b "5.2.27"
