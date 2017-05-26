@@ -21,8 +21,8 @@ Linux对于每个用户，系统限制其最大进程数。为提高性能，可
         # 添加如下的行
         * soft noproc 11000
         * hard noproc 11000
-        * soft nofile 4100
-        * hard nofile 4100
+        * soft nofile 41000
+        * hard nofile 41000
        说明：* 代表针对所有用户，noproc 是代表最大进程数，nofile 是代表最大文件打开数
 2)、让 SSH 接受 Login 程式的登入，方便在 ssh 客户端查看 ulimit -a 资源限制：
         a、vi /etc/ssh/sshd_config

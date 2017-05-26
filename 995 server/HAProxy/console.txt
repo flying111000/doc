@@ -1,0 +1,116 @@
+https://www.digitalocean.com/community/tutorials/how-to-use-haproxy-to-set-up-http-load-balancing-on-an-ubuntu-vps
+
+apt-get install haproxy
+
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-21-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Ubuntu 12.04 LTS ('precise') end-of-life was April 28, 2017
+   ongoing security updates for 12.04 are available with Ubuntu Advantage
+   http://j.mp/U1204esm
+
+
+32 packages can be updated.
+7 updates are security updates.
+
+Last login: Fri May 26 11:07:16 2017 from 192.168.1.32
+root1@root1-VirtualBox:~$ sudo nano /etc/default/haproxy
+[sudo] password for root1:
+root1@root1-VirtualBox:~$ sudo nano /etc/default/haproxy
+root1@root1-VirtualBox:~$ service haproxy
+Usage: /etc/init.d/haproxy {start|stop|reload|restart|status}
+root1@root1-VirtualBox:~$ sudo mv /etc/haproxy/haproxy.cfg{,.original}
+root1@root1-VirtualBox:~$ nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo service haproxy start
+root1@root1-VirtualBox:~$ telnet 127.0.0.1 80
+Trying 127.0.0.1...
+telnet: Unable to connect to remote host: Connection refused
+root1@root1-VirtualBox:~$ telnet 192.168.1.193 80
+Trying 192.168.1.193...
+telnet: Unable to connect to remote host: Connection refused
+root1@root1-VirtualBox:~$  sudo service haproxy start
+root1@root1-VirtualBox:~$ service haproxy
+Usage: /etc/init.d/haproxy {start|stop|reload|restart|status}
+root1@root1-VirtualBox:~$ sudo service haproxy restart
+Job for haproxy.service failed because the control process exited with error code.
+See "systemctl status haproxy.service" and "journalctl -xe" for details.
+root1@root1-VirtualBox:~$ sudo systemctl status haproxy.service
+● haproxy.service - HAProxy Load Balancer
+   Loaded: loaded (/lib/systemd/system/haproxy.service; enabled; vendor preset: enabled)
+   Active: failed (Result: exit-code) since Fri 2017-05-26 11:48:46 PDT; 49s ago
+     Docs: man:haproxy(1)
+           file:/usr/share/doc/haproxy/configuration.txt.gz
+  Process: 3604 ExecStartPre=/usr/sbin/haproxy -f $CONFIG -c -q $EXTRAOPTS (code=exited, status=1/FAILURE)
+ Main PID: 958 (code=exited, status=0/SUCCESS)
+
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Control process exited, code=exited status=1
+May 26 11:48:46 root1-VirtualBox systemd[1]: Failed to start HAProxy Load Balancer.
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Unit entered failed state.
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Failed with result 'exit-code'.
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Service hold-off time over, scheduling restart.
+May 26 11:48:46 root1-VirtualBox systemd[1]: Stopped HAProxy Load Balancer.
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Start request repeated too quickly.
+May 26 11:48:46 root1-VirtualBox systemd[1]: Failed to start HAProxy Load Balancer.
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Unit entered failed state.
+May 26 11:48:46 root1-VirtualBox systemd[1]: haproxy.service: Failed with result 'exit-code'.
+root1@root1-VirtualBox:~$ sudo service haproxy stop
+root1@root1-VirtualBox:~$ sudo service haproxy stop
+root1@root1-VirtualBox:~$ sudo service haproxy stop
+root1@root1-VirtualBox:~$ sudo service haproxy start
+Job for haproxy.service failed because the control process exited with error code.
+See "systemctl status haproxy.service" and "journalctl -xe" for details.
+root1@root1-VirtualBox:~$ sudo systemctl status haproxy.service
+● haproxy.service - HAProxy Load Balancer
+   Loaded: loaded (/lib/systemd/system/haproxy.service; enabled; vendor preset: enabled)
+   Active: failed (Result: exit-code) since Fri 2017-05-26 11:51:02 PDT; 13s ago
+     Docs: man:haproxy(1)
+           file:/usr/share/doc/haproxy/configuration.txt.gz
+  Process: 3734 ExecStartPre=/usr/sbin/haproxy -f $CONFIG -c -q $EXTRAOPTS (code=exited, status=1/FAILURE)
+ Main PID: 958 (code=exited, status=0/SUCCESS)
+
+May 26 11:51:01 root1-VirtualBox systemd[1]: haproxy.service: Control process exited, code=exited status=1
+May 26 11:51:01 root1-VirtualBox systemd[1]: Failed to start HAProxy Load Balancer.
+May 26 11:51:01 root1-VirtualBox systemd[1]: haproxy.service: Unit entered failed state.
+May 26 11:51:01 root1-VirtualBox systemd[1]: haproxy.service: Failed with result 'exit-code'.
+May 26 11:51:02 root1-VirtualBox systemd[1]: haproxy.service: Service hold-off time over, scheduling restart.
+May 26 11:51:02 root1-VirtualBox systemd[1]: Stopped HAProxy Load Balancer.
+May 26 11:51:02 root1-VirtualBox systemd[1]: haproxy.service: Start request repeated too quickly.
+May 26 11:51:02 root1-VirtualBox systemd[1]: Failed to start HAProxy Load Balancer.
+May 26 11:51:02 root1-VirtualBox systemd[1]: haproxy.service: Unit entered failed state.
+May 26 11:51:02 root1-VirtualBox systemd[1]: haproxy.service: Failed with result 'exit-code'.
+root1@root1-VirtualBox:~$ sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+[ALERT] 145/115325 (3742) : parsing [/etc/haproxy/haproxy.cfg:16] : 'listen' cannot handle unexpected argument '0.0.0.0:80'.
+[ALERT] 145/115325 (3742) : parsing [/etc/haproxy/haproxy.cfg:16] : please use the 'bind' keyword for listening addresses.
+[ALERT] 145/115325 (3742) : Error(s) found in configuration file : /etc/haproxy/haproxy.cfg
+[WARNING] 145/115325 (3742) : config : proxy 'appname' has no 'bind' directive. Please declare it as a backend if this was intended.
+[WARNING] 145/115325 (3742) : config : missing timeouts for proxy 'appname'.
+   | While not properly invalid, you will certainly encounter various problems
+   | with such a configuration. To fix this, please ensure that all following
+   | timeouts are set to a non-zero value: 'client', 'connect', 'server'.
+[ALERT] 145/115325 (3742) : Fatal errors found in configuration.
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+Configuration file is valid
+root1@root1-VirtualBox:~$ sudo service haproxy restart
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+Configuration file is valid
+root1@root1-VirtualBox:~$ sudo service haproxy restart
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+[sudo] password for root1:
+root1@root1-VirtualBox:~$ sudo service haproxy restart
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+[sudo] password for root1:
+root1@root1-VirtualBox:~$ sudo nano /etc/haproxy/haproxy.cfg
+root1@root1-VirtualBox:~$ sudo service haproxy restart
+root1@root1-VirtualBox:~$
+

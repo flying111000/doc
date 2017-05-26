@@ -1,0 +1,13 @@
+performance test report
+qps:
+
+backend:
+jboos 5400 tomcat 2400
+jboss+rest framework 1000
+jboss+rest+searchAPI 15
+
+front:
+php+apache2 3400
+php+apache2+HAProxy 2350
+php+laravel 108
+php+laravel+HAProxy 170
