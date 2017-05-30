@@ -1,0 +1,100 @@
+http://blog.capterra.com/top-free-and-open-source-hotel-booking-engine-software-solutions-compared/
+
+
+1. Qlo
+
+Qlo
+
+This free and open source booking engine enables hotel owners to create their own booking site with a variety of features to help differentiate your hotel from the rest of the pack.
+
+Pros
+
+Qlo¡¯s highlights include the ability to manage both online and offline booking in one place in addition to administrative room reallocation for a quick unit change if needed.
+
+This solution can also translate your site into multiple languages so you can reach and advertise your property to international guests.
+
+Qlo also includes a testimonial feature, which allows you to highlight positive reviews on your landing page to reaffirm your hotel¡¯s excellent service. Other notable features range from a search engine optimization (SEO) tool to boost your web presence, partial-payment booking and integrated-payment gateways for transactions, and a tax-management component to automatically add taxes to your room rates so customers pay the actual amount during the booking process. Furthermore, Qlo features an unlimited number of rooms and room types so you can manage unique properties or even hotel chains.
+
+Cons
+
+While Qlo boasts a variety of features, there is no security component to the software, an important aspect considering the growing data breaches due to unsecure payment processes.
+
+2. Solidres(only works for Joomla and WordPress users)
+
+solid
+
+This 100% free and open source hotel booking software is designed for Joomla and WordPress users, and promises the advantages of customizability, interoperability, and flexibility.
+
+Pros
+
+Benefits vary depending on if you are using Joomla or WordPress, but across the board, Solidres enables users a built-in tariff feature to set tariff for every day of the week if desired. Additionally, Solidres¡¯ media management tool enables you to manage your media in a centralized location so you can create thumbnails in different sizes to illustrate your hotel rooms and accommodations. Coupon and reward package creation is also possible with this solution so you can reward frequent and loyal guests. Other standout features of Solidres include the ability to support multiple currencies, Google Maps integration so guests can be easily directed to your location, and free MySQL support for any issues that may arise in your usage.
+
+Cons
+
+Because Solidres only works for Joomla and WordPress users, other content management systems (CMS) will have to find a different solution.
+
+3. upbooking Hotel Standard(free edition only goes up to three hotel properties and three different types of rooms)
+
+upbooking
+
+upbooking is a sub-brand of Ma-No Web Design & Development, a website design, development, and internet marketing agency with 15 years of experience in the industry.
+
+Pros
+
+upbooking¡¯s free Standard Booking Engine provides users with a branded layout so you can design your own unique template using HTML and CSS for up to three different hotel properties and up to three different types of rooms.
+
+In addition to creating your own terms and conditions for your guests¡¯ stays, users can also define conditions for room cancellations and view site-visit stats and reservations made with conversion rates. This solution also has a multilingual customer interface so you can reach customers across the globe as well as a map application to show your location and provide directions to incoming guests.
+
+Free updates and upgrades are also included in this free edition.
+
+Cons
+
+Because upbooking¡¯s free edition only goes up to three hotel properties and three different types of rooms, unique hotels with varying room types may have to find a solution with more customization.
+
+4. Sagenda(it¡¯s limited just to WordPress)
+
+Screenshot_2016-11-01_20.19.59
+
+Sagenda is a free WordPress plugin great for the small hospitality business working with a suite of low-cost products. The developers make their profit off of customizable versions of the plugin for larger businesses, so the plugin itself is guaranteed completely free!
+
+Pros
+
+Sagenda includes a dashboard and personalized emails so if WordPress is your thing, this is perfect.
+
+Cons
+
+This looks like a fairly new solution and it¡¯s too bad that it¡¯s limited just to WordPress. However it has garnered some great reviews on WordPress¡¯ plugin directory and is still being updated frequently.
+
+5. freetobook(only online,terific feathers,no software available)
+
+Screenshot_2016-11-01_20.19.26
+
+Hard to beat a solution with ¡°free¡± in the name. Based in Glasgow (with a very international customer base) freetobook not only has online booking features, but also some nice extras like special offers, customer reviews, and SEO. The prices come in when you¡¯re looking at add-on features like integration with Booking.com and a mobile website.
+
+Pros
+
+Freetobook was definitely designed with hospitality in mind, and the add-on features are very attractive, besides making it a scalable solution.
+
+Cons
+
+It looks like the site hasn¡¯t been updated in awhile and online payment is one of the ¡°Plus+¡± features.
+
+6. Skedda(only online,no software available)
+
+Screenshot_2016-11-01_20.19.36
+
+Though it¡¯s definitely for smaller properties at the free level, Skedda can be pretty handy. For $0 you can integrate Skedda with your website and manage up to 10 spaces, so this is good for small hospitality businesses. Online support is offered through their knowledge base and email.
+
+Pros
+
+Skedda looks very easy to pick up and use, and the ability for customers to login with a social account is awesome!
+
+Cons
+
+The lack of online payment features (have to upgrade for $49/mo to get those) makes it hard to see Skedda as an all-in-one booking engine. You¡¯ll have to integrate with another tool to allow customers to actually make payments.
+
+More?
+
+Don¡¯t quite see what you¡¯re looking for? Check out our free and open source hotel management software guide or visit Capterra¡¯s reservation software listings to find the right match for your hotel.
+
+Header by Rachel Wille
