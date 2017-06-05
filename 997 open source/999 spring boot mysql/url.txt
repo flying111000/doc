@@ -1,0 +1,579 @@
+https://spring.io/guides/gs/accessing-data-mysql/
+http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging
+
+GETTING STARTED
+Accessing data with MySQL
+
+This guide walks you through the process of creating a Spring application connected with a MySQL Database, as opposed to an in-memory, embedded database, which all of the other guides and many sample apps use. It uses Spring Data JPA to access the database, but this is only one of many possible choices (e.g. you could use plain Spring JDBC).
+
+What you¡¯ll build
+
+You¡¯ll create a MySQL database, build a Spring application and connect it with the newly created database.
+
+MySQL is licensed with the GPL, so any program binary that you distribute using it must use the GPL too. Refer to the GNU General Public Licence.
+What you¡¯ll need
+
+MySQL version 5.6 or better. If you have docker installed it might be useful to run the database as a container.
+About 15 minutes
+A favorite text editor or IDE
+JDK 1.8 or later
+Gradle 2.3+ or Maven 3.0+
+You can also import the code straight into your IDE:
+Spring Tool Suite (STS)
+IntelliJ IDEA
+How to complete this guide
+
+Like most Spring Getting Started guides, you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
+
+To start from scratch, move on to Build with Gradle.
+
+To skip the basics, do the following:
+
+Download and unzip the source repository for this guide, or clone it using Git: git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
+cd into gs-accessing-data-mysql/initial
+Jump ahead to Create the database.
+When you¡¯re finished, you can check your results against the code in gs-accessing-data-mysql/complete.
+
+Build with Gradle
+
+Build with Maven
+
+First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with Maven is included here. If you¡¯re not familiar with Maven, refer to Building Java Projects with Maven.
+
+Create the directory structure
+
+In a project directory of your choosing, create the following subdirectory structure; for example, with mkdir -p src/main/java/hello on *nix systems:
+
+©¸©¤©¤ src
+    ©¸©¤©¤ main
+        ©¸©¤©¤ java
+            ©¸©¤©¤ hello
+pom.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>gs-mysql-data</artifactId>
+    <version>0.1.0</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Use MySQL Connector-J -->
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+The Spring Boot Maven plugin provides many convenient features:
+
+It collects all the jars on the classpath and builds a single, runnable "¨¹ber-jar", which makes it more convenient to execute and transport your service.
+It searches for the public static void main() method to flag as a runnable class.
+It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot¡¯s chosen set of versions.
+Build with your IDE
+
+Create the database
+
+Go to the terminal (command Prompt cmd in Microsoft Windows). Open MySQL client with a user that can create new users.
+
+For example: On a Linux, use the command
+
+$ sudo mysql --password
+This connects to MySQL as a root, this is not the recommended way for a production server.
+Create a new database
+
+mysql> create database db_example; -- Create the new database
+mysql> create user 'springuser'@'localhost' identified by 'ThePassword'; -- Creates the user
+mysql> grant all on db_example.* to 'springuser'@'localhost'; -- Gives all the privileges to the new user on the newly created database
+Create the application.properties file
+
+Spring Boot gives you defaults on all things, the default in database is H2, so when you want to change this and use any other database you must define the connection attributes in the application.properties file.
+
+In the sources folder, you create a resource file src/main/resources/application.properties
+
+spring.jpa.hibernate.ddl-auto=create
+spring.datasource.url=jdbc:mysql://localhost:3306/db_example
+spring.datasource.username=springuser
+spring.datasource.password=ThePassword
+Here, spring.jpa.hibernate.ddl-auto can be none, update, create, create-drop, refer to the Hibernate documentation for details.
+
+none This is the default for MySQL, no change to the database structure.
+update Hibernate changes the database according to the given Entity structures.
+create Creates the database every time, but don¡¯t drop it when close.
+create-drop Creates the database then drops it when the SessionFactory closes.
+We here begin with create because we don¡¯t have the database structure yet. After the first run, we could switch it to update or none according to program requirements. Use update when you want to make some change to the database structure.
+
+The default for H2 and other embedded databases is create-drop, but for others like MySQL is none
+
+It is good security practice that after your database is in production state, you make this none and revoke all privileges from the MySQL user connected to the Spring application, then give him only SELECT, UPDATE, INSERT, DELETE.
+
+This is coming in details in the end of this guide.
+
+Create the @Entity model
+
+src/main/java/hello/User.java
+
+package hello;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // This tells Hibernate to make a table out of this class
+public class User {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
+
+    private String name;
+
+    private String email;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+}
+This is the entity class which Hibernate will automatically translate into a table.
+
+Create the repository
+
+src/main/java/hello/UserRepository.java
+
+package hello;
+
+import org.springframework.data.repository.CrudRepository;
+
+import hello.User;
+
+// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
+// CRUD refers Create, Read, Update, Delete
+
+public interface UserRepository extends CrudRepository<User, Long> {
+
+}
+This is the repository interface, this will be automatically implemented by Spring in a bean with the same name with changing case The bean name will be userRepository
+
+Create a new controller for your Spring application
+
+src/main/java/hello/MainController.java
+
+package hello;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import hello.User;
+import hello.UserRepository;
+
+@Controller    // This means that this class is a Controller
+@RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
+public class MainController {
+	@Autowired // This means to get the bean called userRepository
+	           // Which is auto-generated by Spring, we will use it to handle the data
+	private UserRepository userRepository;
+
+	@GetMapping(path="/add") // Map ONLY GET Requests
+	public @ResponseBody String addNewUser (@RequestParam String name
+			, @RequestParam String email) {
+		// @ResponseBody means the returned String is the response, not a view name
+		// @RequestParam means it is a parameter from the GET or POST request
+
+		User n = new User();
+		n.setName(name);
+		n.setEmail(email);
+		userRepository.save(n);
+		return "Saved";
+	}
+
+	@GetMapping(path="/all")
+	public @ResponseBody Iterable<User> getAllUsers() {
+		// This returns a JSON or XML with the users
+		return userRepository.findAll();
+	}
+}
+The above example does not specify GET vs. PUT, POST, and so forth, because @RequestMapping maps all HTTP operations by default. Use @RequestMapping(method=GET) to narrow this mapping.
+Make the application executable
+
+Although it is possible to package this service as a traditional WAR file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java main() method. Along the way, you use Spring¡¯s support for embedding the Tomcat servlet container as the HTTP runtime, instead of deploying to an external instance.
+
+src/main/java/hello/Application.java
+
+package hello;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+Build an executable JAR
+
+You can run the application from the command line with Gradle or Maven. Or you can build a single executable JAR file that contains all the necessary dependencies, classes, and resources, and run that. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
+
+If you are using Gradle, you can run the application using ./gradlew bootRun. Or you can build the JAR file using ./gradlew build. Then you can run the JAR file:
+
+java -jar build/libs/gs-accessing-data-mysql-0.1.0.jar
+If you are using Maven, you can run the application using ./mvnw spring-boot:run. Or you can build the JAR file with ./mvnw clean package. Then you can run the JAR file:
+
+java -jar target/gs-accessing-data-mysql-0.1.0.jar
+The procedure above will create a runnable JAR. You can also opt to build a classic WAR file instead.
+Logging output is displayed. The service should be up and running within a few seconds.
+
+Test the application
+
+Now that the application is running, you can test it.
+
+Use curl for example. Now you have 2 REST Web Services you can test
+
+localhost:8080/demo/all This gets all data localhost:8080/demo/add This adds one user to the data
+
+$ curl 'localhost:8080/demo/add?name=First&email=someemail@someemailprovider.com'
+The reply should be
+
+Saved
+$ curl 'localhost:8080/demo/all'
+The reply should be
+
+[{"id":1,"name":"First","email":"someemail@someemailprovider.com"}]
+Make some security changes
+
+Now when you are on production environment, you may be exposed to SQL injection attacks. A hacker may inject DROP TABLE or any other destructive SQL commands. So as a security practice, make those changes to your database before you expose the application to users.
+
+mysql> revoke all on db_example.* from 'springuser'@'localhost';
+This revokes ALL the priviliges from the user associated with the Spring application. Now the Spring application cannot do anything in the database. We don¡¯t want that, so
+
+mysql> grant select, insert, delete, update on db_example.* to 'springuser'@'localhost';
+This gives your Spring application only the privileges necessary to make changes to only the data of the database and not the structure (schema).
+
+Now make this change to your src/main/resources/application.properties
+
+spring.jpa.hibernate.ddl-auto=none
+This is instead of create which was on the first run for Hibernate to create the tables from your entities.
+
+When you want to make changes on the database, regrant the permissions, change the spring.jpa.hibernate.ddl-auto to update, then re-run your applications, then repeat. Or, better, use a dedicated migration tool such as Flyway or Liquibase.
+
+Summary
+
+Congratulations! You¡¯ve just developed a Spring application which is bound to a MySQL database, Ready for production!
+
+Want to write a new guide or contribute to an existing one? Check out our contribution guidelines.
+
+All guides are released with an ASLv2 license for the code, and an Attribution, NoDerivatives creative commons license for the writing.
+
+
+http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-packaging
+66.2 Packaging executable jar and war files
+Once spring-boot-maven-plugin has been included in your pom.xml it will automatically attempt to rewrite archives to make them executable using the spring-boot:repackage goal. You should configure your project to build a jar or war (as appropriate) using the usual packaging element:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- ... -->
+    <packaging>jar</packaging>
+    <!-- ... -->
+</project>
+Your existing archive will be enhanced by Spring Boot during the package phase. The main class that you want to launch can either be specified using a configuration option, or by adding a Main-Class attribute to the manifest in the usual way. If you don¡¯t specify a main class the plugin will search for a class with a public static void main(String[] args) method.
+
+To build and run a project artifact, you can type the following:
+
+$ mvn package
+$ java -jar target/mymodule-0.0.1-SNAPSHOT.jar
+To build a war file that is both executable and deployable into an external container you need to mark the embedded container dependencies as ¡°provided¡±, e.g:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- ... -->
+    <packaging>war</packaging>
+    <!-- ... -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- ... -->
+    </dependencies>
+</project>
+[Tip]
+See the ¡°Section 85.1, ¡°Create a deployable war file¡±¡± section for more details on how to create a deployable war file.
+Advanced configuration options and examples are available in the plugin info page.
+
+
+http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file
+85.1 Create a deployable war file
+The first step in producing a deployable war file is to provide a SpringBootServletInitializer subclass and override its configure method. This makes use of Spring Framework¡¯s Servlet 3.0 support and allows you to configure your application when it¡¯s launched by the servlet container. Typically, you update your application¡¯s main class to extend SpringBootServletInitializer:
+
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
+}
+The next step is to update your build configuration so that your project produces a war file rather than a jar file. If you¡¯re using Maven and using spring-boot-starter-parent (which configures Maven¡¯s war plugin for you) all you need to do is to modify pom.xml to change the packaging to war:
+
+<packaging>war</packaging>
+If you¡¯re using Gradle, you need to modify build.gradle to apply the war plugin to the project:
+
+apply plugin: 'war'
+The final step in the process is to ensure that the embedded servlet container doesn¡¯t interfere with the servlet container to which the war file will be deployed. To do so, you need to mark the embedded servlet container dependency as provided.
+
+If you¡¯re using Maven:
+
+<dependencies>
+    <!-- ¡­ -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    <!-- ¡­ -->
+</dependencies>
+And if you¡¯re using Gradle:
+
+dependencies {
+    // ¡­
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    // ¡­
+}
+[Note]
+If you are using a version of Gradle that supports compile only dependencies (2.12 or later), you should continue to use providedRuntime. Among other limitations, compileOnly dependencies are not on the test classpath so any web-based integration tests will fail.
+If you¡¯re using the Spring Boot build tools, marking the embedded servlet container dependency as provided will produce an executable war file with the provided dependencies packaged in a lib-provided directory. This means that, in addition to being deployable to a servlet container, you can also run your application using java -jar on the command line.
+
+[Tip]
+Take a look at Spring Boot¡¯s sample applications for a Maven-based example of the above-described configuration.
+85.2 Create a deployable war file for older servlet containers
+Older Servlet containers don¡¯t have support for the ServletContextInitializer bootstrap process used in Servlet 3.0. You can still use Spring and Spring Boot in these containers but you are going to need to add a web.xml to your application and configure it to load an ApplicationContext via a DispatcherServlet.
+
+85.3 Convert an existing application to Spring Boot
+For a non-web application it should be easy (throw away the code that creates your ApplicationContext and replace it with calls to SpringApplication or SpringApplicationBuilder). Spring MVC web applications are generally amenable to first creating a deployable war application, and then migrating it later to an executable war and/or jar. Useful reading is in the Getting Started Guide on Converting a jar to a war.
+
+Create a deployable war by extending SpringBootServletInitializer (e.g. in a class called Application), and add the Spring Boot @SpringBootApplication annotation. Example:
+
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        // Customize the application or call application.sources(...) to add sources
+        // Since our example is itself a @Configuration class (via @SpringBootApplication)
+        // we actually don't need to override this method.
+        return application;
+    }
+
+}
+Remember that whatever you put in the sources is just a Spring ApplicationContext and normally anything that already works should work here. There might be some beans you can remove later and let Spring Boot provide its own defaults for them, but it should be possible to get something working first.
+
+Static resources can be moved to /public (or /static or /resources or /META-INF/resources) in the classpath root. Same for messages.properties (Spring Boot detects this automatically in the root of the classpath).
+
+Vanilla usage of Spring DispatcherServlet and Spring Security should require no further changes. If you have other features in your application, using other servlets or filters for instance, then you may need to add some configuration to your Application context, replacing those elements from the web.xml as follows:
+
+A @Bean of type Servlet or ServletRegistrationBean installs that bean in the container as if it was a <servlet/> and <servlet-mapping/> in web.xml.
+A @Bean of type Filter or FilterRegistrationBean behaves similarly (like a <filter/> and <filter-mapping/>.
+An ApplicationContext in an XML file can be added through an @ImportResource in your Application. Or simple cases where annotation configuration is heavily used already can be recreated in a few lines as @Bean definitions.
+Once the war is working we make it executable by adding a main method to our Application, e.g.
+
+public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+}
+[Note]
+If you intend to start your application as a war or as an executable application, you need to share the customizations of the builder in a method that is both available to the SpringBootServletInitializer callback and the main method, something like:
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return configureApplication(builder);
+    }
+
+    public static void main(String[] args) {
+        configureApplication(new SpringApplicationBuilder()).run(args);
+    }
+
+    private static SpringApplicationBuilder configureApplication(SpringApplicationBuilder builder) {
+        return builder.sources(Application.class).bannerMode(Banner.Mode.OFF);
+    }
+
+}
+Applications can fall into more than one category:
+
+Servlet 3.0+ applications with no web.xml.
+Applications with a web.xml.
+Applications with a context hierarchy.
+Applications without a context hierarchy.
+All of these should be amenable to translation, but each might require slightly different tricks.
+
+Servlet 3.0+ applications might translate pretty easily if they already use the Spring Servlet 3.0+ initializer support classes. Normally all the code from an existing WebApplicationInitializer can be moved into a SpringBootServletInitializer. If your existing application has more than one ApplicationContext (e.g. if it uses AbstractDispatcherServletInitializer) then you might be able to squash all your context sources into a single SpringApplication. The main complication you might encounter is if that doesn¡¯t work and you need to maintain the context hierarchy. See the entry on building a hierarchy for examples. An existing parent context that contains web-specific features will usually need to be broken up so that all the ServletContextAware components are in the child context.
+
+Applications that are not already Spring applications might be convertible to a Spring Boot application, and the guidance above might help, but your mileage may vary.
+
+85.4 Deploying a WAR to WebLogic
+To deploy a Spring Boot application to WebLogic you must ensure that your servlet initializer directly implements WebApplicationInitializer (even if you extend from a base class that already implements it).
+
+A typical initializer for WebLogic would be something like this:
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.web.WebApplicationInitializer;
+
+@SpringBootApplication
+public class MyApplication extends SpringBootServletInitializer implements WebApplicationInitializer {
+
+}
+If you use logback, you will also need to tell WebLogic to prefer the packaged version rather than the version that pre-installed with the server. You can do this by adding a WEB-INF/weblogic.xml file with the following contents:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<wls:weblogic-web-app
+    xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd
+        http://xmlns.oracle.com/weblogic/weblogic-web-app
+        http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
+    <wls:container-descriptor>
+        <wls:prefer-application-packages>
+            <wls:package-name>org.slf4j</wls:package-name>
+        </wls:prefer-application-packages>
+    </wls:container-descriptor>
+</wls:weblogic-web-app>
+85.5 Deploying a WAR in an Old (Servlet 2.5) Container
+Spring Boot uses Servlet 3.0 APIs to initialize the ServletContext (register Servlets etc.) so you can¡¯t use the same application out of the box in a Servlet 2.5 container. It is however possible to run a Spring Boot application on an older container with some special tools. If you include org.springframework.boot:spring-boot-legacy as a dependency (maintained separately to the core of Spring Boot and currently available at 1.0.2.RELEASE), all you should need to do is create a web.xml and declare a context listener to create the application context and your filters and servlets. The context listener is a special purpose one for Spring Boot, but the rest of it is normal for a Spring application in Servlet 2.5. Example:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>demo.Application</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.boot.legacy.context.web.SpringBootContextLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>metricsFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>metricsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextAttribute</param-name>
+            <param-value>org.springframework.web.context.WebApplicationContext.ROOT</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+In this example we are using a single application context (the one created by the context listener) and attaching it to the DispatcherServlet using an init parameter. This is normal in a Spring Boot application (you normally only have one application context).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
