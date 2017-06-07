@@ -1,0 +1,2 @@
+https://www.solidres.com/documentation/joomla-documentation/12-installation/38-initial-configuration-wp
+http://demo.solidres.com/wordpress/

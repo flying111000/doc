@@ -1,0 +1,54 @@
+https://zh.wikipedia.org/wiki/PHP%E6%A1%86%E6%9E%B6%E5%88%97%E8%A1%A8
+
+PHP框架列表[编辑]
+维基百科，自由的百科全书
+Antistub.svg
+本条目需要扩充。（2016年4月4日） 
+请协助改善这篇条目，更进一步的信息可能会在讨论页或扩充请求中找到。请在扩充条目后将此模板移除。
+Tango-nosources.svg
+本条目没有列出任何参考或来源。（2016年4月4日） 
+维基百科所有的内容都应该可供查证。请协助添加来自可靠来源的引用以改善这篇条目。无法查证的内容可能被提出异议而移除。
+这个页面列出可用的PHP框架。
+Agavi是一个开源的PHP框架，支持MVC设计模式。它并没有使用约定优于配置的设计范式，而是重在设计决策，以及更好的可伸缩性。
+ApPHP是一个MVC的快速开发框架。
+AuraPHP是一个受到SolarPHP影响的PHP框架。
+AsgardPHP是一个灵活的，支持快速开发的MVC框架。
+Atomik Framework是一个PHP的微框架。
+CakePHP是一个开源的PHP框架，它支持MVC设计模式，其受到Ruby on Rails影响，并通过MIT许可证发行。
+ClanCats是一个开源的PHP框架，支持HMVC模式.
+CodeIgniter是一套给PHP网站开发者使用的应用程序开发框架和工具包。它提供一套丰富的标准库以及简单的接口和逻辑结构，其目的是使开发人员更快速地进行项目开发。
+Core Framework是一个开源的PHP框架，支持PHP 5.4以上版本，可开发基于MVC的Web应用。
+Cygnite Framework是一个强大的PHP框架，其Active Record受Ruby on Rails影响。
+DiscoPHP是一个支持PHP 5.4以上版本的MVC框架。
+DooPHP是一个快速高效的PHP框架。
+EagleHorn是一个快速、简洁的PHP框架。
+Fat-Free Framework是一个开源的PHP框架,它的设计结合了众多功能和易用性。
+FuelPHP是一个功能完备的PHP框架，为CodeIgniter的一个分支。
+Gliver是一个轻量级的MVC框架。
+Hazaar MVC是一个灵活的PHP 5.3框架。
+Jelix是一个开源的MVC框架。
+Kohana是一个支持HMVC模式的PHP框架，为CodeIgniter一个分支。
+Krystal Framework是一个轻量级的PHP框架，用以开发可维护的Web应用。
+Laravel是一个开源的PHP框架，它由Taylor Otwell开发，支持MVC模式。它配备有一个模块化软件包管理系统和专用依赖管理器。它提供多种访问关系数据库的方式，以及有助于应用部署和维护的实用程序。
+Lithium是一个全栈PHP框架，支持PHP 5.3以上版本，支持MVC模式。
+Mako Framework是一个轻量级的、易用的PHP框架。
+Morrow Framework是一个MVC框架,使用Composer (软体)安装,能更有效率地进行Web开发。
+Nette是一个功能强大的MVC框架。
+Nova Framework是一个简洁的MVC框架。
+OpulencePHP是一个MVC模式的PHP框架，使用Composer (软体)安装。
+OrionPHP是一个轻量级开源的PHP框架，简单易用。
+OuzoFramework是一个轻量级的MVC框架。
+phpHelium是一个轻量级的PHP框架，可以很简单地安装，也支持拓展。
+PHPixie是一个轻量级的PHP框架，具有高性能，易学习的特点。
+Pop PHP是一个轻量级的，功能完备的PHP框架。
+RedCatPHP是一个MVC模式的快速开发框架。
+Symfony是一款基于MVC架构的PHP框架。它是一款免费软件，在MIT License许可下发行。
+ThinkPHP是一个免费开源的，快速、简单的面向对象的 轻量级PHP开发框架,遵循Apache许可证开源协议发布。
+TomahawkPHP是一个全栈PHP框架，基于Symfony Component开发。
+TwistPHP是一个PHP MVC开发框架。
+TYPO3 Flow是一个免费开源的PHP框架。它原本是TYPO3内容管理系统的底层框架,也可以用来开发大中型型Web应用。
+Windwalker是一个RAD企业级开发框架,支持MVC模式及HHVM服务器，其 package 机制适合用来开发中大型企业Web应用。
+YeePHP是一个简洁易用的PHP框架。
+Yii是一个快速、安全、高性能的PHP框架。
+Zeeye Framework是一个开源的、强大的PHP框架。
+Zend Framework是一种开源的, 面向对象的Web应用程序开发框架，在PHP5下运行，使用MVC软件架构，授权模式采用BSD许可证。
