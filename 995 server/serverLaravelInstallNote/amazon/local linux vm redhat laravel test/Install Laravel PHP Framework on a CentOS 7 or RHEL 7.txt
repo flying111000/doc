@@ -28,6 +28,12 @@ key procedure
 4:copy real project files 
 5:config apache virtual host
 
+3 key procedures
+1:LAMP and configuration
+2:composer(3 steps) and laravel
+3:copy real project files and change configuration/permission
+OK!
+
 https://syslint.com/blog/tutorial/how-to-install-laravel-php-framework-on-a-centos-7-or-rhel-7/
 
 How To Install Laravel PHP Framework on a CentOS 7 or RHEL 7
