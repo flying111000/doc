@@ -1,0 +1,1 @@
+actually,it's redhat 7.3 not ec2,but it should be similiar.

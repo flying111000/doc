@@ -1,0 +1,6 @@
+http://blog.csdn.net/zhuying_linux/article/details/6859286
+
+cat /proc/version
+uname -a
+
+cat /etc/redhat-release

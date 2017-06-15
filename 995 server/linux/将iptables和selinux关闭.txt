@@ -1,0 +1,7 @@
+将iptables和selinux关闭
+以下4条命令清除iptables的配置
+iptables -F
+iptables -F -t nat
+iptables -X
+iptables -X -t nat
+setenforce 0 #关闭selinux

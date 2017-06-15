@@ -1,0 +1,126 @@
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+sudo yum install -y httpd php70w php70w-opcache
+ php70w-pdo php70w-mbstring php70w-mysql php70w-pecl-memcached
+ 
+f8258964-ffee-487f-a6e4-2eacd8fc17d1
+ 
+https://access.redhat.com/solutions/253273
+
+sudo yum remove -y php php-opcache php-xml php-mbstring php-pdo
+sudo yum install -y php70w php70w-opcache
+
+
+http://h2ofly.blog.51cto.com/6834926/1324588
+
+将iptables和selinux关闭
+以下4条命令清除iptables的配置
+iptables -F
+iptables -F -t nat
+iptables -X
+iptables -X -t nat
+setenforce 0 #关闭selinux
+
+key procedure
+1:LAMP
+2:composer(3 steps)
+3:create a lavavel test project
+4:copy real project files 
+5:config apache virtual host
+
+https://syslint.com/blog/tutorial/how-to-install-laravel-php-framework-on-a-centos-7-or-rhel-7/
+
+How To Install Laravel PHP Framework on a CentOS 7 or RHEL 7
+
+1. Introduction
+Laravel is a free, open source PHP framework designed for the fastest development of MVC (Model-View-Controller) web applications in PHP. After a great search for the best framework which I can work with, I found laravel to be the best. It is regarded as one of the most popular and secure PHP framework available today. This article will help you to install Laravel 5 PHP Framework on CentOS 7.
+
+2. Prerequisites
+2.1 Server Configuration
+
+OS CentOS 7 / RHEL 7
+Memory Minimum 512 MB
+HDD Space Minimum
+2.2 Requirements
+
+This installation requires LAMP/LEMP with PHP 5.5 or above. You can follow my document (lampinstall.txt) to install apache, MariaDB. After that follow the steps given below to install the required php version and modules.
+
+2.3 Setting up Yum Repositories
+
+At first, you need to add REMI and EPEL rpm repositories in your system. These repositories have all the updated packages for the installation. Use the following commands to add them.
+
+# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+Hope you all are having the apache and MariaDB installed and configured. Now install the PHP and the required modules by the following.
+
+# yum install php55w php55w-opcache php55w-xml php55w-mbstring php55w-pdo
+Thus we have completed the basic server setup. Now we can move on to the installation of composer.
+
+3. Install Composer
+Laravel uses composer to manage its dependencies. So we need to install composer before the installation of laravel. Use the following command to install Composer.
+
+[root@hostname-centos7 ~]# curl -sS https://getcomposer.org/installer | php
+#!/usr/bin/env php
+All settings correct for using Composer
+Downloading...
+
+Composer successfully installed to: /root/composer.phar
+Use it: php composer.phar
+Then move the composer.phar file to /usr/local/bin/ and rename it as below.
+
+[root@hostname-centos7 ~]# mv composer.phar /usr/local/bin/composer
+Give execute permission to the Composer.
+
+[root@hostname-centos7 ~]# chmod +x /usr/local/bin/composer
+Thus the installation of composer is completed. Now we can directly move on to the installation of laravel.
+
+4. Install Laravel
+Navigate to /var/www/ and download the latest version of Laravel using the commands below. Thus will clone master repo of laravel from github.
+
+[root@hostname-centos7 ~]# cd /var/www
+[root@hostname-centos7 www]# git clone https://github.com/laravel/laravel.git
+Cloning into 'laravel'...
+remote: Counting objects: 25968, done.
+remote: Total 25968 (delta 0), reused 0 (delta 0), pack-reused 25968
+Receiving objects: 100% (25968/25968), 9.70 MiB | 6.02 MiB/s, done.
+Resolving deltas: 100% (13061/13061), done.
+After than move to the laravel code directory and use composer to install all dependencies required for Laravel framework.
+
+# cd /var/www/laravel
+# composer install
+This will take a while according to the network speed. After than set proper permissions on files.
+
+# chown -R apache.apache /var/www/laravel
+# chmod -R 755 /var/www/laravel
+Thus the basic setup of laravel is completed.
+
+5. Set Encryption Key
+At first, set the 32 bit long random number encryption key by using the command below, which used by the Illuminate encrypter service.
+
+[root@hostname-centos7 laravel]# php artisan key:generate
+Application key [WRAGp0Pu9kTHiZDqbsEKGXDjSWNL76iF] set successfully.
+Then update the above generated application key into the config/app.php configuration file. Also make sure that cipher is set properly.
+
+'key' => env('WRAGp0Pu9kTHiZDqbsEKGXDjSWNL76iF')/	This key is used by the Illuminate encrypter service and should be set. 					
+'cipher' => 'AES-256-CBC',
+6. Create Apache Virtual Host
+Now create a Virtual Host in your Apache configuration file to access Laravel framework from web browser.
+
+To do it edit the apache configuration file /etc/httpd/conf/httpd.conf and add the code below and save the file.
+
+# vim /etc/httpd/conf/httpd.conf
+
+       ServerName laravel.yourwebsite.com
+       DocumentRoot /var/www/laravel/public
+
+       
+              AllowOverride All
+       
+
+After than restart the apache service and access Laravel framework using your favourite web browser and you will see a page like the image below which means laravel is properly installed.
+
+# systemctl restart httpd
+laravel
+
+7. Conclusion
+Thus we have installed the most popular PHP framework in an easy way.

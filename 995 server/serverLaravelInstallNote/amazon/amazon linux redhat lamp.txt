@@ -1,0 +1,36 @@
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
+
+Tutorial: Installing a LAMP Web Server on Amazon Linux
+
+sudo yum update -y
+sudo yum install -y httpd24 php70 php70-mysqlnd
+
+
+
+https://developers.redhat.com/blog/2016/08/23/setting-up-a-lamp-stack-on-rhel/
+
+
+sudo yum install -y httpd php php-mysql
+systemctl enable httpd  && systemctl start httpd
+echo "<?php phpinfo();" > /var/www/html/index.php
+#firewall-cmd --zone=public --add-port=80/tcp --permanent
+yum install telnet telnet-server -y
+
+iptables -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 81 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 81 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 82 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 82 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 83 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 83 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 84 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 84 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 85 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 85 -j ACCEPT
+

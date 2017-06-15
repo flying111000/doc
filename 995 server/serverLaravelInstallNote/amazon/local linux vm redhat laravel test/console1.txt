@@ -1,0 +1,233 @@
+Using username "root1".
+Last login: Wed Jun 14 13:36:54 2017
+[root1@localhost ~]$ rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+Retrieving https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+warning: /var/tmp/rpm-tmp.hJu058: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+error: can't create transaction lock on /var/lib/rpm/.rpm.lock (Permission denied)
+[root1@localhost ~]$ sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for root1:
+Retrieving https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+warning: /var/tmp/rpm-tmp.7u376l: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:epel-release-7-9                 ################################# [100%]
+[root1@localhost ~]$ sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+Retrieving https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+warning: /var/tmp/rpm-tmp.3Sn2G8: Header V4 RSA/SHA1 Signature, key ID 62e74ca5: NOKEY
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:webtatic-release-7-3             ################################# [100%]
+[root1@localhost ~]$ sudo yum install -y php70w php70w-opcache php70w-pdo php70w-mbstring php70w-mysql php70w-pecl-memcached
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+epel/x86_64/metalink                                                                                                                                                                                                  |  11 kB  00:00:00
+epel                                                                                                                                                                                                                  | 4.3 kB  00:00:00
+webtatic                                                                                                                                                                                                              | 3.6 kB  00:00:00
+(1/5): epel/x86_64/group_gz                                                                                                                                                                                           | 170 kB  00:00:00
+(2/5): webtatic/x86_64/group_gz                                                                                                                                                                                       |  448 B  00:00:00
+(3/5): webtatic/x86_64/primary_db                                                                                                                                                                                     | 182 kB  00:00:00
+(4/5): epel/x86_64/updateinfo                                                                                                                                                                                         | 808 kB  00:00:01
+(5/5): epel/x86_64/primary_db                                                                                                                                                                                         | 4.8 MB  00:00:02
+Resolving Dependencies
+--> Running transaction check
+---> Package php70w.x86_64 0:7.0.19-1.w7 will be installed
+--> Processing Dependency: php70w-common(x86-64) = 7.0.19-1.w7 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: php70w-cli(x86-64) = 7.0.19-1.w7 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: php70w-cli = 7.0.19-1.w7 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd-mmn = 20120211x8664 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd for package: php70w-7.0.19-1.w7.x86_64
+---> Package php70w-mbstring.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-mysql.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-opcache.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-pdo.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-pecl-memcached.x86_64 0:3.0.3-1.w7 will be installed
+--> Processing Dependency: php-pecl-igbinary(x86-64) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: /usr/bin/pecl for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: /usr/bin/pecl for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcachedutil.so.2()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcachedprotocol.so.0()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcached.so.11()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Running transaction check
+---> Package php70w.x86_64 0:7.0.19-1.w7 will be installed
+--> Processing Dependency: httpd-mmn = 20120211x8664 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd for package: php70w-7.0.19-1.w7.x86_64
+---> Package php70w-cli.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-common.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-pear.noarch 1:1.10.1-1.w7 will be installed
+--> Processing Dependency: php70w-xml for package: 1:php70w-pear-1.10.1-1.w7.noarch
+--> Processing Dependency: php70w-posix for package: 1:php70w-pear-1.10.1-1.w7.noarch
+---> Package php70w-pecl-igbinary.x86_64 0:2.0.1-1.w7 will be installed
+---> Package php70w-pecl-memcached.x86_64 0:3.0.3-1.w7 will be installed
+--> Processing Dependency: libmemcachedutil.so.2()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcachedprotocol.so.0()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcached.so.11()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Running transaction check
+---> Package php70w.x86_64 0:7.0.19-1.w7 will be installed
+--> Processing Dependency: httpd-mmn = 20120211x8664 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd for package: php70w-7.0.19-1.w7.x86_64
+---> Package php70w-pecl-memcached.x86_64 0:3.0.3-1.w7 will be installed
+--> Processing Dependency: libmemcachedutil.so.2()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcachedprotocol.so.0()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+--> Processing Dependency: libmemcached.so.11()(64bit) for package: php70w-pecl-memcached-3.0.3-1.w7.x86_64
+---> Package php70w-process.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-xml.x86_64 0:7.0.19-1.w7 will be installed
+--> Finished Dependency Resolution
+Error: Package: php70w-pecl-memcached-3.0.3-1.w7.x86_64 (webtatic)
+           Requires: libmemcachedprotocol.so.0()(64bit)
+Error: Package: php70w-7.0.19-1.w7.x86_64 (webtatic)
+           Requires: httpd-mmn = 20120211x8664
+Error: Package: php70w-pecl-memcached-3.0.3-1.w7.x86_64 (webtatic)
+           Requires: libmemcachedutil.so.2()(64bit)
+Error: Package: php70w-pecl-memcached-3.0.3-1.w7.x86_64 (webtatic)
+           Requires: libmemcached.so.11()(64bit)
+Error: Package: php70w-7.0.19-1.w7.x86_64 (webtatic)
+           Requires: httpd
+ You could try using --skip-broken to work around the problem
+ You could try running: rpm -Va --nofiles --nodigest
+[root1@localhost ~]$ php -v
+bash: php: command not found...
+[root1@localhost ~]$ sudo yum install -y httpd php70w php70w-opcache
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+No package httpd available.
+Resolving Dependencies
+--> Running transaction check
+---> Package php70w.x86_64 0:7.0.19-1.w7 will be installed
+--> Processing Dependency: php70w-common(x86-64) = 7.0.19-1.w7 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: php70w-cli(x86-64) = 7.0.19-1.w7 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: php70w-cli = 7.0.19-1.w7 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd-mmn = 20120211x8664 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd for package: php70w-7.0.19-1.w7.x86_64
+---> Package php70w-opcache.x86_64 0:7.0.19-1.w7 will be installed
+--> Running transaction check
+---> Package php70w.x86_64 0:7.0.19-1.w7 will be installed
+--> Processing Dependency: httpd-mmn = 20120211x8664 for package: php70w-7.0.19-1.w7.x86_64
+--> Processing Dependency: httpd for package: php70w-7.0.19-1.w7.x86_64
+---> Package php70w-cli.x86_64 0:7.0.19-1.w7 will be installed
+---> Package php70w-common.x86_64 0:7.0.19-1.w7 will be installed
+--> Finished Dependency Resolution
+Error: Package: php70w-7.0.19-1.w7.x86_64 (webtatic)
+           Requires: httpd-mmn = 20120211x8664
+Error: Package: php70w-7.0.19-1.w7.x86_64 (webtatic)
+           Requires: httpd
+ You could try using --skip-broken to work around the problem
+ You could try running: rpm -Va --nofiles --nodigest
+[root1@localhost ~]$ sudo yum update -y
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+No packages marked for update
+[root1@localhost ~]$ rootroot
+bash: rootroot: command not found...
+[root1@localhost ~]$ sudo yum update -y
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+No packages marked for update
+[root1@localhost ~]$ sudo yum install -y httpd php php-mysql
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+No package httpd available.
+Resolving Dependencies
+--> Running transaction check
+---> Package mod_php71w.x86_64 0:7.1.5-1.w7 will be installed
+---> Package php71w-mysql.x86_64 0:7.1.5-1.w7 will be installed
+--> Processing Dependency: php71w-pdo(x86-64) for package: php71w-mysql-7.1.5-1.w7.x86_64
+--> Running transaction check
+---> Package php71w-pdo.x86_64 0:7.1.5-1.w7 will be installed
+--> Processing Dependency: php71w-common(x86-64) = 7.1.5-1.w7 for package: php71w-pdo-7.1.5-1.w7.x86_64
+--> Running transaction check
+---> Package php71w-common.x86_64 0:7.1.5-1.w7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================================================================
+ Package                                                      Arch                                                  Version                                                    Repository                                               Size
+=============================================================================================================================================================================================================================================
+Installing:
+ mod_php71w                                                   x86_64                                                7.1.5-1.w7                                                 webtatic                                                2.9 M
+ php71w-mysql                                                 x86_64                                                7.1.5-1.w7                                                 webtatic                                                 80 k
+Installing for dependencies:
+ php71w-common                                                x86_64                                                7.1.5-1.w7                                                 webtatic                                                1.2 M
+ php71w-pdo                                                   x86_64                                                7.1.5-1.w7                                                 webtatic                                                 88 k
+
+Transaction Summary
+=============================================================================================================================================================================================================================================
+Install  2 Packages (+2 Dependent packages)
+
+Total download size: 4.3 M
+Installed size: 19 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7Server/webtatic/packages/php71w-pdo-7.1.5-1.w7.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 62e74ca5: NOKEY                                                            ]  0.0 B/s |    0 B  --:--:-- ETA
+Public key for php71w-pdo-7.1.5-1.w7.x86_64.rpm is not installed
+(1/4): php71w-pdo-7.1.5-1.w7.x86_64.rpm                                                                                                                                                                               |  88 kB  00:00:00
+(2/4): php71w-mysql-7.1.5-1.w7.x86_64.rpm                                                                                                                                                                             |  80 kB  00:00:01
+(3/4): php71w-common-7.1.5-1.w7.x86_64.rpm                                                                                                                                                                            | 1.2 MB  00:00:01
+(4/4): mod_php71w-7.1.5-1.w7.x86_64.rpm                                                                                                                                                                               | 2.9 MB  00:00:06
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                                        645 kB/s | 4.3 MB  00:00:06
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-webtatic-el7
+Importing GPG key 0x62E74CA5:
+ Userid     : "Webtatic EL7 <rpms@webtatic.com>"
+ Fingerprint: 830d b159 6d9b 9b01 99dc 24a3 e87f d236 62e7 4ca5
+ Package    : webtatic-release-7-3.noarch (installed)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-webtatic-el7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Warning: RPMDB altered outside of yum.
+  Installing : php71w-common-7.1.5-1.w7.x86_64                                                                                                                                                                                           1/4
+  Installing : php71w-pdo-7.1.5-1.w7.x86_64                                                                                                                                                                                              2/4
+  Installing : php71w-mysql-7.1.5-1.w7.x86_64                                                                                                                                                                                            3/4
+  Installing : mod_php71w-7.1.5-1.w7.x86_64                                                                                                                                                                                              4/4
+warning: group apache does not exist - using root
+warning: group apache does not exist - using root
+  Verifying  : php71w-common-7.1.5-1.w7.x86_64                                                                                                                                                                                           1/4
+  Verifying  : php71w-mysql-7.1.5-1.w7.x86_64                                                                                                                                                                                            2/4
+  Verifying  : mod_php71w-7.1.5-1.w7.x86_64                                                                                                                                                                                              3/4
+  Verifying  : php71w-pdo-7.1.5-1.w7.x86_64                                                                                                                                                                                              4/4
+
+Installed:
+  mod_php71w.x86_64 0:7.1.5-1.w7                                                                                       php71w-mysql.x86_64 0:7.1.5-1.w7
+
+Dependency Installed:
+  php71w-common.x86_64 0:7.1.5-1.w7                                                                                      php71w-pdo.x86_64 0:7.1.5-1.w7
+
+Complete!
+[root1@localhost ~]$ php -v
+bash: php: command not found...
+[root1@localhost ~]$ sudo yum install -y telnet
+[sudo] password for root1:
+Sorry, try again.
+[sudo] password for root1:
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is not registered to Red Hat Subscription Management. You can use subscription-manager to register.
+No package telnet available.
+Error: Nothing to do
+[root1@localhost ~]$ subscription-manager register
+You are attempting to run "subscription-manager" which requires administrative
+privileges, but more information is needed in order to do so.
+Authenticating as "root"
+Password:
+Registering to: subscription.rhsm.redhat.com:443/subscription
+Username: 2853759768@qq.com
+Password:
+Invalid username or password. To create a login, please visit https://www.redhat.com/wapps/ugc/register.html
+[root1@localhost ~]$ subscription-manager register
+You are attempting to run "subscription-manager" which requires administrative
+privileges, but more information is needed in order to do so.
+Authenticating as "root"
+Password:
+Registering to: subscription.rhsm.redhat.com:443/subscription
+Username: 2853759768@qq.com
+Password:
+The system has been registered with ID: f8258964-ffee-487f-a6e4-2eacd8fc17d1
+[root1@localhost ~]$

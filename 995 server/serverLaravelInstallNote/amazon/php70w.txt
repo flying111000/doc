@@ -1,0 +1,134 @@
+https://webtatic.com/packages/php70/
+
+PHP 7.0 on CentOS/RHEL 6.8 and 7.3 via Yum
+PHP 7.0.19 has been released on PHP.net on 11th May 2017, and is also available for CentOS/RHEL 6.8 and 7.3 at Webtatic via Yum.
+
+Source - Issues
+
+PEAR installer now supports PHP 7.0, however most pecl libraries will not support it as well without their maintainers adding compatibility, so only pecl libraries that do support it will be in the Webtatic repository.
+
+pecl memcache extension - no sign of PHP 7 support development in official source repository
+Update 2016-12-17 - Webtatic now has released PHP 7.1.0 for CentOS/RHEL 6 and 7
+
+PHP 7.0.0 comes with new version of the Zend Engine with features such as (incomplete list):
+
+Improved performance: PHP 7 is up to twice as fast as PHP 5.6
+Consistent 64-bit support
+Many fatal errors are now Exceptions
+Removal of old and unsupported SAPIs and extensions
+The null coalescing operator (??)
+Combined comparison Operator (<=>)
+Return Type Declarations
+Scalar Type Declarations
+Anonymous Classes
+To see what else has been added, check out the Migrating from PHP 5.6.x to PHP 7.0.x.
+
+To install, first you must add the Webtatic EL yum repository information corresponding to your CentOS/RHEL version to yum:
+
+CentOS/RHEL 7.x:
+
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+CentOS/RHEL 6.x:
+
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+Now you can install PHP 7.0’s mod_php SAPI (along with an opcode cache) by doing:
+
+yum install php70w php70w-opcache
+You can alternatively install PHP 7.0’s php-fpm SAPI (along with an opcode cache by doing:
+
+yum install php70w-fpm php70w-opcache
+See the package list below for additional SAPIs and PHP extensions.
+
+This will install the mod_php SAPI for PHP, however there are other sapis such as php-fpm (via php70w-fpm package). Read on below for more information about the available SAPIs
+
+If you would like to upgrade php to this version it is recommended that you first check that your system will support the upgrade, e.g. making sure any CPanel-like software can run after the upgrade.
+
+Unless you know what you are doing, it is risky upgrading an existing system. It’s much safer to do this by provisioning a separate server to perform the upgrade as a fresh install instead.
+
+If you know what you are doing, you can upgrade PHP by:
+
+yum install yum-plugin-replace
+yum replace php-common --replace-with=php70w-common
+It will likely give you a message “WARNING: Unable to resolve all providers …“. This is normal, and you can continue by tying “y”. You will be given a chance to see what packages will be installed and removed before again being given a chance to confirm.
+
+SAPIs
+
+SAPIs are different runtime environments of PHP.
+
+mod_php NTS
+(non-thread safety) Contained in the php70w package, this SAPI integrates into Apache Httpd (2.2.* on RHEL/CentOS 6, 2.4.* on RHEL/CentOS 7). It is the standard SAPI for use with httpd prefork mpm (the default mode httpd is ran under. It is not thread-safe, but doesn’t need to be due to prefork not using threads. It’s located at /usr/lib[64]/httpd/modules/libphp7.so
+
+cli
+Contained in the php70w-cli package, this SAPI allows running scripts from the command-line, and also has a built-in web server for development-use. Located at /usr/bin/php
+
+fpm
+Contained in the php70w-fpm package, fpm (FastCGI Process Manager) is a scalable FastCGI process, which acts similar to how Httpd prefork mpm works managing it’s forks. Located at /usr/sbin/php-fpm, it is controlled using the /etc/init.d/php-fpm service script
+
+phpdbg
+Contained in the php70w-phpdbg package, phpdbg has the ability to debug scripts using breakpoints from the command-line, and also supports remote-debugging using an external Java client for remote communication.
+
+embedded
+Contained in the php70w-embedded package, this SAPI allows embedding PHP in other applications. It’s library is located at /usr/lib[64]/libphp7.so
+
+cgi, fastcgi
+Contained in the php70w-cli package, these SAPIs are not recommended for use, but are available where needed. They both exist in the binary at /usr/bin/php-cgi.
+
+mod_php TS
+(thread safety) Contained in the php70w package, this SAPI integrates into Apache Httpd (2.2.* on RHEL/CentOS 6, 2.4.* on RHEL/CentOS 7). It is the standard SAPI for use with httpd worker mpm. It’s supposed to be thread-safe, but can’t guarantee to be, and certainly not under additional PHP extensions. It’s better to use FastCGI SAPIs than this one. It’s located at /usr/lib[64]/httpd/modules/libphp7-zts.so
+
+Packages
+
+Package	Provides
+php70w	mod_php, php70w-zts
+php70w-bcmath	
+php70w-cli	php-cgi, php-pcntl, php-readline
+php70w-common	php-api, php-bz2, php-calendar, php-ctype, php-curl, php-date, php-exif, php-fileinfo, php-filter, php-ftp, php-gettext, php-gmp, php-hash, php-iconv, php-json, php-libxml, php-openssl, php-pcre, php-pecl-Fileinfo, php-pecl-phar, php-pecl-zip, php-reflection, php-session, php-shmop, php-simplexml, php-sockets, php-spl, php-tokenizer, php-zend-abi, php-zip, php-zlib
+php70w-dba	
+php70w-devel	
+php70w-embedded	php-embedded-devel
+php70w-enchant	
+php70w-fpm	
+php70w-gd	
+php70w-imap	
+php70w-interbase	php_database, php-firebird
+php70w-intl	
+php70w-ldap	
+php70w-mbstring	
+php70w-mcrypt	
+php70w-mysql	php-mysqli, php_database
+php70w-mysqlnd	php-mysqli, php_database
+php70w-odbc	php-pdo_odbc, php_database
+php70w-opcache	php70w-pecl-zendopcache
+php70w-pdo	php70w-pdo_sqlite, php70w-sqlite3
+php70w-pdo_dblib	php70w-mssql
+php70w-pear	
+php70w-pecl-apcu	
+php70w-pecl-imagick	
+php70w-pecl-memcached	
+php70w-pecl-mongodb	
+php70w-pecl-redis	
+php70w-pecl-xdebug	
+php70w-pgsql	php-pdo_pgsql, php_database
+php70w-phpdbg	
+php70w-process	php-posix, php-sysvmsg, php-sysvsem, php-sysvshm
+php70w-pspell	
+php70w-recode	
+php70w-snmp	
+php70w-soap	
+php70w-tidy	
+php70w-xml	php-dom, php-domxml, php-wddx, php-xsl
+php70w-xmlrpc	
+Opcode Caches
+
+The PHP distribution now comes with an opcode cache. This is the Zend Optimizer+ opcode cache, now known as the Zend OPcache extension. This extension is optional, so does not preclude you from using an alternate one.
+
+Due to it being included in the PHP source distribution, it will be well maintained and more suitable for use while other Opcode cache’s are being updated over the coming months.
+
+yum install php70w-opcache
+error_reporting E_ALL includes E_STRICT
+
+As mentioned in the PHP 5.4 guide:
+
+You may get a lot more errors coming out of your error logs if by default your error_reporting is set to E_ALL now without explicitly turning off E_STRICT. The default php.ini that comes with the PHP package turns this off by default, but if you are upgrading from an existing installation, your php.ini may not be updated, meaning this will likely be turned on.

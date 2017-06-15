@@ -4,3 +4,6 @@ ubuntu-17.04-desktop-amd64.iso
 virtualBox 5.1.20 r114628(Qt5.6.2)
 
 
+vendor\laravel\framework\src\Illuminate\Foundation\Application.php
+
+

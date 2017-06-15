@@ -1,0 +1,165 @@
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
+
+redhat 7.3 platform
+
+Tutorial: Installing a LAMP Web Server on Amazon Linux
+
+sudo yum update -y
+sudo yum install -y httpd24 php70 php70-mysqlnd
+
+
+
+https://developers.redhat.com/blog/2016/08/23/setting-up-a-lamp-stack-on-rhel/
+
+
+sudo yum install -y httpd php php-mysql
+sudo yum remove -y php php-mysql
+sudo yum install -y php56 php56-mysql
+sudo yum install -y php70 php70-mysqlnd
+sudo yum install -y php php-mysql
+
+
+systemctl enable httpd  && systemctl start httpd
+echo "<?php phpinfo();" > /var/www/html/index.php
+#firewall-cmd --zone=public --add-port=80/tcp --permanent
+
+sudo yum install nano curl wget bind-utils telnet
+yum install telnet telnet-server -y
+
+iptables -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 81 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 81 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 82 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 82 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 83 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 83 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 84 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 84 -j ACCEPT
+
+iptables -A INPUT -p tcp -m tcp --sport 85 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 85 -j ACCEPT
+
+=====================================================================================================
+sudo yum install php-curl php-mcrypt php-mbstring php-gettext
+#sudo yum install php-openssl php-mysql php-gd php-mbstring
+
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+
+sudo yum remove -y httpd php php-mysql
+sudo yum remove -y php-common
+sudo yum install -y httpd php70w php70w-opcache
+
+sudo yum install -y php70w-pdo php70w-mbstring php70w-mysql php70w-pecl-memcached
+
+=============================================lamp ok=========================================================
+
+=============================================laravel begin===================================================
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+chmod +x /usr/local/bin/composer
+
+composer global require "laravel/installer"
+
+conf/
+listen 81
+
+conf.d/hotel_b2b_test.conf
+
+<VirtualHost *:81>
+ DocumentRoot "/var/www/html/hotel_b2b_test/public"
+ ServerName 54.222.173.223
+</VirtualHost>
+
+<LocationMatch "^/+$">
+    Options -Indexes
+    ErrorDocument 403 /.noindex.html
+</LocationMatch>
+
+<Directory /var/www/html/hotel_b2b_test/public>
+    AllowOverride All
+    Require all granted
+</Directory>
+
+Alias /.noindex.html /usr/share/httpd/noindex/index.html
+
+
+By now,laravel ok,next is redis,db,and api url.
+
+All the reference:
+https://developers.redhat.com/blog/2016/08/23/setting-up-a-lamp-stack-on-rhel/
+https://laravel.com/docs/5.2
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Confined_Services/chap-Managing_Confined_Services-The_Apache_HTTP_Server.html
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html#software_versions
+https://developers.redhat.com/blog/2017/03/07/how-to-set-up-a-lamp-stack-on-red-hat-enterprise-linux-7/
+https://webtatic.com/packages/php70/
+https://syslint.com/blog/tutorial/how-to-install-laravel-php-framework-on-a-centos-7-or-rhel-7/
+
+============================issues shooting==================================================
+failed to open stream: Permission denied
+
+php -i | grep USER
+chown -R root:root hotel_b2b_test
+chown -R apache:apache hotel_b2b_test
+ls -l
+
+composer dump-autoload
+
+composer create-project --prefer-dist laravel/laravel blog "5.2.*"
+
+https://syslint.com/blog/tutorial/how-to-install-laravel-php-framework-on-a-centos-7-or-rhel-7/
+
+yum install -y git
+
+cd /var/www/html
+git clone https://github.com/laravel/laravel.git
+
+cd /var/www/html/laravel
+composer install
+chown -R apache.apache /var/www/html/laravel
+chmod -R 755 /var/www/html/laravel
+
+sudo yum remove -y php70w php70w-opcache php70w-common php70w-pdo php70w-mbstring php70w-mysql php70w-pecl-memcached
+yum install php55w php55w-opcache php55w-xml php55w-mbstring php55w-pdo
+sudo yum remove -y php55w php55w-opcache php55w-xml php55w-mbstring php55w-pdo
+sudo yum remove -y php55w-common
+sudo yum install -y php php-mysql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
