@@ -1,0 +1,84 @@
+    @Repository
+public class PersistenceManager
+{
+    /**
+     * Key that stores the entity manager.
+     */
+    private static final String ENTITY_MANAGER_INSTANCE = "ENTITY_MANAGER_INSTANCE";
+    /**
+     * Persistence unit for eMyEd
+     */
+    private static final String PERSISTENCE_UNIT_EMYED = "application_openjpa";
+
+    private static EntityManagerFactory emf;
+
+    @PersistenceUnit(unitName=PERSISTENCE_UNIT_EMYED)
+    public void setEntityManagerFactory(EntityManagerFactory emf) {
+        PersistenceManager.emf = emf;
+    }
+    /**
+     * Cleanup any entity managers created in the thread context.
+     */
+    public static void close()
+    {
+        EntityManager emInstance = getEntityManager();
+        try
+        {
+            if (emInstance.isOpen())
+            {
+                emInstance.close();
+            }
+        }
+        catch (Throwable t)
+        {
+            // ignore
+        }
+        finally
+        {
+            ThreadContext.instance.clear();
+        }
+    }
+
+    /**
+     * Returns the Entity manager associated with the given thread context. If
+     * none available, one is created and set on the thread context and the same
+     * is returned.
+     *
+     * @return
+     */
+    public static EntityManager getEntityManager()
+    {
+        EntityManager emInstance = (EntityManager) ThreadContext.instance
+                .get(ENTITY_MANAGER_INSTANCE);
+        if (emInstance == null)
+        {
+            emInstance = createEntityManager();
+            emInstance.setFlushMode(FlushModeType.COMMIT);
+            ThreadContext.instance.put(ENTITY_MANAGER_INSTANCE, emInstance);
+        }
+        try
+        {
+            // try to join the current active transaction
+            emInstance.joinTransaction();
+        }
+        catch (TransactionRequiredException notSupportedEx)
+        {
+            // If there was no transaction to join. Ignore
+        }
+        catch (Throwable unknownEx)
+        {
+            // If there was no transaction to join. Ignore
+        }
+        return emInstance;
+    }
+
+    /**
+     * Create a new entity manager.
+     *
+     * @return
+     */
+    private static EntityManager createEntityManager()
+    {
+        return emf.createEntityManager();
+    }
+}
