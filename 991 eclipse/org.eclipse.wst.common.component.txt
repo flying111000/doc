@@ -1,0 +1,5 @@
+Eclipse uses the data in org.eclipse.wst.common.component to figure out the dependencies needed for deployment. The file corresponds to the settings found in Eclipse when Right-clicking on an EAR project > Properties > Deployment Assembly.
+
+E.g. if your EAR project has a dependency on a WAR project then Eclipse knows to include the WAR when deploying because of the Deployment Assembly settings which get stored in org.eclipse.wst.common.component
+
+When building the EAR using Ant you need to add these dependencies manually (without relying on Eclipse metadata)
