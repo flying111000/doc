@@ -1,0 +1,21 @@
+	private static Connection getConnection(){
+		Connection conn=null;
+		try {
+			BasicDataSource ds=ApplicationContextProvider.getApplicationContext().getBean("readDataSource", BasicDataSource.class);
+			conn=ds.getConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+	public static ResultSet getRS(String sql){
+		ResultSet rs = null;
+		try {
+			rs = getConnection().createStatement().executeQuery(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
