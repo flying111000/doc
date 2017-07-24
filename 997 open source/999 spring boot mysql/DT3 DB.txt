@@ -1,0 +1,24 @@
+CREATE TABLE `user` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NULL DEFAULT '0' COLLATE 'utf8_unicode_ci',
+	`email` VARCHAR(50) NULL DEFAULT '0' COLLATE 'utf8_unicode_ci',
+	`destination_id` INT(11) NULL DEFAULT '0',
+	UNIQUE INDEX `id` (`id`)
+)
+COLLATE='utf8_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=8
+;
+
+
+CREATE TABLE `destination` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`dest` VARCHAR(50) NULL DEFAULT '0' COLLATE 'utf8_unicode_ci',
+	`desc` VARCHAR(50) NULL DEFAULT '0' COLLATE 'utf8_unicode_ci',
+	UNIQUE INDEX `id` (`id`)
+)
+COLLATE='utf8_unicode_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DYNAMIC
+AUTO_INCREMENT=2
+;
