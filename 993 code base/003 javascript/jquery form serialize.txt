@@ -1,0 +1,17 @@
+	$.post(url, ggg.serialize(), function(data) {
+            var l = $( '.ladda-button-book' ).ladda();
+            //l.ladda('stop');
+
+            if (data.success) {
+                self.location = data.voucherUrl;
+            }
+            else {
+                    if(data.voucherUrl) {
+						self.location = data.voucherUrl;
+						//self.location = "www.google.com";
+					}else{
+						l.ladda('stop');
+						swal("Book failed", data.message, "error");
+					}
+            }
+        });

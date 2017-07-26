@@ -1,0 +1,17 @@
+use Log;
+use Mail;
+
+
+	private function payError($msg)
+	{
+		try {
+			Log::info('Pay failed: ' . print_r($msg, true));
+			Mail::raw($msg, function ($message) {
+				$message->subject('Error Message From B2B Site');
+				$message->to('2853759768@qq.com')->cc('2355906871@qq.com');
+			});
+		} catch (Exception $e) {
+			Log::info($e->getMessage());
+		}
+	}
+
