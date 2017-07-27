@@ -1,8 +1,3 @@
-http://mp.weixin.qq.com/s/_Kndf786VvYKJbkfmTr1uQ
-http://mp.weixin.qq.com/s/zGsYc772nrbBs9n5k8H0yg
-http://mp.weixin.qq.com/s/HOU6FgIuTOlftKzRfcvF0w
-
-
 https://developer.hotelbeds.com/docs/read/apitude_booking/Booking_Confirmation
 http://resources.innstant.com/mishor-4-documentation/5-api-methods/1-hotels/4-booking
 http://doc.touricoholidays.com/hotel-search-book-online-flow/hotel-service/bookhotel/
