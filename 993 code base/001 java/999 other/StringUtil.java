@@ -1,12 +1,3 @@
-/**
- * ai 核心服务�?
- * ============================================================================
- * * 版权�?�� ai，并保留�?��权利�?
- * 网站地址: http://www.ai.com�?
- * ----------------------------------------------------------------------------
- * $Author: james $
- * $Id: DbHelper.java 2015-04-29 
-*/
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
