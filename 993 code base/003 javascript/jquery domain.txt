@@ -1,0 +1,8 @@
+http://www.jianshu.com/p/a9cd5d74d9ba
+
+https://github.com/flying111000/jquery-jsonp
+
+
+header("Access-Control-Allow-Origin:*");
+/*星号表示所有的域都可以接受，*/
+header("Access-Control-Allow-Methods:GET,POST");
