@@ -1,0 +1,16 @@
+VS2015 Dark Theme for Notepad++
+
+Atom Version
+Android Studio / IntelliJ Version
+This is as close as I can get to a replica of the Visual Studio 2015's Dark theme in Notepad++. I created it to ease switching between files opened in Visual Studio and Notepad++. Particularly close attention has been paid to C, C++, and XML but a number of other languages have been tested.
+
+Installation
+
+Right Click HERE and select Save As to download the theme.
+Go to %APPDATA%\Notepad++.
+Open themes folder, create a new folder named themes if it doesn't exists.
+Place downloaded .xml file inside the folder.
+Restart Notepad++.
+Open Settings->Style Configurator.
+Select VS2015-Dark from the theme drop-down box.
+Click Save & Close
