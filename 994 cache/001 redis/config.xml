@@ -1,0 +1,16 @@
+	<bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+	<property name="usePool" value="true"></property>
+        <property name="hostName" value="ipaddr" />
+        <property name="port" value="6379" />
+        <property name="password" value="password" />
+        <property name="timeout" value="100000" />
+        <constructor-arg index="0" ref="jedisPoolConfig" />
+    </bean>  
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"> 
+        <property name="maxTotal" value="300" />
+        <property name="maxIdle" value="100" />
+        <property name="maxWaitMillis" value="10000" />
+    </bean>
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+    </bean>
