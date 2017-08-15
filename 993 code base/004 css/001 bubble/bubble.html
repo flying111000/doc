@@ -1,0 +1,26 @@
+<style type="text/css">
+.bubble{
+	position: relative;
+    height: 20px;
+    padding: 20px;
+    background: #777777;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 14px 0;
+    border-color: #777777 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 30px;
+}
+</style>
+<div class="bubble">aaaaaaaaaaaa</div>
