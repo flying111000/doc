@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/28750292/custom-spring-boot-starter-how-do-you-contribute-i18n-messages-to-the-messageso
+spring.messages.basename = messages
+
+http://www.baeldung.com/spring-boot-internationalization
+
+https://stackoverflow.com/questions/25687754/spring-boot-automatically-import-applicationcontext-xml
+@EnableAutoConfiguration
+@Configuration
+@ImportResource({"classpath*:applicationContext.xml"})
