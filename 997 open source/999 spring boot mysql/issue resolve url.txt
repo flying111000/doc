@@ -1,0 +1,2 @@
+http://crunchify.com/how-to-solve-dynamic-web-module-3-1-requires-java-1-7-or-newer-in-eclipse/
+https://stackoverflow.com/questions/44485589/dependencies-issue-springbootservletinitializer-cannot-be-resolved-to-a-type
