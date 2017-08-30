@@ -1,2 +1,10 @@
 easyplaza 
 easyhigh
+
+shoppingline
+medicineline
+clinicline
+cliniconline
+hospitalonline
+appointmentonline
+appointonline
