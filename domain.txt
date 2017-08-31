@@ -8,3 +8,4 @@ cliniconline
 hospitalonline
 appointmentonline
 appointonline
+yasol
