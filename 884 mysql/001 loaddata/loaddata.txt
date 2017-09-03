@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INFILE 'e:\\c.txt' INTO TABLE item_all;
