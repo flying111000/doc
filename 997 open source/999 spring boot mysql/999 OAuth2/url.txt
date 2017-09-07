@@ -1,1 +1,2 @@
 https://spring.io/guides/tutorials/spring-boot-oauth2/
+http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/
