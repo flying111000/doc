@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INFILE 'C:\\work\\001_static_data\\003 tourico\\static_data\\HotelAdditionalInfo\\PDS2_RoomFacilities_THF.csv' INTO TABLE room_facility_tourico FIELDS TERMINATED BY '|' LINES TERMINATED BY '\r\n';
