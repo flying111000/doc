@@ -1,2 +1,18 @@
 https://spring.io/guides/tutorials/spring-boot-oauth2/
 http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/
+http://projects.spring.io/spring-security-oauth/docs/oauth2.html
+
+
+
+https://stackoverflow.com/questions/14315777/oauth2-long-lived-tokens-vs-reauthentication-in-a-client-credentials-flow
+
+According to the specification, the client credentials flow is only allowed for clients that are not running the risk of having its client secret stolen:
+
+The client credentials grant type MUST only be used by confidential clients.
+So, if you are using this flow in conjunction with an application on an untrusted platform, you should definitely reconsider this decision.
+
+With the prerequisite that your platform is trusted, there is no need to worry about a stolen client secret. Your decision then comes down weighing up the time an attacker can play with a stolen access token versus the additional overhead for the reauthentication (only one call, but nonetheless a small delay). The reauthentication step itself is a non-issue concerning the exposure of your client secrect, when both participants are trusted and you're using a good transport layer security against MITM attacks.
+
+Also note, that it is not recommended (and also unnecessary) to use refresh tokens with the client credentials flow:
+
+A refresh token SHOULD NOT be included.
