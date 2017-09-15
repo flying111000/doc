@@ -1,6 +1,8 @@
 https://spring.io/guides/tutorials/spring-boot-oauth2/
 http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/
+https://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-boot.html
 http://projects.spring.io/spring-security-oauth/docs/oauth2.html
+https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/
 
 
 
@@ -16,3 +18,8 @@ With the prerequisite that your platform is trusted, there is no need to worry a
 Also note, that it is not recommended (and also unnecessary) to use refresh tokens with the client credentials flow:
 
 A refresh token SHOULD NOT be included.
+
+code note:
+SpringSecurityOAuth2Example_runnable:rest
+tut-spring-boot-oauth2-master:social
+insecure_spring_secure_boot_runnable:simple spring_secure_boot
