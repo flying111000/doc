@@ -5,3 +5,5 @@ http://doc.touricoholidays.com/hotel-search-book-online-flow/hotel-service/bookh
 http://go-spec.derbysoftapi.com/distributor-xml-api.html#reservation
 
 http://open.taobao.com/docs/doc.htm?&docType=1&articleId=105610
+
+http://www.citcon-inc.com/

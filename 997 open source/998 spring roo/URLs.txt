@@ -1,0 +1,11 @@
+http://projects.spring.io/spring-roo/
+https://docs.spring.io/spring-roo/reference/html/simple-addons.html
+https://stackoverflow.com/questions/14730568/modify-how-the-generated-views-look-like-with-spring-roo-without-manually-change
+http://forum.spring.io/forum/spring-projects/roo/96530-roo-gui-customization-changing-roo-jspx-with-our-own-jsp-pages
+
+- CSS / images for L&F type adjustments
+- Apache Tiles for structural adjustments
+- you can customize your jspx files directly by adding new elements such as <div class=...> which allow you to apply styles or js functionality
+- you can customize the tagx files to suit your needs to get application global changes
+
+I started to modify the src/main/webapp/WEB-INF/tags/util/load-scripts.tagx file to add the ExtJs needed stuffs

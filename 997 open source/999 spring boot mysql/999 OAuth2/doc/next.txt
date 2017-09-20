@@ -1,0 +1,2 @@
+jquery ajax json secute authrization
+logout
