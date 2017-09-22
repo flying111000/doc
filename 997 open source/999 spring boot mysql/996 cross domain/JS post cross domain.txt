@@ -1,0 +1,86 @@
+function JSONPPostForm(form, postUrl, queryStatusUrl, queryStatusSuccessFunc, queryStatusData)
+{
+    var tmpDiv = $('<div style="display: none;"></div>');
+    form.parent().append(tmpDiv);
+    var clonedForm = cloneForm(form);
+    var iframe = createIFrameWithContent(tmpDiv, clonedForm);
+
+    if (postUrl)
+        clonedForm.attr('action', postUrl);
+
+    var postToken = 'JSONPPOST_' + (new Date).getTime();
+    clonedForm.attr('id', postToken);
+    clonedForm.append('<input name="JSONPPOSTToken" value="'+postToken+'">');
+    clonedForm.attr('id', postToken );
+    clonedForm.submit();
+
+    var timerId;
+    var watchIFrameRedirectHelper = function()
+    {
+        if (watchIFrameRedirect(iframe, postToken ))
+        {
+            clearInterval(timerId);
+            tmpDiv.remove();
+            $.ajax({
+                url:  queryStatusUrl,
+                data: queryStatusData,
+                dataType: "jsonp",
+                type: "GET",
+                success: queryStatusSuccessFunc
+            });
+        }
+    }
+
+    if (queryStatusUrl && queryStatusSuccessFunc)
+        timerId = setInterval(watchIFrameRedirectHelper, 200);
+}
+
+function createIFrameWithContent(parent, content)
+{
+    var iframe = $('<iframe></iframe>');
+    parent.append(iframe);
+
+    if (!iframe.contents().find('body').length)
+    {
+        //For certain IE versions that do not create document content...
+        var doc = iframe.contents().get()[0];
+        doc.open();
+        doc.close();
+    }
+
+    iframe.contents().find('body').append(content);
+    return iframe;
+}
+
+function watchIFrameRedirect(iframe, formId)
+{
+    try
+    {
+        if (iframe.contents().find('form[id="' + formId + '"]').length)
+            return false;
+        else
+            return true;
+    }
+    catch (err)
+    {
+        return true;
+    }
+    return false;
+}
+
+//This one clones only form, without other HTML markup
+function cloneForm(form)
+{
+    var clonedForm = $('<form></form>');
+    //Copy form attributes
+    $.each(form.get()[0].attributes, function(i, attr)
+    {
+        clonedForm.attr(attr.name, attr.value);
+    });
+    form.find('input, select, textarea').each(function()
+    {
+        clonedForm.append($(this).clone());
+    });
+
+    return clonedForm;
+}
