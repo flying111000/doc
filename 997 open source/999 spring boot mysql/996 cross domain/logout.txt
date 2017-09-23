@@ -1,0 +1,29 @@
+https://stackoverflow.com/questions/43071370/spring-boot-oauth2-single-sign-off
+
+
+After a lot of tests I have realized that this can be solved just with a simple redirect:
+
+In the client app (WebSecurityConfigurerAdapter):
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http
+            .logout()
+            .logoutSuccessUrl("http://your-auth-server/exit");
+}
+In the authorization server:
+@Controller
+public class LogoutController {
+
+    @RequestMapping("/exit")
+    public void exit(HttpServletRequest request, HttpServletResponse response) {
+        // token can be revoked here if needed
+        new SecurityContextLogoutHandler().logout(request, null, null);
+        try {
+            //sending back to client app
+            response.sendRedirect(request.getHeader("referer"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+I have posted a sample app on github with a full example of this implementation.
