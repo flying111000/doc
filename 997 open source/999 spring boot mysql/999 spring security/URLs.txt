@@ -1,0 +1,2 @@
+https://www.mkyong.com/spring-security/spring-security-password-hashing-example/
+http://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
