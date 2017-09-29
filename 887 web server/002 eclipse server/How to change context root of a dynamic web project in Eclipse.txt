@@ -1,0 +1,9 @@
+I changed the context root from the project "Properties | Web Project Settings | Context Root".
+
+But it is not working. The web app still has the access URL as earlier. I have re-deployed the application on Tomcat, re-started the Tomcat and have done everything that should be done, but the access URL is the same as earlier.
+=================================================================================================================
+Some of these answers give work-arounds. What actually must happen is that you clean and republish your project to "activate" the new URI. This is done by right-clicking your server (in the Servers view) and choosing Clean. Then you start (or restart it). Most of the other answers here suggest you do things that in effect accomplish this.
+
+The file that's changing is workspace/.metadata/.plugins/org.eclipse.wst.server.core/publish/publish.dat unless, that is, you've got more than one server in your workspace in which case it will be publishN.dat on that same path.
+
+Hope this helps somebody.
