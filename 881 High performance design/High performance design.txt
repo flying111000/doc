@@ -1,0 +1,23 @@
+High performance design:
+	8.1 linux+nginx/1
+	8.2 geo dns
+	8.3 cdn
+	8.4 extandable design
+	通用措施：
+	1、动态资源和静态资源分离；
+	2、CDN；
+	3、负载均衡；
+	4、分布式缓存；
+	5、数据库读写分离或数据切分（垂直或水平）；
+	6、服务分布式部署。	
+	
+	服务和网络：
+		geo dns
+		cdn
+		负载均衡
+		服务分布式部署 extandable design
+	软件架构
+		动态资源和静态资源分离
+		分布式缓存
+		数据库读写分离或数据切分（垂直或水平）
+		
