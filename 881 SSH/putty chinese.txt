@@ -1,0 +1,106 @@
+putty 中文乱码解决方法
+方法一: 打开putty主程序，选择window-〉Appearance-〉Font settings-〉Change...,选择Fixedsys字体,字符集选择CHINESE_GB2312。在window-〉Appearance -〉Translation中，Received data assumed to be in which character set 中,把Use font encoding改为UTF-8如果经常使用,把这些设置保存在session里面. 现在打开putty,登录成功后,在shell中输入:export LC_ALL='zh_CN.utf8' 方法二: 编辑/etc/sysconfig/i18n 将第1句“LANG="zh_CN.UTF-8"”改为“LANG="zh_CN.GB18030"”，完成后保存重新登录就可以显示正常了 
+1、console终端乱码
+　　在/etc/profile文件的最后一行添加如下内容：
+　　export LC_ALL="zh_CN.GB18030"
+2、xwindow终端乱码
+　　在/etc/sysconfig/i18n文件的最后一行添加如下内容：
+　　export LC_ALL="zh_CN.GB18030"+
+**************************
+乱码分两种情况:
+1.终端(纯shell界面)的乱码
+vi /etc/profile
+export LC_ALL="zh_CN.GB18030:zh_CN.GB2312:zh_CN.GBK:zh_CN:en_US.UTF-8:en_US:en:zh:zh_TW:zh_CN.BIG5"
+保存退出,reboot系统即可..
+2.X-window(图形界面)的乱码
+vi /etc/sysconfig/i18n
+LANG="zh_CN.GB18030:zh_CN.GB2312:zh_CN.GBK:zh_CN:en_US.UTF-8:en_US:en:zh:zh_TW:zh_CN.BIG5"
+LANGUAGE="zh_CN.GB18030:zh_CN.GB2312:zh_CN.GBK:zh_CN:en_US.UTF-8:en_US:en:zh:zh_TW:zh_CN.BIG5"
+保存reboot即可...
+*********************
+新发了台linux虚拟机，用VIM出现了中文乱码问题，查找了资料，解决方法如下：
+vi /etc/sysconfig/i18n
+将内容改为
+LANG="zh_CN.GB18030"
+LANGUAGE="zh_CN.GB18030:zh_CN.GB2312:zh_CN"
+SUPPORTED="zh_CN.GB18030:zh_CN:zh:en_US.UTF-8:en_US:en"
+SYSFONT="lat0-sun16"
+这样中文在SSH,telnet终端就可以正常显示了
+其中，主要修改的内容主要为zh_CN.GB18030，其中要注意VI个性的内容为根目录下，要注意权限
+**************************
+每次装完linux，用SSH连接，中文总是显示乱码。51Testing软件测试网
+解决方法：编辑/etc/sysconfig/i18n，将其中的 LANG="zh_CN.UTF-8" 改为 LANG="zh_CN.GB2312" 。
+&m ^%k7X6X7I Q051Testing软件测试网 K!W |,r8cV&r5N
+断开重新连接。
+****************************
+linux下中文乱码问题解决方案 (2008-06-07 12:55:45)
+从 windows传过来的文件拷到linux下是乱码,俺们又想在linux下显示中文,怎么办呢?我们首先进行测试,linux下的中文是否可以正常显示?答:yes. 所以问题就比较明显了,windows下拷过来的不能显示,说明windows下和linux下支持的格式是不相同的.
+linux下一般是采用utf-8的编码，而我们在windows上编辑文件时是gb2312的编码。所以导致中文编码会乱码。要更正这个问题实际上很简单只要把文件转换成utf-8编码格式然后再导入就ok啦。
+然后使用如下命令进行转换：
+iconv -f gb2312 -t utf-8 test.txt> testutf8.tzt
+(-f 就是源编码，-t 转换目标编码,test.txt源文件，testutf8.txt生成目标编码文件)
+备注：使用 iconv -l 可以查看系统支持编码格式。当然也可以添加其中的编码格式:
+默认为utf8，如果想用其他编码如GBK
+手动更改配置文件的命令：
+shell> vi /etc/sysconfig/i18n
+将LANG="zh_CN.UTF-8"修改为：
+LANG="zh_CN.GBK"
+保存并关闭，运行下面的命令使配置生效：
+shell> source /etc/sysconfig/i18n
+将终端字符编码显示为简体中文：
+shell> vi /etc/profile.d/chinese.sh
+添加下面这行：export LC_ALL=zh_CN.GBK
+shell> source /etc/profile.d/Chinese.sh
+*******************************
+解决Linux操作系统下Java的中文乱码问题 
+在jdk15以后，只需在~/jre/lib/fonts/下建一个fallback目录，把你想在java中使用的字体烤贝到这个目录中即可
+以下方法在fc6下测试通过,假设用户的jre路径为 /usr/java/jdk1.6.0_03/jre/
+cd /usr/java/jdk1.6.0_03/jre/lib/fonts
+sudo mkdir fallback
+将C:\WINDOWS\Fonts\simsun.ttc拷贝到 /usr/java/jdk1.6.0_03/jre/lib/fonts/fallback文件夹内 centos5.2配置完成后，正常能显示中文，查看后发现支持utf-8字符集。
+而putty和ssh secure shell连接却发现乱码，主要表现为执行vim乱码，su命令乱码。
+使用$locale命令查看，出现如下：
+LANG=zh_CN.UTF-8
+LANGUAGE=zh_CN:zh
+LC_CTYPE="zh_CN.UTF-8"
+LC_NUMERIC="zh_CN.UTF-8"
+LC_TIME="zh_CN.UTF-8"
+LC_COLLATE="zh_CN.UTF-8"
+LC_MONETARY="zh_CN.UTF-8"
+LC_MESSAGES="zh_CN.UTF-8"
+LC_PAPER="zh_CN.UTF-8"
+LC_NAME="zh_CN.UTF-8"
+LC_ADDRESS="zh_CN.UTF-8"
+LC_TELEPHONE="zh_CN.UTF-8"
+LC_MEASUREMENT="zh_CN.UTF-8"
+LC_IDENTIFICATION="zh_CN.UTF-8"
+LC_ALL=
+解决方案：
+  1. 对于putty0.6版本
+    a.修改centos上/ect/sysconfig/i18n内容为：
+      LANG="zh_CN.UTF-8"
+    b.修改putty的configuration窗口内windows->Appearance->font setting为新宋体，10号字。
+      修改Translation的Receive data assumed to be in which character set为：
+        UTF-8。（因为下来列表中没有中文字符集，GB2312或cp936）。
+    这样修改完成后，putty就正常支持中文显示了。
+  2.对于ssh secure shell版本。
+    a.将配置的字体改成宋体，但是还是乱码，
+    b.修改centos的/ect/sysconfig/i18n内容为：
+      LANG="zh_CN.GB18030"
+      LANGUAGE="zh_CN.GB18030:zh_CN.GB2312:zh_CN"
+      SUPPORTED="zh_CN.GB18030:zh_CN:zh:en_US.UTF-8:en_US:en"
+      SYSFONT="latarcyrheb-sun16"
+      ---以上内容是网上找到了，照着写了。
+      发现连接ssh secure shell可以正常显示中文。
+      用$locale查看，上面看到的配置都变成了GB18030编码了
+      ** 但是又用putty连接，却又变成了乱码，我理解因为putty仍然用的是utf8编码，
+          而配置ssh secure shell时，将centos改成gb18030编码了，所以乱码。
+    c.到服务器上，重新启动了centos，发现显示中文也正常。
+  3. 如果发现ssh secure shell有问题，或相关的引起问题，则重新配置putty使用，
+      配置方案可以参考上述配置。
+结论：
+    因为ssh secure shell窗口符合window显示，所以暂时定为使用ssh secure shell客户端。
+    而其也绑定了ftp上传功能，相对方便。
+    变化：考虑建立mysql等多处使用utf-8编码，所有仍然使用putty客户端，系统编码改成utf-8
+##############################################################
+现象：用SSH软件连接时，中文是乱码解决：修改/etc/sysconfig/i18n文件，将其改成以下内容： LANG="zh_CN.GB18030"LANGUAGE="zh_CN.GB18030:zh_CN.GB2312:zh_CN"SUPPORTED="zh_CN.UTF-8:zh_CN:zh:en_US.UTF-8:en_US:en"SYSFONT="latarcyrheb-sun16"#source /etc/sysconfig/i18n重启机器，问题应该解决了。CentOS更改LANG="zh_CN.GB18030"SUPPORTED="zh_CN.GB18030:zh_CN:zh:en_US.UTF-8:en_US:en"SYSFONT="lat0-sun16"############################################################## 修改 /etc/profile增加export LC_ALL=zh_CN      # for linux: zh_CN        export LANG=zh_CN        # for linux: zh_CN即可解决
