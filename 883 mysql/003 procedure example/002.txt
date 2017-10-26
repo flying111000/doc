@@ -1,0 +1,54 @@
+CREATE DEFINER=`yaoguangluo`@`%` PROCEDURE `expedia_hotel_image_save`()
+LANGUAGE SQL
+NOT DETERMINISTIC
+CONTAINS SQL
+SQL SECURITY DEFINER
+COMMENT ''
+BEGIN
+  DECLARE done INT DEFAULT FALSE;
+  
+  DECLARE hotelId_v,hotelId_pre,imgIndex_v INT DEFAULT 0;
+  DECLARE title_v,url_v,old_url_v VARCHAR(512);
+  DECLARE isMain_v INT DEFAULT FALSE;
+  
+  DECLARE cur1 CURSOR FOR select m.hotelId,o.caption,o.url from hotel_image_expedia o,map_hotel m where o.hotel_pid = m.hotelPid and m.hotelId>=1048186 and m.hotelId in(select hotelId from backup.hotel_miss) order by o.hotel_pid;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+  OPEN cur1;
+
+  read_loop: LOOP
+  
+    FETCH cur1 INTO hotelId_v,title_v,old_url_v;
+    IF done THEN
+      LEAVE read_loop;
+    END IF;
+    
+  	 if hotelId_v<>hotelId_pre then
+  	 	set imgIndex_v=1;
+  	 	set hotelId_pre=hotelId_v;
+		set isMain_v=true;
+	 else
+		set isMain_v=false;
+  	 end if;
+	 
+	if STRCMP('Featured Image',title_v)=0 then
+		set isMain_v=true;
+	 else
+		set isMain_v=false;
+	end if;
+	
+	 if isMain_v && imgIndex_v!=1 then
+		update hotel_image_102417 set ismain=0 where hotelId=hotelId_v;
+	 end if;
+	 
+	 if imgIndex_v<=30 then
+		set url_v=CONCAT(convert ( CEILING( hotelId_v/500)  , char(512)),'/',convert ( hotelId_v  , char(512)),'_',convert ( imgIndex_v  , char(512)),'_to_large.jpg');
+		insert into hotel_image_102417 (hotelId,title,size,ismain,`type`,url,imgIndex,old_url,created_at,updated_at)values(hotelId_v,title_v,'big',case isMain_v when true then 1 when false then 0 end, 'large',url_v,imgIndex_v,old_url_v,now(),now());
+     end if;
+	 
+	 set imgIndex_v=imgIndex_v+1;
+    
+  END LOOP;
+
+  CLOSE cur1;
+END

@@ -1,0 +1,206 @@
+http://www.nowamagic.net/php/php_JudgeIP.php
+	 	
+
+专注于互联网主流的各种技术
+ 
+ 
+首页
+简明现代魔法
+资料文献总汇
+Veda 原型
+互联网资讯
+魔法图书馆
+晚上八点
+
+ 
+
+  
+简明现代魔法 -> PHP服务器脚本 -> PHP判断来访国内外IP
+
+PHP判断来访国内外IP
+
+2009-12-17
+
+此类可以判断某个IP地址是属于国内IP,还是国外IP,仔细挖掘一下可以应用到某些特殊需求的网站上 :)
+
+您本地的IP: 76.79.234.181 在国外
+请输入IP地址: 
+76.79.234.181
+  执行验证
+最近做了公司网站的一个需求：按来访人的IP来判断他是进中文网站还是英文网站。
+
+我大概构思了一下，有两个方案：
+
+1. Javascript判断来访者的浏览器语言，如果是中文系统，自然使用者都是中国人，跳中文网站； 如果是非中文系统，默认使用者非中国人，跳英文网站。
+
+优点：判断反映速度快。
+
+缺点：不准确，有可能中国用户喜欢用英文版系统，或者外国人使用中文系统的情况。
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" language="javascript">
+  var Browser_Agent = navigator.userAgent;
+    //浏览器为ie的情况
+    if(Browser_Agent.indexOf("MSIE")!=-1){
+        var a=navigator.browserLanguage;
+        if(a !="zh-cn"){
+            location.href="英文网站";
+			document.write("国外IP");
+        } else 
+			document.write("国内IP");
+    }
+    //浏览器非ie的情况
+    else{
+        var b=navigator.language;
+        if(b!="zh-CN"){
+            location.href="英文网站";
+			document.write("国外IP");
+        } else 
+			document.write("国内IP");
+    }
+
+</script>?  
+查看示例
+
+2.使用IP库来进行来访IP的判断
+
+优点：判断准确。
+
+缺点：响应速度没Javascript快。
+
+需要引用一个PHP的IP库：ip.zip
+
+我在网站头部引用jquery进行判断
+
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" language="javascript">
+        function initurl() {
+            $.ajax({
+                type:"GET",
+                url:"checkip.php",
+                dataType:"html",
+                data:"&time="+new Date(),
+                cache: false,
+                async: false,
+                beforeSend:function(XMLHttpRequest) {
+
+                },
+                success:function(msg) {
+                    //如果返回值为1表示访问者为中国地区的ip
+                    if(msg == 1){
+                       alert('国内IP');        
+                    }
+                    else {
+                       alert('国外IP');
+                       //location.href="英文网站"; 
+                       
+                    }
+                },
+                complete:function(XMLHttpRequest,textStatus) {
+
+                },
+                error:function() {
+
+                }
+            });
+        }
+   
+</script>
+
+<body  onload="initurl()">
+
+</body>  
+checkip.php
+
+<?php
+$userip=$_SERVER['REMOTE_ADDR'];
+//引用ip库的文件 把ip.zip里的全部文件放在lib目录下
+include_once('lib/iplimit.class.php');
+$iplimit = new iplimit;
+
+if($iplimit->setup($userip))
+{
+    echo 1;
+}
+else
+{
+    echo 2;
+}?
+?>  
+查看示例
+
+两种方法都可以完美实现判断来访IP，选择哪种就看你的具体需求了。
+
+随机文章推荐
+配合数据库索引的简单PHP使用代码
+用PHP模拟POST、GET传值
+PHP分页显示设计
+使用Json向JavaScript传值
+简单的数据库信息修改
+PHP判断浏览器类型的代码
+支持中文的PHP字符串截取函数
+你需要了解的十个PHP框架
+PHP生成静态HTML文件
+40个迹象表明你还是PHP菜鸟
+PHP explode()函数源码的理解
+PHP MySQL应用的乱码根绝方案
+
+ 
+网站分类
+HTML (44)
+CSS (105)
+JavaScript (232)
+JQuery (53)
+Ajax (34)
+PHP (314)
+Java (39)
+C/C++ (35)
+ActionScript (21)
+PhotoShop (4)
+XML (1)
+WordPress (9)
+数据结构 (14)
+计算机算法 (56)
+数据库技术 (66)
+操作系统 (1)
+互联网时代 (160)
+软件项目 (27)
+编程思想 (57)
+搜索引擎优化 (31)
+Web设计理念 (77)
+软件架构技术 (31)
+信息化工具 (12)
+广告设计 (7)
+程序人生 (18)
+喃喃细语 (61)
+?
+注：如需转载本文，请注明出处（原文链接），谢谢。更多精彩内容，请进入简明现代魔法首页。
+
+进入新博客
+你也许还会对以下文章感兴趣
+PHP获得文件的md5
+.htaccess 文件介绍
+Session有效时间与回收机制
+使用Json向JavaScript传值
+max_execution_time执行时间问题
+PHP读取txt文件的内容并赋值给数组
+ZF实现Controllers的自定义Action
+PHP面向对象：接口与抽象方法
+用PHP控制数据库信息的显示与隐藏
+向iframe传递参数
+喜欢本文，就分享它吧
+ 给我留言
+您的名字：	
+您的邮件：	
+您的网站：	
+ 
+	
+ 提交
+
+
+ 
+copyright ? 2009 简明现代魔法    学习、分享、进步
+
+power by Gonn 感谢所有关心和支持本站的朋友们
+
+?
