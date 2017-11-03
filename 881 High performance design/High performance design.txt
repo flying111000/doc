@@ -1,5 +1,5 @@
 High performance design:
-	8.1 linux+nginx/1
+	8.1 linux+nginx/1 haproxy
 	8.2 geo dns
 	8.3 cdn
 	8.4 extandable design

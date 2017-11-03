@@ -1,0 +1,7 @@
+https://social.technet.microsoft.com/Forums/windows/en-US/31905c1a-5c25-4426-ac8d-677004c21f5d/the-security-database-on-the-server-does-not-have-a-computer-account-for-this-workstation-trust?forum=itprovistanetworking
+
+A) Start > Run > ADSIEDIT.MSC 
+B) Go to Domain Partition and mark the affected computer
+C) Rightclick and Properties.
+D) Doubleclick ServicePrincipalName 
+E) Add new value: HOST/yourcomputername.yourdomain.xyz or whatever HOST is missing.

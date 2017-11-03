@@ -1,0 +1,1 @@
+tail -F /var/log/qmail/current|tai64nlocal|grep --line-buffered 'to remote'
