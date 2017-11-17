@@ -1,0 +1,1 @@
+SELECT  GROUP_CONCAT(m.provider)  ,destinationId FROM map_destination m GROUP BY destinationId HAVING GROUP_CONCAT(m.provider) = 'Innstant'

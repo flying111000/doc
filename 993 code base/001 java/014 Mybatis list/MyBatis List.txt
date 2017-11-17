@@ -1,0 +1,35 @@
+	    List<Map<String, Object>> list = horderService.queryHOrder(map);
+		
+		if(list !=null && list.size() > 0) {
+			//通过orderList中的 orderReference 查询对应的roomList
+			List<Map<String, Object>> listRooms = horderService.queryHOrderRoom(list);
+			
+			if(listRooms !=null && listRooms.size() > 0) {
+				
+				//通过roomList中的 orderReference and roomId 查询对应的personList
+				List<Map<String, Object>> listPerson = horderService.queryHOrderRoomPerson(listRooms);
+
+
+
+
+ <select id="queryHOrderRoomPerson" parameterType="java.util.List" resultType="java.util.Map">
+		 SELECT
+		  id,
+		  orderReference,
+		  roomId,
+		  type,
+		  age,
+		  roomIndex,
+		  firstName,
+		  lastName
+		FROM porder_pax
+		WHERE roomId IN
+	    <foreach item="item" collection="list" separator="," open="(" close=")" index="">    
+	         #{item.roomId, jdbcType=INTEGER}    
+	    </foreach>
+	    and orderReference IN 
+		<foreach item="item" collection="list" separator="," open="(" close=")" index="">    
+	         #{item.orderReference, jdbcType=VARCHAR}  
+	    </foreach>
+		
+ </select>
