@@ -1,0 +1,40 @@
+Using username "root1".
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-30-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Ubuntu 16.10 will reach end of life on Thursday, July 20, 2017
+   How to upgrade from 16.10 to 17.04:
+   - https://ubu.one/upgY2Z
+
+259 packages can be updated.
+142 updates are security updates.
+
+New release '17.10' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Fri Dec  8 17:13:08 2017 from 192.168.1.58
+root1@root1-VirtualBox:~$ sudo apt-get install mysql-server
+[sudo] password for root1:
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+root1@root1-VirtualBox:~$ sudo rm /var/lib/apt/lists/lock
+root1@root1-VirtualBox:~$ sudo rm /var/cache/apt/archives/lock
+root1@root1-VirtualBox:~$ sudo rm /var/lib/dpkg/lock
+root1@root1-VirtualBox:~$ sudo apt-get install mysql-server
+E: dpkg was interrupted, you must manually run 'sudo dpkg --configure -a' to correct the problem.
+root1@root1-VirtualBox:~$ sudo dpkg --configure -a
+Setting up oracle-java8-installer (8u151-1~webupd8~0) ...
+debconf: DbDriver "config": /var/cache/debconf/config.dat is locked by another process: Resource temporarily unavailable
+dpkg: error processing package oracle-java8-installer (--configure):
+ subprocess installed post-installation script returned error exit status 1
+Setting up oracle-java9-installer (9.0.1-1~webupd8~0) ...
+debconf: DbDriver "config": /var/cache/debconf/config.dat is locked by another process: Resource temporarily unavailable
+dpkg: error processing package oracle-java9-installer (--configure):
+ subprocess installed post-installation script returned error exit status 1
+Errors were encountered while processing:
+ oracle-java8-installer
+ oracle-java9-installer
+root1@root1-VirtualBox:~$

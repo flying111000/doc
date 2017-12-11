@@ -1,0 +1,10 @@
+In Servlet you are familiar with response.sendRedirect () method. This is the method of redirecting a user's request to a new page, it is also called Redirect 302 (temporary redirect).
+
+** Redirect 302
+// Temporary Redirect (Redirect 302)
+response.sendRedirect(newURL);
+
+** Redirect 301
+// Redirect 301.
+response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+response.setHeader("Location", newUrl);

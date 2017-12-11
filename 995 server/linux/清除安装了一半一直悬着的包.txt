@@ -1,0 +1,8 @@
+找到进程并杀死正在一直连不上网的安装进程
+ps -ef|grep jdk-9
+
+列出所有的程序
+dpkg -l
+
+找到那个一直装不上的程序的名字，卸载掉：
+sudo apt-get purge oracle-java9-installer

@@ -1,0 +1,55 @@
+4.2 让Redis服务器被远程访问
+
+默认情况下，Redis服务器不允许远程访问，只允许本机访问，所以我们需要设置打开远程访问的功能。
+
+用vi打开Redis服务器的配置文件redis.conf
+
+
+~ sudo vi /etc/redis/redis.conf
+
+#注释bind
+#bind 127.0.0.1
+修改后，重启Redis服务器。
+
+
+~ sudo /etc/init.d/redis-server restart
+Stopping redis-server: redis-server.
+Starting redis-server: redis-server.
+未使用密码登陆Redis服务器
+
+
+~ redis-cli
+
+redis 127.0.0.1:6379> keys *
+(error) ERR operation not permitted
+发现可以登陆，但无法执行命令了。
+
+登陆Redis服务器，输入密码
+
+
+~  redis-cli -a redisredis
+
+redis 127.0.0.1:6379> keys *
+1) "key2"
+2) "key3"
+3) "key4"
+登陆后，一切正常。
+
+我们检查Redis的网络监听端口
+
+
+检查Redis服务器占用端口
+~ netstat -nlt|grep 6379
+tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN
+我们看到从之间的网络监听从 127.0.0.1:3306 变成 0 0.0.0.0:3306，表示Redis已经允许远程登陆访问。
+
+我们在远程的另一台Linux访问Redis服务器
+
+
+~ redis-cli -a redisredis -h 192.168.1.199
+
+redis 192.168.1.199:6379> keys *
+1) "key2"
+2) "key3"
+3) "key4"
+远程访问正常。通过上面的操作，我们就把Redis数据库服务器，在Linux Ubuntu中的系统安装完成。

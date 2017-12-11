@@ -10,3 +10,5 @@ https://developer.hotelbeds.com/docs/read/apitude_booking/Booking_Confirmation
 http://resources.innstant.com/mishor-4-documentation/5-api-methods/1-hotels/4-booking
 http://doc.touricoholidays.com/hotel-search-book-online-flow/hotel-service/bookhotel/
 http://go-spec.derbysoftapi.com/distributor-xml-api.html#reservation
+
+https://mp.weixin.qq.com/s?__biz=MzI2NjEwOTM4MQ==&mid=2651998438&idx=1&sn=0b0d05c7849b714e5a602ccd1bc87731&chksm=f175c04cc602495adfc68dc302c07c3a448b1e025aa8e0c43e45302417672e751d7bdcdbe1c2&mpshare=1&scene=23&srcid=1207EUFj7EiukrKJxFUuFjgi#rd

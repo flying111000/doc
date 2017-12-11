@@ -1,0 +1,2 @@
+sudo nano /etc/redis/redis.conf
+sudo service redis restart
