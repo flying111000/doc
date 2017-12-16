@@ -1,0 +1,82 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32>cd C:\work\software_install\apache-jmeter-3.2\bin
+
+127.0 tomcat on win local 3000 threads
+C:\work\software_install\apache-jmeter-3.2\bin>jmeter -n -t C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Creating summariser <summary>
+Created the tree successfully using C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Starting the test @ Fri May 19 10:43:22 PDT 2017 (1495215802815)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+summary +      1 in 00:00:08 =    0.1/s Avg:   456 Min:   456 Max:   456 Err:     0 (0.00%) Active: 3000 Started: 3000 Finished: 0
+summary +  31077 in 00:00:10 = 3074.2/s Avg:   505 Min:     0 Max:  5272 Err:  2176 (7.00%) Active: 0 Started: 3000 Finished: 3000
+summary =  31078 in 00:00:18 = 1731.2/s Avg:   505 Min:     0 Max:  5272 Err:  2176 (7.00%)
+Tidying up ...    @ Fri May 19 10:43:41 PDT 2017 (1495215821011)
+... end of run
+C:\work\software_install\apache-jmeter-3.2\bin>start.bat
+
+127.0 tomcat on win local 300 threads
+C:\work\software_install\apache-jmeter-3.2\bin>jmeter -n -t C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Creating summariser <summary>
+Created the tree successfully using C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Starting the test @ Fri May 19 10:48:01 PDT 2017 (1495216081656)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+summary +      1 in 00:00:28 =    0.0/s Avg:   136 Min:   136 Max:   136 Err:     0 (0.00%) Active: 300 Started: 300 Finished: 0
+summary + 137157 in 00:00:10 = 14001.3/s Avg:    14 Min:     0 Max:   302 Err:     0 (0.00%) Active: 0 Started: 300 Finished: 300
+summary = 137158 in 00:00:38 = 3596.7/s Avg:    14 Min:     0 Max:   302 Err:     0 (0.00%)
+Tidying up ...    @ Fri May 19 10:48:40 PDT 2017 (1495216120038)
+... end of run
+C:\work\software_install\apache-jmeter-3.2\bin>start.bat
+
+192.168 tomcat win local
+C:\work\software_install\apache-jmeter-3.2\bin>jmeter -n -t C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Creating summariser <summary>
+Created the tree successfully using C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Starting the test @ Fri May 19 10:50:40 PDT 2017 (1495216240034)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+summary +      1 in 00:00:50 =    0.0/s Avg:    39 Min:    39 Max:    39 Err:     0 (0.00%) Active: 300 Started: 300 Finished: 0
+summary + 131386 in 00:00:10 = 13284.7/s Avg:    14 Min:     0 Max:   430 Err:     0 (0.00%) Active: 0 Started: 300 Finished: 300
+summary = 131387 in 00:01:00 = 2198.6/s Avg:    14 Min:     0 Max:   430 Err:     0 (0.00%)
+Tidying up ...    @ Fri May 19 10:51:40 PDT 2017 (1495216300047)
+... end of run
+C:\work\software_install\apache-jmeter-3.2\bin>start.bat
+
+tomcat on linux
+C:\work\software_install\apache-jmeter-3.2\bin>jmeter -n -t C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Creating summariser <summary>
+Created the tree successfully using C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Starting the test @ Fri May 19 10:57:12 PDT 2017 (1495216632049)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+summary +      1 in 00:00:18 =    0.1/s Avg:    93 Min:    93 Max:    93 Err:     0 (0.00%) Active: 300 Started: 300 Finished: 0
+summary +  24062 in 00:00:10 = 2431.7/s Avg:   123 Min:     0 Max:  3489 Err:     0 (0.00%) Active: 0 Started: 300 Finished: 300
+summary =  24063 in 00:00:28 =  865.5/s Avg:   123 Min:     0 Max:  3489 Err:     0 (0.00%)
+Tidying up ...    @ Fri May 19 10:57:40 PDT 2017 (1495216660115)
+... end of run
+C:\work\software_install\apache-jmeter-3.2\bin>start.bat
+
+php+apache
+C:\work\software_install\apache-jmeter-3.2\bin>jmeter -n -t C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Creating summariser <summary>
+Created the tree successfully using C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Starting the test @ Fri May 19 11:37:37 PDT 2017 (1495219057951)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+summary +      1 in 00:00:52 =    0.0/s Avg:    79 Min:    79 Max:    79 Err:     0 (0.00%) Active: 300 Started: 300 Finished: 0
+summary +  64826 in 00:00:19 = 3408.3/s Avg:    49 Min:     0 Max: 19100 Err:   144 (0.22%) Active: 0 Started: 300 Finished: 300
+summary =  64827 in 00:01:11 =  913.1/s Avg:    49 Min:     0 Max: 19100 Err:   144 (0.22%)
+Tidying up ...    @ Fri May 19 11:38:49 PDT 2017 (1495219129211)
+... end of run
+C:\work\software_install\apache-jmeter-3.2\bin>start.bat
+
+laravel
+C:\work\software_install\apache-jmeter-3.2\bin>jmeter -n -t C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Creating summariser <summary>
+Created the tree successfully using C:/work/software_install/apache-jmeter-3.2/bin/templates/build-web-test-plan.jmx
+Starting the test @ Fri May 19 11:43:24 PDT 2017 (1495219404578)
+Waiting for possible Shutdown/StopTestNow/Heapdump message on port 4445
+summary +      1 in 00:01:05 =    0.0/s Avg:   158 Min:   158 Max:   158 Err:     0 (0.00%) Active: 300 Started: 300 Finished: 0
+summary +   2042 in 00:00:19 =  108.4/s Avg:  1595 Min:    35 Max: 18978 Err:   161 (7.88%) Active: 0 Started: 300 Finished: 300
+summary =   2043 in 00:01:24 =   24.2/s Avg:  1594 Min:    35 Max: 18978 Err:   161 (7.88%)
+Tidying up ...    @ Fri May 19 11:44:49 PDT 2017 (1495219489127)
+... end of run
+C:\work\software_install\apache-jmeter-3.2\bin>

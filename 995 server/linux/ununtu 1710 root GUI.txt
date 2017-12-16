@@ -1,0 +1,19 @@
+This link(https://economictheoryblog.com/2015/11/08/how-to-enable-gui-root-login-in-debian-8/) points it out for Debian, but instead of daemon.conf just edit custom.conf. Everything else is the same.
+
+In a nutshell, first run
+
+sudo nano /etc/gdm3/custom.conf
+Under [security] type AllowRoot=true so that it looks like
+
+[security]
+AllowRoot=true
+Save and exit. Then run
+
+sudo nano /etc/pam.d/gdm-password
+Within this file you have comment out the line containing
+
+auth required pam_succeed_if.so user != root quiet_success
+so that it looks like this
+
+#auth required pam_succeed_if.so user != root quiet_success
+Save the file and exit and reboot.

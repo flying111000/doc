@@ -4,3 +4,5 @@ The following worked for me:
 2.open the .vbox file in a text editor
 3.replace the UUID found in Machine uuid="{...}" with the UUID you got when you ran sethduuid the first time
 4.replace the UUID found in HardDisk uuid="{...}" and in Image uuid="{}" (towards the end) with the UUID you got when you ran sethduuid the second time
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage" internalcommands sethduuid "C:\Users\Geoffrey.Chen\VirtualBox VMs\ubuntu006\ubuntu006.vdi"

@@ -1,0 +1,20 @@
+1：最简单的用命令行实现
+
+php artisan --version
+
+如何查看Laravel版本号的三种方法
+
+2：查看文件
+
+vendor\laravel\framework\src\Illuminate\Foundation\Application.php
+
+如何查看Laravel版本号的三种方法
+
+3：可以写在路由里
+
+5.4版本的路由文件夹是routes。我们可以写在routes\web.php里。
+
+Route::get('laravel-version', function(){
+    $laravel = app();
+    return "Your Laravel version is ".$laravel::VERSION;
+});
