@@ -1,0 +1,61 @@
+sudo apt-get update
+
+sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql php-mbstring php7.1-common
+sudo apt-get install openssl
+sudo apt-get install php-zip
+
+sudo apt-get install libapache2-mod-php php-xml
+
+sudo apt-get install curl php-cli php-mbstring git unzip
+
+sudo apt-get install composer
+
+composer global require "laravel/installer"
+or
+composer create-project --prefer-dist laravel/laravel blog "5.2.*"
+
+composer clear-cache
+apt-cache search php- | less
+
+sudo chown -R $USER .composer/
+
+
+
+
+
+
+{
+	"repositories": [
+	{
+	"type": "composer",
+	"url": "https://packagist.org"
+	},
+	{ "packagist": false }
+	]
+}
+
+
+
+
+
+
+gksu nautilus
+sudo vi /etc/lightdm/lightdm.conf
+sudo apt-get install openssh-server
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults
+sudo chmod a-w /etc/ssh/sshd_config.factory-defaults
+sudo service ssh restart
+
+sudo apt-get install git
+sudo apt-get install zip
+sudo apt-get install tasksel
+sudo tasksel install lamp-server
+sudo apt-get install curl php-curl php-mcrypt php-mbstring php-gettext
+sudo phpenmod mcrypt
+sudo phpenmod mbstring
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+composer create-project --prefer-dist laravel/laravel hotel_b2b "5.2.27"
