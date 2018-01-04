@@ -1,0 +1,240 @@
+Id	Name
+1	One Twin Bed
+2	One Double Bed
+3	One Queen Bed
+4	One King Bed
+5	Two Twin Beds
+6	Two Double Beds
+7	Two Queen Beds
+13	1 double
+14	1 king
+15	1 queen
+18	One Twin Bed
+21	2 double
+22	2 king
+23	2 queen
+25	Two Twin Beds
+30	Three Twin Beds
+34	Four Twin Beds
+40	1 bed
+41	2 beds
+42	1 single
+43	2 single
+44	3 single
+45	4 single
+46	1 full
+47	2 full
+48	1 trundle bed
+49	1 murphy bed
+50	1 bunk bed
+51	1 sofa bed
+52	2 sofa beds
+53	3 sofa beds
+54	1 Japanese futon
+55	3 beds
+56	3 king
+57	3 queen
+58	4 beds
+59	4 king
+60	4 queen
+61	1 king and 1 single
+62	1 queen and 1 single
+63	1 double and 1 single
+64	1 king and 2 single
+65	1 queen and 2 single
+66	1 double and 2 single
+67	1 king and 1 sofa bed
+68	1 queen and 1 sofa bed
+69	1 double and 1 sofa bed
+70	Two Twin and One Sofa Bed
+71	2 single and 1 sofa bed
+72	1 king and 1 queen
+73	2 double and 1 single
+74	2 king and 1 single
+75	One Double and One Twin Bed
+76	6 beds
+77	5 beds
+78	2 extra-long double
+79	1 semi-double
+80	One Pullout Bed
+81	4 double and 1 queen sofa bed
+82	2 king and 1 queen sofa bed
+83	2 double and 1 sofa bed
+84	4 double
+85	3 double
+86	2 double and 2 single
+87	1 queen and 1 double
+88	2 queen and 1 sofa bed
+89	4 double and 1 sofa bed
+90	2 king and 1 sofa bed
+91	Quadruple Occupancy
+92	Triple Occupancy
+93	Double Occupancy
+94	Single Occupancy
+95	One Double or Two Twins
+96	One Double or Two Twin beds
+97	One Double or One Twin Bed
+98	1 king and 1 double
+99	1 double and 1 bunk bed
+100	1 double and 2 bunk beds
+101	1 double and 2 single sofa beds
+102	1 double and 2 sofa beds
+103	1 double and 3 single
+104	1 double and 3 sofa beds
+105	1 double, 1 single, and 1 bunk bed
+106	1 double, 1 single, and 1 sofa bed
+107	1 double, 1 sofa, and 1 bunk bed
+108	1 double, 2 single, and 1 double sofa bed
+109	1 double, 2 single, and 1 sofa bed
+110	1 double, 3 single, and 1 sofa bed
+111	1 double, 3 twin, and 3 queen
+112	1 king and 1 bunk bed
+113	1 king and 2 queen
+114	1 king and 4 single
+115	1 king, 1 queen, and 1 sofa bed
+116	1 king, 1 queen, and 3 single
+117	1 king, 1 sofa bed, and 1 murphy bed
+118	1 king, 2 double, and 1 sofa bed
+119	1 king, 2 single, and 1 sofa bed
+120	1 queen and 1 bunk bed
+121	1 queen and 1 murphy bed
+122	1 queen and 2 bunk beds
+123	1 queen and 2 double
+124	1 queen and 2 sofa beds
+125	1 queen and 3 single
+126	1 queen and 4 single
+127	1 queen, 1 bunk bed, and 1 sofa bed
+128	1 queen, 1 murphy bed, and 1 sofa bed
+129	1 single and 1 sofa bed
+130	1 sofa bed and 1 bunk bed
+131	2 bunk beds
+133	2 double and 2 sofa beds
+134	2 Japanese futons
+135	2 king and 1 sofa bed
+136	2 king and 2 queen
+137	2 king, 2 single and 1 bunk bed
+138	2 king, 2 single, and 1 sofa bed
+139	2 queen and 1 bunk bed
+140	2 queen and 1 single
+142	2 queen and 1 trundle bed
+143	2 queen and 2 single
+144	2 single and 1 bunk bed
+146	2 single and 2 bunk beds
+147	2 single and 2 sofa beds
+148	2 single and 3 sofa beds
+149	3 double and 1 sofa bed
+150	3 Japanese futons
+151	3 queen and 1 sofa bed
+152	3 queen and 2 single
+153	3 queen, 2 single, and 2 bunk beds
+154	4 Japanese futons
+155	4 single and 1 sofa bed
+156	4 single and 2 sofa beds
+157	5 Japanese futons
+158	5 queen and 4 single
+159	6 Japanese futons
+160	7 Japanese futons
+161	8 Japanese futons
+162	1 double, 1 sofa bed, and 1 bunk bed
+163	3 queen, 1 double, and 3 single
+164	3 bunk beds
+165	4 bunk beds
+166	1 queen, 1 double and 1 sofa bed
+167	1 queen, 2 single and 2 sofa beds
+168	1 king, 1 queen, and 1 twin bed
+169	1 king, 1 queen, and 2 twin beds
+170	1 king, 2 queen, and 2 twin beds
+171	1 king, 4 single and 1 sofa bed
+172	2 king, 4 single and 1 sofa bed
+173	2 king, 2 queen and 2 twin beds
+174	2 king, 2 double and 1 sofa bed
+175	1 king, 1 queen, 4 single and 1 sofa bed
+176	1 king, 2 double, 1 twin and 2 sofa beds
+177	1 double, 2 single and 1 bunk bed
+178	1 king, 1 queen and 6 twin beds
+179	1 king, 2 queen, 2 full, 3 twin and 1 bunk bed
+180	1 king, 3 queen and 1 sofa bed
+181	2 double, 2 single and 1 sofa bed
+182	2 king and 4 single
+183	2 king, 2 queen and 1 sofa bed
+184	2 queen, 2 single and 2 sofa beds
+185	8 single beds
+186	1 double and 4 bunk beds
+187	1 double, 1 bunk and 1 sofa bed
+188	1 double, 1 sofa bed and 1 trundle bed
+189	1 double, 2 single, 1 sofa bed and 1 trundle bed
+190	1 king and 1 murphy bed
+191	1 king, 1 queen, 2 full and 1 bunk bed
+192	1 king, 1 single and 1 sofa bed
+193	1 queen, 1 full and 2 sofa beds
+194	1 queen, 1 full, 1 single and 1 sofa bed
+195	1 single and 1 bunk bed
+196	2 queen, 1 full and 1 bunk bed
+197	2 queen, 2 full, 4 bunk bed and 1 sofa bed
+198	3 queen and 1 single
+199	3 single and 1 sofa bed
+200	4 single and 3 double beds
+201	2 king and 2 sofa beds
+202	1 king and 2 full beds
+203	1 single and 1 trundle
+204	1 double and 12 single beds
+205	1 double, 2 bunk and 1 sofa bed
+206	1 double, 2 single and 4 sofa beds
+207	1 double, 4 single and 1 sofa bed
+208	1 double, 5 single and 2 sofa beds
+209	1 king and 2 double beds
+210	1 king and 3 bunk beds
+211	1 king and 3 queen bed
+212	1 king, 1 full and 2 bunk beds
+213	1 king, 1 full, 1 single and 1 sofa bed
+214	1 king, 2 full, 2 single and 1 sofa bed
+215	1 king, 2 queen and 1 murphy bed
+216	1 king, 2 queen, 2 single and 2 sofa beds
+217	1 queen, 1 full, 2 single and 1 sofa bed
+218	1 queen, 1 single and 1 sofa bed
+219	1 queen, 2 double and 1 single
+220	1 queen, 2 single and 1 sofa bed
+221	1 sofa bed and 1 murphy bed
+222	12 single beds
+223	2 double and 2 bunk beds
+224	2 double, 1 single and 1 sofa bed
+225	2 king, 1 queen and 1 sofa bed
+226	2 king, 1 queen and 4 single beds
+227	2 king, 2 queen and 1 single bed
+228	2 king, 2 queen and 4 single beds
+229	2 queen , 2 single and 1 sofa bed
+230	2 queen and 1 murphy bed
+231	2 queen and 2 sofa bed
+232	2 queen, 2 double and 2 single beds
+233	3 double and 1 single bed
+234	3 king, 4 single and 3 sofa beds
+235	4 double and 1 bunk bed
+236	4 double and 1 single bed
+237	4 single and 2 bunk bed
+238	1 queen, 1 double and 1 murphy bed
+239	1 queen, 1 sofa bed and 1 japanese futon
+240	1 queen and 1 japanese futon
+241	1 king and 3 double beds
+242	2 king and 3 double beds
+243	2 king and 5 double beds
+244	2 king, 5 double and 2 single beds
+245	2 king, 6 double and 2 single beds
+246	4 double, 2 single and 1 sofa bed
+247	2 double, 2 single and 2 sofa beds
+248	3 double and 2 sofa beds
+249	3 double, 5 single and 1 sofa bed
+250	3 single and 1 bunk bed
+251	2 double and 3 single beds
+252	2 queen and 4 single beds
+253	3 queen and 4 single beds
+254	4 single and 1 double bed
+255	2 king and 1 double bed
+256	1 queen, 1 double and 1 single
+257	2 king, 1 queen and 1 twin
+258	1 king, 1 queen and 2 sofa beds
+259	1 double, 2 single, 1 bunk and 1 sofa bed
+260	1 queen and 6 single beds
+261	1 queen and 5 single beds
+262	1 king, 1 queen, 2 twin and 1 sofa bed
+263	2 king and 2 single beds
+264	3 queen, 1 single and 1 sofa bed

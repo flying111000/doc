@@ -4,6 +4,8 @@ https://developer.hotelbeds.com/docs/read/apitude_cache
 http://resources.innstant.com/mishor-4-documentation/5-api-methods/1-hotels/4-booking
 http://doc.touricoholidays.com/hotel-search-book-online-flow/hotel-service/bookhotel/
 http://go-spec.derbysoftapi.com/distributor-xml-api.html#reservation
+https://expediaintegration.zendesk.com/hc/en-us/articles/115003581108-XAPv3-Hotel-Booking-API
+https://admin.rezserver.com/
 
 http://open.taobao.com/docs/doc.htm?&docType=1&articleId=105610
 

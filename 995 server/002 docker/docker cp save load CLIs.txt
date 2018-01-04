@@ -1,0 +1,5 @@
+docker cp test.txt testdb:/test.txt
+
+docker save mongo | gzip -c > testdb_img_bak20181103.tgz
+
+gunzip -c testdb_img_bak20181103.tgz | docker load
