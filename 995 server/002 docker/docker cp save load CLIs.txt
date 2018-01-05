@@ -3,3 +3,16 @@ docker cp test.txt testdb:/test.txt
 docker save mongo | gzip -c > testdb_img_bak20181103.tgz
 
 gunzip -c testdb_img_bak20181103.tgz | docker load
+
+or change it to a different tag locally without committing to networking repository?
+Use the docker tag command: $ docker tag myusername/myproject:latest myusername/myproject:bak20141103
+
+docker run --name hello123 -d hello
+
+docker exec -it hello123
+
+docker logs hello123
+
+docker inspect hello123
+
+docker run --name hello125 -d hello  tail -f /dev/null
