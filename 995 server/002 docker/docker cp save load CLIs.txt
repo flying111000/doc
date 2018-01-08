@@ -7,12 +7,32 @@ gunzip -c testdb_img_bak20181103.tgz | docker load
 or change it to a different tag locally without committing to networking repository?
 Use the docker tag command: $ docker tag myusername/myproject:latest myusername/myproject:bak20141103
 
-docker run --name hello123 -d hello
+docker build --tag hello .
+
+
 
 docker exec -it hello123
+
+
+docker events&
 
 docker logs hello123
 
 docker inspect hello123
 
+docker ps -a
+
+docker run --name hello123 -d hello
+
 docker run --name hello125 -d hello  tail -f /dev/null
+
+
+command: bash -c "cd /app && rm -rf * && cp -r /src/Cnblogs.Cache.WebApi/publish/* . && tail -f /dev/null"
+
+https://www.digitalocean.com/community/tutorials/how-to-share-data-between-the-docker-container-and-the-host
+
+docker run --name=nginx -d -v ~/nginxlogs:/var/log/nginx -p 5000:80 nginx
+
+-v ~/nginxlogs:/var/log/nginx Sets up a bindmount volume that links the /var/log/nginx directory from inside the Nginx container to the ~/nginxlogs directory on the host machine. 
+Docker uses a : to split the host's path from the container path, and the host path always comes first.
+

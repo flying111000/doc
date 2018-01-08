@@ -1,0 +1,6 @@
+SELECT id,
+  INET_NTOA(INET_ATON( SUBSTRING_INDEX(network, '/', 1)) 
+   & 0xffffffff ^ ((0x1 << ( 32 - SUBSTRING_INDEX(network, '/', -1))  ) -1 )) from_ip,
+  INET_NTOA(INET_ATON( SUBSTRING_INDEX(network, '/', 1)) 
+   | ((0x100000000 >> SUBSTRING_INDEX(network, '/', -1) ) -1 )) to_ip
+FROM ipv4 limit 1000;
