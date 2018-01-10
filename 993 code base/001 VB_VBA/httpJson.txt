@@ -1,0 +1,21 @@
+Private Sub CommandButton1_Click()
+    Dim objHTTP As Object
+    Dim Json As String
+    Json = Range("A15") 'here I am pulling in an existing json string to test it. String is created in other VBA code
+
+    Dim result As String
+
+    Set objHTTP = CreateObject("MSXML2.ServerXMLHTTP")
+    URL = "http://localhost:8080/backend/hotels/fraudCheck"
+    objHTTP.Open "POST", URL, False
+
+   objHTTP.setRequestHeader "Content-type", "application/json"
+   objHTTP.send (Json)
+   result = objHTTP.responseText
+
+   'Some simple debugging
+   Range("A25").Value = result
+   Range("A26").Value = Json
+
+   Set objHTTP = Nothing
+End Sub
