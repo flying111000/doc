@@ -11,7 +11,7 @@ docker build --tag hello .
 
 
 
-docker exec -it hello123
+docker exec -it hello123 bash
 
 
 docker events&
@@ -36,3 +36,7 @@ docker run --name=nginx -d -v ~/nginxlogs:/var/log/nginx -p 5000:80 nginx
 -v ~/nginxlogs:/var/log/nginx Sets up a bindmount volume that links the /var/log/nginx directory from inside the Nginx container to the ~/nginxlogs directory on the host machine. 
 Docker uses a : to split the host's path from the container path, and the host path always comes first.
 
+
+
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql:5.7
+https://store.docker.com/images/mysql
