@@ -35,7 +35,7 @@ sudo chown -R $USER .composer/
 }
 
 
-
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 
 
 
