@@ -1,0 +1,11 @@
+First, Open the /etc/mysql/mysql.conf.d/mysqld.cnf file (/etc/mysql/my.cnf in Ubuntu 14.04 and earlier versions).
+
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+Under the [mysqld] Locate the Line,
+
+bind-address            = 127.0.0.1
+
+And change it to,
+
+bind-address            = 0.0.0.0

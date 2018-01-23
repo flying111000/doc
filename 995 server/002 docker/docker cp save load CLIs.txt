@@ -1,4 +1,5 @@
 docker cp test.txt testdb:/test.txt
+docker cp CodeIgniter opensourcepos_php_1:/app/CodeIgniter
 
 docker save mongo | gzip -c > testdb_img_bak20181103.tgz
 
