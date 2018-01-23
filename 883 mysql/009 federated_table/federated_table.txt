@@ -1,0 +1,22 @@
+15.9.2.1 Creating a FEDERATED Table Using CONNECTION
+To use the first method, you must specify the CONNECTION string after the engine type in a CREATE TABLE statement. For example:
+
+
+CREATE TABLE federated_table (
+    id     INT(20) NOT NULL AUTO_INCREMENT,
+    name   VARCHAR(32) NOT NULL DEFAULT '',
+    other  INT(20) NOT NULL DEFAULT '0',
+    PRIMARY KEY  (id),
+    INDEX name (name),
+    INDEX other_key (other)
+)
+ENGINE=FEDERATED
+DEFAULT CHARSET=latin1
+CONNECTION='mysql://fed_user@remote_host:9306/federated/test_table';
+
+
+scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name
+
+CONNECTION='mysql://username:password@hostname:port/database/tablename'
+CONNECTION='mysql://username@hostname/database/tablename'
+CONNECTION='mysql://username:password@hostname/database/tablename'

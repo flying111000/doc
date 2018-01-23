@@ -1,0 +1,1000 @@
+ 1002  git pull
+ 1003  cd /etc/supervisor/conf.d/
+ 1004  exit
+ 1005  cd /var/www/html/hotelc
+ 1006  git status
+ 1007  git pull
+ 1008  exit
+ 1009  cd /etc/supervisor/conf.d/
+ 1010  ll
+ 1011  cp hotel-worker.conf hotel-b2c-work.conf
+ 1012  sudo cp hotel-worker.conf hotel-b2c-worker.conf
+ 1013  sudo vi hotel-b2c-worker.conf 
+ 1014  sudo supervisorctl reread
+ 1015  sudo supervisorctl update
+ 1016  sudo supervisorctl reload
+ 1017  cd /var/www/html/hotelc
+ 1018  php artisan queue:work --tries=6
+ 1019  exit
+ 1020  cd /var/www/html/hotelc
+ 1021  git status
+ 1022  git checkout .
+ 1023  git status
+ 1024  git clean -f -d
+ 1025  git status
+ 1026  git pull
+ 1027  composer install
+ 1028  cd /etc/supervisor/conf.d/
+ 1029  ll
+ 1030  sudo supervisorctl 
+ 1031  sudo supervisorctl reload
+ 1032  vi hotel-b2c-worker.conf 
+ 1033  exit
+ 1034  cd /var/www/html/hotel_b2b_test
+ 1035  git status
+ 1036  git checkout .
+ 1037  git clean -f -d
+ 1038  git remote -v
+ 1039  git branch
+ 1040  git checkout -b hotel_b origin/development
+ 1041  git pull
+ 1042  git branch
+ 1043  git branch -D william master emailSchedule distributionSiteSetup development-test citconTest 
+ 1044  git branch
+ 1045  exit
+ 1046  cd /var/www/html/hotelC
+ 1047  cd /var/www/html/
+ 1048  ll
+ 1049  cd hotelc
+ 1050  git status
+ 1051  git pull
+ 1052  exit
+ 1053  cd /var/www/html
+ 1054  tar czvf hotelc hotelc001.tar
+ 1055  tar czvf hotelc001.tar hotelc
+ 1056  tar czvf hotelc002.tar hotelc
+ 1057  tar czvf hotelc003.tar hotelc
+ 1058  tar czvf hotelc004.tar hotelc
+ 1059  cd /var/www/html/hotelc
+ 1060  git status
+ 1061  exit
+ 1062  cd /var/www/html/hotelc
+ 1063  git status
+ 1064  git checkout .
+ 1065  git status
+ 1066  git clean -f -d
+ 1067  git status
+ 1068  git fetch origin 
+ 1069  git status
+ 1070  git pull
+ 1071  git status
+ 1072  git checkout .
+ 1073  git status
+ 1074  git clean -f -d
+ 1075  git branch
+ 1076  git fetch origin 
+ 1077  git checkout locationList 
+ 1078  git status
+ 1079  git pull
+ 1080  git status
+ 1081  exit
+ 1082  cd /var/www/html/hotelc
+ 1083  git status
+ 1084  exit
+ 1085  cd /var/www/html/hotelc
+ 1086  git status
+ 1087  git checkout .
+ 1088  git status
+ 1089  git clean -f -d
+ 1090  git status
+ 1091  git pull
+ 1092  git checkout .
+ 1093  git status
+ 1094  git reset
+ 1095  git checkout .
+ 1096  git status
+ 1097  git clean -f -d
+ 1098  git reset --hard HEAD~
+ 1099  git pull
+ 1100  git status
+ 1101  exit
+ 1102  cd /var/www/html/hotelc
+ 1103  git status
+ 1104  git checkout .
+ 1105  git fetch origin 
+ 1106  git status
+ 1107  git checkout master 
+ 1108  git branch
+ 1109  git branch -D locationList 
+ 1110  git status
+ 1111  git reset .
+ 1112  git checkout .
+ 1113  git status
+ 1114  git clean -f -d
+ 1115  git status
+ 1116  git pull
+ 1117  git pull origin master 
+ 1118  git status
+ 1119  git remote -v
+ 1120  git status
+ 1121  git log
+ 1122  git checkout development 
+ 1123  git status
+ 1124  git branch -D master 
+ 1125  git fetch origin 
+ 1126  git checkout master 
+ 1127  git log
+ 1128  composer install
+ 1129  git status
+ 1130  composer install
+ 1131  git status
+ 1132  git log
+ 1133  composer install
+ 1134  git status
+ 1135  cd /etc/
+ 1136  ls
+ 1137  cd apache2/
+ 1138  ll
+ 1139  cd conf-available/
+ 1140  ll
+ 1141  cd ../
+ 1142  ls
+ 1143  ll
+ 1144  vi conf-enabled/
+ 1145  cd conf-enabled/
+ 1146  ll
+ 1147  cd ../
+ 1148  cd sites-available/
+ 1149  ll
+ 1150  vi 000-default.conf 
+ 1151  apachectl restart
+ 1152  sudo apachectl restart
+ 1153  vi 000-default.conf 
+ 1154  sudo apachectl restart
+ 1155  vi 000-default.conf 
+ 1156  sudo apachectl restart
+ 1157  cd /var/www/html/hotelc
+ 1158  git status
+ 1159  git stash
+ 1160  git checkout development 
+ 1161  git pull
+ 1162  git status
+ 1163  git remote -v
+ 1164  git fetch origin 
+ 1165  git branch -a
+ 1166  git log
+ 1167  git pull origin development 
+ 1168  git log
+ 1169  git checkout master 
+ 1170  git pull origin master 
+ 1171  git log
+ 1172  php artisan view:clear
+ 1173  php artisan clear-cache
+ 1174  php artisan cache:clear
+ 1175  composer install
+ 1176  sudo apachectl restart
+ 1177  cd ..
+ 1178  ll
+ 1179  cd hotel_b2b_test
+ 1180  git status
+ 1181  git checkout b2c
+ 1182  git branch
+ 1183  git checkout hotel_c
+ 1184  git status
+ 1185  git remote -v
+ 1186  cd ../
+ 1187  cp -r hotel_b2b_test hotelc
+ 1188  cd hotelc
+ 1189  git status
+ 1190  cd ..
+ 1191  mv hotelc/hotel_b2b_test/ hotelc
+ 1192  ll
+ 1193  cd hotelc
+ 1194  git status
+ 1195  cd hotel_b2b_test/
+ 1196  ll
+ 1197  cd ..
+ 1198  ll
+ 1199  rm -rf hotelc
+ 1200  cp hotel_b2b_test hotelc
+ 1201  cp -r hotel_b2b_test hotelc
+ 1202  ll
+ 1203  cd hotelc
+ 1204  git status
+ 1205  ll -a
+ 1206  git remote -v
+ 1207  git fetch hotelC 
+ 1208  git branch
+ 1209  git remote remove hotelC 
+ 1210  git remote -v
+ 1211  git remote set-url origin  git@bitbucket.org:catdog117/hotel_c.git
+ 1212  git fetch origin 
+ 1213  git branch
+ 1214  git branch -D hotel_b
+ 1215  git checkout master
+ 1216  composer install
+ 1217  git checkout development
+ 1218  git pull
+ 1219  cd /var/log/
+ 1220  git status
+ 1221  ll
+ 1222  ll -t
+ 1223  ls -t
+ 1224  cd apache2/
+ 1225  ll -t
+ 1226  vi access.log
+ 1227  vi error.log
+ 1228  cd /var/www/html/hotelc
+ 1229  php artisan view:clear
+ 1230  cd -
+ 1231  tail -f error.log
+ 1232  cd =
+ 1233  cd -
+ 1234  chown -r storage/
+ 1235  sudo chgrp -R www-data storage bootstrap/cache
+ 1236  git status
+ 1237  git checkout master
+ 1238  exit
+ 1239  cd /var/www/html/hotelc
+ 1240  git status
+ 1241  eixt
+ 1242  exit
+ 1243  cd /var/www/html/hotelc
+ 1244  git status
+ 1245  git checkout .
+ 1246  git pull
+ 1247  exit
+ 1248  tar czvf hotelc005.tar hotelc
+ 1249  cd /var/www/html
+ 1250  tar czvf hotelc005.tar hotelc
+ 1251  pwd
+ 1252  grep dest_wrapper hotelc/*
+ 1253  grep -r dest_wrapper hotelc/*
+ 1254  tar czvf hotelc006.tar hotelc
+ 1255  grep -r recommend hotel_b2b/*
+ 1256  tar czvf hotelc007.tar hotelc
+ 1257  tar czvf hotelc008.tar hotelc
+ 1258  tar czvf hotelc009.tar hotelc
+ 1259  tar czvf hotelc011.tar hotelc
+ 1260  cd /var/www/html/hotelc
+ 1261  git status
+ 1262  exit
+ 1263  tar czvf hotelc020.tar hotelc
+ 1264  cd /var/www/html
+ 1265  tar czvf hotelc020.tar hotelc
+ 1266  cd /var/www/html/hotelc
+ 1267  git status
+ 1268  exit
+ 1269  cd /var/www/html/hotel_b2b
+ 1270  git status
+ 1271  git pull
+ 1272  exit
+ 1273  lscpu
+ 1274  sudo lshw -short
+ 1275  exit
+ 1276  cd /var/www/html/hotel_b2b_test
+ 1277  git status
+ 1278  git clean -f -d
+ 1279  git pull
+ 1280  git branch
+ 1281  git remote -v
+ 1282  git fetch hotelC 
+ 1283  git branch --set-upstream-to=hotelC/master 
+ 1284  git pull
+ 1285  git log
+ 1286  git reset --hard HEAD~8
+ 1287  git pull
+ 1288  git log
+ 1289  git status
+ 1290  exit
+ 1291  supervisorctl status
+ 1292  supervisorctl reload
+ 1293  sudo supervisorctl status
+ 1294  sudo supervisorctl reload
+ 1295  exit
+ 1296  sudo supervisorctl status
+ 1297  sudo supervisorctl reload
+ 1298  sudo supervisorctl status
+ 1299  exit
+ 1300  cd /var/www/html/hotel_b2b_test
+ 1301  git status
+ 1302  git checkout .
+ 1303  git pull
+ 1304  git status
+ 1305  cd ../hotelc
+ 1306  git status
+ 1307  git checkout .
+ 1308  git pull
+ 1309  git status
+ 1310  exit
+ 1311  cd /var/www/html/hotel_c
+ 1312  cd /var/www/html/hotelC
+ 1313  cd /var/www/html/hotelc
+ 1314  git status
+ 1315  git checkout development
+ 1316  git status
+ 1317  git pull
+ 1318  git status
+ 1319  php artisan migrate
+ 1320  exit
+ 1321  cd /var/www/html/hotelc
+ 1322  git status
+ 1323  git pull
+ 1324  php artisan migrate:status
+ 1325  php artisan migrate
+ 1326  cd ../hotel_b2b_test
+ 1327  git status
+ 1328  git stash
+ 1329  git status
+ 1330  git pull
+ 1331  php artisan migrate:status
+ 1332  php artisan migrate
+ 1333  php artisan migrate:status
+ 1334  show create table subscriber
+ 1335  exit
+ 1336  cd /var/www/html/hotel_b2b_test
+ 1337  git status
+ 1338  git branch
+ 1339  git checkout hotel_b
+ 1340  git status
+ 1341  git pull
+ 1342  git status
+ 1343  exit
+ 1344  cd /var/www/html
+ 1345  ls
+ 1346  tar czvf hotel_b2b_test_121517.tar hotel_b2b_test
+ 1347  cd /var/www/html/hotel_b2b_test
+ 1348  git status
+ 1349  git log
+ 1350  cd ../hotelc
+ 1351  git status
+ 1352  git pull
+ 1353  exit
+ 1354  cd /var/www/html
+ 1355  ls
+ 1356  tar czvf hotel_b2b_test_121517001.tar hotel_b2b_test
+ 1357  cd /var/www/html
+ 1358  ls
+ 1359  tar czvf hotel_b2b_test_121817.tar hotel_b2b_test
+ 1360  cd /var/www/html/hotel_b2b_test
+ 1361  git statu
+ 1362  git status
+ 1363  git branch
+ 1364  git pull
+ 1365  git log
+ 1366  cd ../hotel_b2b
+ 1367  git status
+ 1368  git diff
+ 1369  git checkout .
+ 1370  git status
+ 1371  git pull
+ 1372  php -i
+ 1373  php -i | grep curl
+ 1374  exit
+ 1375  cd /etc/
+ 1376  ls
+ 1377  cd apache2/
+ 1378  ll
+ 1379  cd conf-enabled/
+ 1380  ll
+ 1381  cd ../
+ 1382  sudo vi apache2.conf 
+ 1383  ll
+ 1384  vi ports.conf 
+ 1385  vi apache2.conf 
+ 1386  apache2 version
+ 1387  apache2 -v
+ 1388  cd /var/www/html/hotelc
+ 1389  git status
+ 1390  cd -
+ 1391  ll
+ 1392  cd sites-enabled/
+ 1393  ;;
+ 1394  ll
+ 1395  cd ../sites-available/
+ 1396  ll
+ 1397  vi 000-default.conf 
+ 1398  sudo vi 000-default.conf 
+ 1399  vi 000-default.conf 
+ 1400  apache2 restart
+ 1401  apache2 -k restart
+ 1402  cd ..
+ 1403  cd ~
+ 1404  ll
+ 1405  cd nano
+ 1406  cd .nano/
+ 1407  ll
+ 1408  cd ..
+ 1409  cd .config/
+ 1410  ll
+ 1411  cd ..
+ 1412  touch .nanarc
+ 1413  vi .nanorc
+ 1414  ll
+ 1415  nano .bashrc
+ 1416  vi .bashrc
+ 1417  cd -
+ 1418  cd /etc/apache2/
+ 1419  ll
+ 1420  vi apache2.conf 
+ 1421  sudo vi sites-available/000-default.conf 
+ 1422  apache2ctl restart
+ 1423  apache2 restart
+ 1424  apache2 -k restart
+ 1425  sudo vi apache2.conf 
+ 1426  cd ~
+ 1427  ll
+ 1428  touch .vimrc
+ 1429  vi .vimrc 
+ 1430  vi .vimrc ]
+ 1431  vi .vimrc
+ 1432  cd -
+ 1433  vi apache2.conf 
+ 1434  mkdir /var/run/apache2
+ 1435  cd /var/run/apache2/
+ 1436  ll
+ 1437  apachectl 
+ 1438  apachectl status
+ 1439  apache2ctl status
+ 1440  cd /etc/apache2/
+ 1441  ll
+ 1442  sudo vi apache2.conf 
+ 1443  ll
+ 1444  rm .apache2.conf.swp 
+ 1445  ll
+ 1446  sudo vi apache2.conf 
+ 1447  vi envvars 
+ 1448  exit
+ 1449  cd /var/www/html/hotelc
+ 1450  git status
+ 1451  cd -
+ 1452  ll
+ 1453  sudo vi apache2.conf 
+ 1454  cd conf-available/
+ 1455  ll
+ 1456  cd ..
+ 1457  cd sites-available/
+ 1458  ll
+ 1459  vi default-ssl.conf 
+ 1460  cd /var/www/html/hotelc
+ 1461  ll
+ 1462  cd /pu
+ 1463  cd public/
+ 1464  ll
+ 1465  vi .htaccess 
+ 1466  ll
+ 1467  mkdir hotelData
+ 1468  mv D366.csv  hotelData/
+ 1469  ll
+ 1470  vi .htaccess 
+ 1471  cd -
+ 1472  cd /etc/apache2/
+ 1473  apachectl status
+ 1474  sudo vi envvars 
+ 1475  apachectl status
+ 1476  sudo apt-get install lynx
+ 1477  apachectl status
+ 1478  ll -l /usr/bin/www-browser 
+ 1479  ls /etc/alternatives/www-browser
+ 1480  apachectl status
+ 1481  sudo apachectl status
+ 1482  apachectl restart
+ 1483  sudo apachectl restart
+ 1484  sudo vi apache2.conf 
+ 1485  sudo vi sites-available/
+ 1486  sudo vi sites-available/000-default.conf 
+ 1487  sudo apachectl restart
+ 1488  sudo vi sites-available/000-default.conf 
+ 1489  sudo apachectl restart
+ 1490  ll
+ 1491  cd mods-available/
+ 1492  ll
+ 1493  ls | grep mod_alias
+ 1494  apache2ctl -M | grep alias
+ 1495  vi alias.load 
+ 1496  cd ..
+ 1497  ll
+ 1498  cd sites-available/
+ 1499  ll
+ 1500  sudo vi 000-default.conf 
+ 1501  sudo apache2ctl restart
+ 1502  sudo vi 000-default.conf 
+ 1503  sudo apache2ctl restart
+ 1504  apache2ctl -M | grep a
+ 1505  cd ..
+ 1506  cd mods-available/
+ 1507  apache2ctl -M | grep actions
+ 1508  apache2ctl -M | grep alias
+ 1509  cd ..
+ 1510  sudo vi sites-available/000-default.conf 
+ 1511  sudo apache2ctl restart
+ 1512  sudo vi sites-available/000-default.conf 
+ 1513  sudo apache2ctl restart
+ 1514  exit
+ 1515  cd /etc/apache2/
+ 1516  ll
+ 1517  sudo vi sites-available/default-ssl.conf 
+ 1518  sudo vi sites-available/000-default.conf 
+ 1519  sudo apache2ctl restart
+ 1520  sudo vi sites-available/000-default.conf 
+ 1521  sudo apache2ctl restart
+ 1522  sudo vi sites-available/000-default.conf 
+ 1523  git status
+ 1524  cd -
+ 1525  git /var/www/html/hotelc
+ 1526  ll
+ 1527  cd /var/www/html/hotelc
+ 1528  git status
+ 1529  git checkout .
+ 1530  git pull
+ 1531  git status
+ 1532  exit
+ 1533  cd /var/www/html/hotelc
+ 1534  git status
+ 1535  git pull
+ 1536  git reset HEAD~ --hard
+ 1537  git log
+ 1538  exit
+ 1539  cd /var/www/html/hotel_b2b_test
+ 1540  git status
+ 1541  git pull
+ 1542  cd ../hotel_c
+ 1543  git status
+ 1544  git pull
+ 1545  cd ../hotelc
+ 1546  git status
+ 1547  git pull
+ 1548  exit
+ 1549  cd /etc/apache2/
+ 1550  ll
+ 1551  cd sites-available/
+ 1552  ll
+ 1553  sudo vi 000-default.conf 
+ 1554  sudo apachectl restart
+ 1555  sudo apache2 restart
+ 1556  cd /etc/
+ 1557  ll
+ 1558  sudo vi hosts
+ 1559  cd /etc/apache2/sites-available/
+ 1560  ll
+ 1561  sudo vi 000-default.conf 
+ 1562  sudo a2ensite hotel_live
+ 1563  ll /var/www/html/
+ 1564  sudo vi 000-default.conf 
+ 1565  sudo a2ensite hotel_b2b_test
+ 1566  ll
+ 1567  sudo touch hotel-live.conf
+ 1568  ll
+ 1569  sudo rm hotel-live.conf 
+ 1570  ll
+ 1571  sudo a2ensite 000-default
+ 1572  sudo apache2 restart
+ 1573  sudo /etc/init.d/apache2 restart
+ 1574  cd /etc/
+ 1575  cd -
+ 1576  sudo vi /etc/hosts
+ 1577  sudo vi 000-default.conf 
+ 1578  exit
+ 1579  cd /var/www/html/
+ 1580  ll
+ 1581  mkdir hotel_ad
+ 1582  cd hotel_ad/
+ 1583  cd ..
+ 1584  rm -rf hotel_ad/
+ 1585  git clone git@bitbucket.org:catdog117/hotel_ad.git
+ 1586  cd hotel_ad/
+ 1587  git status
+ 1588  composer install
+ 1589  cd /etc/apache2/sites-available/
+ 1590  ll
+ 1591  sudo vi 000-default.conf 
+ 1592  sudo /etc/init.d/apache2 restart
+ 1593  chmod 775 /var/www/html/hotel_ad
+ 1594  sudo /etc/init.d/apache2 restart
+ 1595  chmod -R /var/www/html/hotel_ad 775
+ 1596  chmod 775 /var/www/html/hotel_ad 
+ 1597  chmod -R 775 /var/www/html/hotel_ad 
+ 1598  sudo chmod -R 775 /var/www/html/hotel_ad
+ 1599  sudo chmod -R 775 /var/www/html/hotel_ad/public/
+ 1600  vi 000-default.conf 
+ 1601  cd /etc/log
+ 1602  cd /var/log/
+ 1603  ll
+ 1604  cd apache2/
+ 1605  ll
+ 1606  ll -t
+ 1607  vi access.log
+ 1608  vi error.log
+ 1609  cd /etc/apache2/sites-available/
+ 1610  ll
+ 1611  vi default-ssl.conf 
+ 1612  ll
+ 1613  cd ..
+ 1614  ll
+ 1615  vi apache2.conf 
+ 1616  sudo /etc/init.d/apache2 restart
+ 1617  cd /var/www/html/h
+ 1618  cd /var/www/html/
+ 1619  ll
+ 1620  cd hotel_ad/
+ 1621  ll
+ 1622  cd ..
+ 1623  sudo chown -R www-data:www-data hotel_ad
+ 1624  sudo chmod go-rwx hotel_ad
+ 1625  sudo chmod go+x hotel_ad
+ 1626  chgrp -R www-data hotel_ad
+ 1627  sudo chgrp -R www-data hotel_ad
+ 1628  sudo chmod -
+ 1629  sudo chmod -R g+rx hotel_ad
+ 1630  cd hotel_ad
+ 1631  cd ..
+ 1632  cut -d: -f1 /etc/passwd
+ 1633  getnet passwd
+ 1634  less /etc/passwd
+ 1635  less /etc/group
+ 1636  cut -d: f1 /etc/group
+ 1637  cut -d : f 1 /etc/group
+ 1638  cut -d: -f1 /etc/passwd
+ 1639  cut -d: -f1 /etc/group
+ 1640  w
+ 1641  who
+ 1642  cd /etc/apache2/
+ 1643  ll
+ 1644  vi apache2.conf 
+ 1645  ll sites-enabled/
+ 1646  ll sites-available/
+ 1647  cd sites-available/
+ 1648  ll
+ 1649  vi default-ssl.conf 
+ 1650  cd ..
+ 1651  ll
+ 1652  vi envvars 
+ 1653  cd /var/www/html/hotel
+ 1654  exit
+ 1655  cd /var/www/html/hotel_b2b_test
+ 1656  ll
+ 1657  cd ..
+ 1658  ll
+ 1659  mv hotelc hotel_c
+ 1660  cd /etc/apache2/
+ 1661  ll
+ 1662  sudo vi apache2.conf 
+ 1663  cd conf-available/
+ 1664  ll
+ 1665  cd ../conf-enabled/
+ 1666  ll
+ 1667  cd ..
+ 1668  sudo vi ports.conf 
+ 1669  ll
+ 1670  cd sites-available/
+ 1671  ll
+ 1672  sudo vi 000-default.conf 
+ 1673  sudo apache2 restart
+ 1674  sudo service apache2 restart
+ 1675  cd /var/www/html/hotel_c
+ 1676  ll
+ 1677  cd ..
+ 1678  ll
+ 1679  ll backups/
+ 1680  cd backups/
+ 1681  ll
+ 1682  mkdir hotel_b2b_test_baks
+ 1683  mv hotel_b2b_test_062017.tar hotel_b2b_test_070517.tar hotel_b2b_test_082417.tar hotel_b2b_test_083117.tar hotel_b2b_Test/ hotel_b2b_test_baks/
+ 1684  ll
+ 1685  mkdir hotel_b2b_baks
+ 1686  mv hotel_b2b_062017/ hotel_b2b_062117.tar hotel_b2b_081117.tar hotel_b2b_081417.tar hotel_b2b_082917.tar hotel_b2b_245_081117.tar hotel_b2b.tar hotel_b2b_baks/
+ 1687  ll
+ 1688  mv hotel_b2b_merge_081417.tar hotel_b2b_baks/
+ 1689  ll
+ 1690  ll merge_test/
+ 1691  ll
+ 1692  mv hotel_b2b_baks/hotel_b2b_merge_081417.tar merge_test/
+ 1693  ll
+ 1694  cd merge_test/
+ 1695  ll
+ 1696  cd ..
+ 1697  ll
+ 1698  mv merge_test/ hotel_b2b_merge_baks
+ 1699  cd hotel_b2b_merge_baks/
+ 1700  ll
+ 1701  tar -cvzf hotel_b2b_merge_112817.tar hotel_b2b
+ 1702  ll
+ 1703  rm -rf hotel_b2b
+ 1704  ll
+ 1705  mv hotel_b2b_merge_081417.tar hotel_b2b_merge_112817.tar ../hotel_b2b_baks/
+ 1706  cd ..
+ 1707  ll
+ 1708  ll hotel_b2b_merge_baks/
+ 1709  rm -rf hotel_b2b_merge_baks/
+ 1710  ll
+ 1711  cd hotel_b2b_baks/
+ 1712  ll
+ 1713  tar -czvf hotel_b2b_062017.tar hotel_b2b_062017/
+ 1714  ll
+ 1715  mv -rf hotel_b2b_062017/
+ 1716  rm -rf hotel_b2b_062017/
+ 1717  ll
+ 1718  mv hotel_b2b.tar hotel_b2b_050217.tar
+ 1719  ll
+ 1720  cd ..
+ 1721  ll
+ 1722  cd ..
+ 1723  ll
+ 1724  mkdir backups/hotel_c_baks
+ 1725  mv hotel_b2b_test_121517.tar hotel_b2b_test_121817.tar backups/hotel_b2b_test_baks/
+ 1726  ll
+ 1727  mv hotelc001.tar hotelc002.tar hotelc003.tar hotelc004.tar hotelc005.tar hotelc006.tar hotelc007.tar hotelc008.tar hotelc009.tar hotelc011.tar hotelc020.tar backups/hotel_c_baks/
+ 1728  ll
+ 1729  cd backups/hotel_c_baks/
+ 1730  ll
+ 1731  mv hotelc001.tar hotel_c_112117.tar
+ 1732  ll
+ 1733  cd ..
+ 1734  ll
+ 1735  cd hotel_c_baks/
+ 1736  ll
+ 1737  mv hotelc002.tar hotel_c_112117.tar
+ 1738  ll
+ 1739  mv hotel_c_112117.tar hotelc001.tar
+ 1740  ll
+ 1741  cd ..
+ 1742  ll
+ 1743  cd ..
+ 1744  ll
+ 1745  cd /etc/apache2/sites-available/
+ 1746  sudo vi 000-default.conf 
+ 1747  cd ..
+ 1748  ll
+ 1749  vi apache2.conf 
+ 1750  vi sites-available/default-ssl.conf 
+ 1751  cd /var/www/html/hotel_c
+ 1752  ll
+ 1753  cd ..
+ 1754  ll
+ 1755  rm -rf hotel_b2b_test3
+ 1756  ll
+ 1757  cd hotel_c
+ 1758  git pull
+ 1759  composer install
+ 1760  git status
+ 1761  git diff
+ 1762  git status
+ 1763  git checkout .
+ 1764  git status
+ 1765  git rm -r --cached .
+ 1766  git status
+ 1767  git add .
+ 1768  git status
+ 1769  composer install
+ 1770  git status
+ 1771  git reset .
+ 1772  git checkout .
+ 1773  git status
+ 1774  composer install
+ 1775  git status
+ 1776  git rm -r --cached .
+ 1777  git add .
+ 1778  git status
+ 1779  git commit -m "test"
+ 1780  git status
+ 1781  composer install
+ 1782  git status
+ 1783  git reset --hard HEAD~
+ 1784  exit
+ 1785  cd /var/www/html/hotel_b2b
+ 1786  git status
+ 1787  git stash
+ 1788  git status
+ 1789  git add .
+ 1790  git stash
+ 1791  git status
+ 1792  git pull
+ 1793  git stash pop stash@{0}
+ 1794  git status
+ 1795  git reset
+ 1796  git status
+ 1797  composer install
+ 1798  git status
+ 1799  exit
+ 1800  cd /var/www/html/hotel_b2b
+ 1801  git status
+ 1802  php artisan down
+ 1803  php artisan up
+ 1804  exit
+ 1805  cd /var/www/html/hotel_b2b
+ 1806  git status
+ 1807  exit
+ 1808  cd /var/www/html/hotel_b2b_test/
+ 1809  git status
+ 1810  git pull
+ 1811  composer install
+ 1812  cd ../hotel_c
+ 1813  composer install
+ 1814  cd ../hotel_b2b
+ 1815  composer install
+ 1816  exit
+ 1817  cd /var/www/html/hotel_b2b
+ 1818  sudo chmod 777 -R bootstrap/cache/
+ 1819  cd ../hotel_b2b_test/
+ 1820  sudo chmod 777 -R bootstrap/cache/
+ 1821  cd ..
+ 1822  sudo chown -R www-data:www-data hotel_b2b
+ 1823  sudo usermod -a -G www-data root1
+ 1824  sudo find hotel_b2b -type -f -exec chomod 644 {} \;
+ 1825  sudo find hotel_b2b -type f -exec chomod 644 {} \;
+ 1826  sudo find hotel_b2b -type f -exec chmod 644 {} \;
+ 1827  sudo find hotel_b2b -type d -exec chmod 775 {} \;
+ 1828  ll hotel_b2b
+ 1829  ll hotel_b2b/bootstrap/
+ 1830  sudo find hotel_b2b -type d -exec chmod 755 {} \;
+ 1831  ll hotel_b2b/bootstrap/
+ 1832  cd hotel_b2b
+ 1833  cd ../hotel_b2b_test/
+ 1834  ll
+ 1835  sudo chown -R www-data:www-data .
+ 1836  ll
+ 1837  ll bootstrap/
+ 1838  cd ..
+ 1839  sudo find hotel_b2b_test/ -type f -exec chmod 644 {} \;
+ 1840  ll hotel_b2b_test/bootstrap/
+ 1841  sudo find hotel_b2b_test/ -type d -exec chmod 644 {} \;
+ 1842  ll hotel_b2b_test/bootstrap/
+ 1843  cd hotel_b2b_test/
+ 1844  cd hotel_b2b
+ 1845  cd ../hotel_b2b_test/
+ 1846  sudo usermod -a -G www-data root1
+ 1847  cd ../hotel_b2b_test/
+ 1848  cd ..
+ 1849  sudo find hotel_b2b_test/ -type d -exec chmod 755 {} \;
+ 1850  cd hotel_b2b_test/
+ 1851  sudo chgrp -R www-data storage/ bootstrap/cache/
+ 1852  sudo chmod -R ug+rwx storage/ bootstrap/cache/
+ 1853  ll bootstrap/
+ 1854  cd ../hotel_b2b
+ 1855  ll
+ 1856  sudo chgrp -R www-data storage/ bootstrap/cache/
+ 1857  sudo chmod -R ug+rwx storage/ bootstrap/cache/
+ 1858  ll bootstrap/
+ 1859  exit
+ 1860  id -nG
+ 1861  docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
+ 1862  docker exec -it some-mysql
+ 1863  docker exec -it some-mysql bash
+ 1864  docker stop some-mysql
+ 1865  docker exec -it some-mysql bash
+ 1866  docker start some-mysql
+ 1867  docker exec -it some-mysql bash
+ 1868  telnet 127.0.0.1 3306
+ 1869  telnet 192.168.1.245 3306
+ 1870  docker exec -it some-mysql bash
+ 1871  docker start some-mysql
+ 1872  docker exec -it some-mysql bash
+ 1873  telnet 192.168.1.245 3306
+ 1874  docker logs some-mysql
+ 1875  docker run --name any-mysql -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql:5.7
+ 1876  docker stop some-mysql
+ 1877  docker run --name any-mysql -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql:5.7
+ 1878  docker start any-mysql
+ 1879  docker ps
+ 1880  telnet 127.0.0.1 3306
+ 1881  sudo service mysql stop
+ 1882  docker start any-mysql
+ 1883  telnet 127.0.0.1 3306
+ 1884  telnet 192.168.1.245 3306
+ 1885  docker exe -it any-mysql bash
+ 1886  docker exec -it any-mysql bash
+ 1887  exit
+ 1888  ls
+ 1889  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 1890  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ 1891  sudo apt-get update
+ 1892  apt-cache policy docker-ce
+ 1893  sudo apt-get install -y docker-ce
+ 1894  sudo systemctl status docker
+ 1895  sudo usermod -aG docker ${USER}
+ 1896  su - ${USER}
+ 1897  exit
+ 1898  cd /var/www/html/hotel_c
+ 1899  git status
+ 1900  git checkout .
+ 1901  git status
+ 1902  git fetch origin 
+ 1903  git checkout newSearch
+ 1904  git checkout newSearchEngine 
+ 1905  git status
+ 1906  git pull
+ 1907  exit
+ 1908  cd /var/www/html/hotel-c
+ 1909  cd /var/www/html/hotel_c
+ 1910  git status
+ 1911  git checkout development
+ 1912  git pull
+ 1913  composer install
+ 1914  exit
+ 1915  docker ps -a
+ 1916  docker ps
+ 1917  docker start any-mysql
+ 1918  service stop mysql
+ 1919  sudo service mysql stop
+ 1920  docker start any-mysql
+ 1921  exit
+ 1922  docker stop any-mysql
+ 1923  docker ps
+ 1924  sudo service mysql start
+ 1925  sudo service mysql stop
+ 1926  docker start any-mysql
+ 1927  cd /var/www/html/hotel_b2b
+ 1928  git status
+ 1929  git clean -f -d
+ 1930  git status
+ 1931  git checkout .
+ 1932  ll
+ 1933  git status
+ 1934  git checkout .
+ 1935  ll .git
+ 1936  ll
+ 1937  whoami
+ 1938  sudo usermod -a -G www-data root1
+ 1939  git checkout .
+ 1940  ll
+ 1941  cd .git/
+ 1942  ll
+ 1943  cd ..
+ 1944  sudo git checkout .
+ 1945  git branch
+ 1946  git pull
+ 1947  cd ..
+ 1948  sudo chown -R www-data:www-data /var/www/html/hotel_b2b
+ 1949  sudo usermod -a -G www-data root1
+ 1950  sudo find hotel_b2b -type -f -exec chmod 644 {} \;
+ 1951  sudo find hotel_b2b -type f -exec chmod 644 {} \;
+ 1952  sudo find hotel_b2b -type d -exec chmod 755 {} \;
+ 1953  cd hotel_b2b
+ 1954  sudo chgrp -R www-data storage/ bootstrap/cache/
+ 1955  sudo chmod -R ug+rwx storage/ bootstrap/cache/
+ 1956  ll
+ 1957  git checkout .
+ 1958  sudo chgrp -R root1 .git/
+ 1959  git pull
+ 1960  sudo git pull
+ 1961  cat ~/.ssh/id_rsa.pub 
+ 1962  sudo git pull
+ 1963  git remote -v
+ 1964  git remote remove hotelC 
+ 1965  sudo git remote remove hotelC 
+ 1966  ll .git
+ 1967  sudo chown -R www-data .git/
+ 1968  ll .git
+ 1969  git pull
+ 1970  whoami
+ 1971  egrep -i "^www-data" /etc/group
+ 1972  sudo chown -R www-data:root .git/
+ 1973  sudo chown -R www-data:root1 .git/
+ 1974  ll .git
+ 1975  git pull
+ 1976  ll .git
+ 1977  sudo chown -R www-data .git/
+ 1978  ll .git
+ 1979  sudo chmod a+rw .git/FETCH_HEAD 
+ 1980  git pull
+ 1981  ll .git
+ 1982  sudo chgrp -R www-data .git
+ 1983  ll .git
+ 1984  sudo chmod -R ug+rwx .git
+ 1985  git pull
+ 1986  cd ..
+ 1987  sudo chown -R root1:www-data hotel_b2b
+ 1988  sudo find hotel_b2b -type f -exec chmod 644 {} \;
+ 1989  sudo find hotel_b2b -type d -exec chmod 755 {} \;
+ 1990  cd hotel_b2b
+ 1991  sudo chgrp -R www-data storage/ bootstrap/cache/
+ 1992  sudo chmod -R ug+rwx storage/ bootstrap/cache/
+ 1993  git pull
+ 1994  ll
+ 1995  ll .git
+ 1996  git branch
+ 1997  git branch -D emailSchedule hotelc 
+ 1998  git remote -v
+ 1999  exit
+ 2000  history
+ 2001  history > history011618.txt

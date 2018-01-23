@@ -1,0 +1,5 @@
+#!/bin/sh
+pids=`ps -ef|grep java|grep jboss |awk '{printf $2" "}'`
+echo "will kill process ids:$pids"
+kill -9 $pids
+echo 'kill successed'

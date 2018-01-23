@@ -1,0 +1,63 @@
+http://blog.csdn.net/pan_tian/article/details/7715436
+
+
+关于Unix/Linux下查看命令行历史记录(history/.bash_history)
+标签： oracledownloadcommandfunctionfilebash
+2012-07-04 16:26 26717人阅读 评论(0) 收藏 举报
+ 分类： Linux/Unix（20）  
+版权声明：转载请以链接形式注明出处
+
+目录(?)[+]
+
+1.vi .bash_history
+关于.bash_history的配置
+export HISTCONTROL=ignoreboth 
+Don’t save duplicates
+export HISTSIZE=10000
+
+这个是针对history命令的设置，The number of commands to remember in the command history. The default value is 500.
+
+export HISTFILESIZE=10000
+
+这个是针对history文件(.bash_history)的设置，The maximum number of lines contained  in  the  history file.  When this variable is assigned a value, the his-tory file is truncated, if necessary, by  removing  the oldest  entries, to contain no more than that number of lines.  The default value is 500.  The history file  is also  truncated  to  this size after writing it when an interactive shell exits.
+export HISTIGNORE='ls'
+
+A colon-separated list of patterns used to decide which command lines should be saved on the history list.Each pattern is anchored at the beginning  of the line and must match the complete line 
+
+以上的关于history的说明都可以使用man bash查的到,如果想要让你的配置永久生效，可以把export命令写到.bash_profile或者全局配置文件/etc/profile里
+
+2.history
+模糊查询，history | grep -i "xxx"
+
+[oracle@bej301441 ~]$ history | grep -i "FND"
+   34  2012-07-04 01:29:15 history | grep -i "FND"
+   35  2012-07-04 01:29:30 FNDLOAD apps/apps 0 Y DOWNLOAD $FND_TOP/patch/115/import/affrmcus.lct PT_CUSTOM_FUC.ldt FND_FORM_CUSTOM_RULES function_name="INV_INVTOMAI"
+   36  2012-07-04 01:29:33 history | grep -i "FND"
+[oracle@bej301441 ~]$
+
+如何让history可以有时间戳显示
+
+# export HISTTIMEFORMAT='%F %T '
+
+ ....
+ 1027  2012-07-04 01:12:53 ls /etc/bash*
+ 1028  2012-07-04 01:13:17 vi /etc/bashrc
+ 1029  2012-07-04 01:16:04 history
+[oracle@bej301441 ~]$
+清除history记录
+
+[oracle@bej301441 ~]$ history -c
+[oracle@bej301441 ~]$ history
+   32  2012-07-04 01:20:40 history
+[oracle@bej301441 ~]$
+注:清除history之后，.bash_history里仍会有历史记录
+
+如何不让系统记录历史命令
+
+# export HISTSIZE=0
+# history
+# [Note that history did not display anything]
+
+3.使用Control+R来搜索命令
+命令行中输入Control+R，然后输入过往命令的key word，你就很容易找到以前执行过的命令了
+(reverse-i-search)`FND': FNDLOAD apps/apps 0 Y DOWNLOAD $FND_TOP/patch/115/import/affrmcus.lct PT_CUSTOM_FUC.ldt FND_FORM_CUSTOM_RULES function_name="INV_INVTOMAI"
