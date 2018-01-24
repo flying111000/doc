@@ -1,0 +1,32 @@
+Sub URLPictureInsert()
+'Updateby Extendoffice 20161116
+    Dim Pshp As Shape
+    Dim xRg As Range
+    Dim xCol As Long
+    On Error Resume Next
+    Application.ScreenUpdating = False
+    Set Rng = ActiveSheet.Range("A1:A3")
+    For Each cell In Rng
+        filenam = cell
+'        Application.ActiveSheet.Pictures.Insert(filenam).Select
+'        Set Pshp = Selection.ShapeRange.Item(1)
+'        If Pshp Is Nothing Then GoTo lab
+        xCol = cell.Column + 1
+        Set xRg = Cells(cell.Row, xCol)
+        ActiveSheet.Rows(cell.Row).RowHeight = 100
+'        With Pshp
+'            .LockAspectRatio = msoFalse
+'            .Width = 100
+'           .Height = 100
+'            .Top = xRg.Top + (xRg.Height - .Height) / 2
+'            .Left = xRg.Left + (xRg.Width - .Width) / 2
+'        End With
+        
+        ActiveSheet.Shapes.AddShape(msoShapeRectangle, xRg.Left + (xRg.Width - 100) / 2, xRg.Top + (xRg.Height - 100) / 2, 100, 100).Fill.UserPicture filenam
+'ActiveSheet.Shapes.AddPicture filenam, False, True, 200, 200, 100, 100
+lab:
+    Set Pshp = Nothing
+    Range("A1").Select
+    Next
+    Application.ScreenUpdating = True
+End Sub
