@@ -1,1 +1,11 @@
 LOAD DATA LOCAL INFILE 'C:\\work\\001_static_data\\003 tourico\\static_data\\HotelAdditionalInfo\\PDS2_RoomFacilities_THF.csv' INTO TABLE room_facility_tourico FIELDS TERMINATED BY '|' LINES TERMINATED BY '\r\n';
+
+
+LOAD DATA LOCAL INFILE 'C:\\giata-mapping.csv' INTO TABLE hotels_ads 
+FIELDS TERMINATED BY ',' 
+OPTIONALLY ENCLOSED BY '"' 
+LINES TERMINATED BY '\r\n'  
+ignore 1 lines  
+(id, name, data);
+
+http://blog.csdn.net/Meseal/article/details/52527774
