@@ -6,7 +6,10 @@ http://doc.touricoholidays.com/hotel-search-book-online-flow/hotel-service/bookh
 http://go-spec.derbysoftapi.com/distributor-xml-api.html#reservation
 https://expediaintegration.zendesk.com/hc/en-us/articles/115003581108-XAPv3-Hotel-Booking-API
 https://admin.rezserver.com/
+Data API Specs: http://developer.bonotel.com
+Static Data: http://developer.bonotel.com/dataExportRSS.cfm 
 
+https://open.alitrip.com
 http://open.taobao.com/docs/doc.htm?&docType=1&articleId=105610
 
 http://www.citcon-inc.com/
