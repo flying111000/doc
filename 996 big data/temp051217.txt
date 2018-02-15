@@ -1,0 +1,55 @@
+https://s3-us-west-1.amazonaws.com/usitrip/Hotel_Image/203/101482_18_large.jpg
+https://s3-us-west-1.amazonaws.com/usitrip/Hotel_Image/285/142042_14_large.jpg
+https://s3-us-west-1.amazonaws.com/usitrip/Hotel_Image/255/127132_22_large.jpg
+https://s3-us-west-1.amazonaws.com/usitrip/Hotel_Image/362/180764_25_large.jpg
+
+ onclick=\"javascript:alert('" + $("input[name='_token']").val() + "');\"
+ 
+ 
+Connection →keep-alive
+Content-Type →text/html; charset=UTF-8
+Date →Wed, 10 May 2017 17:29:44 GMT
+Server →nginx/1.9.12 ...32
+Transfer-Encoding →chunked
+X-Powered-By →PHP/7.1.0
+
+
+Connection →close
+Content-Encoding →gzip
+Content-Length →3984
+Content-Type →text/html; charset=UTF-8
+Date →Wed, 10 May 2017 17:33:35 GMT
+Server →Apache/2.2.31 (Amazon) 54.67.69.230
+Vary →Accept-Encoding
+X-Powered-By →PHP/7.0.3
+
+TODO
+1. db mapping and merge
+2. 6 months static data for ali
+3.static api for distributors.
+4.design document for the whole process.
+5.PMS
+8.High performance design:
+	8.1 linux+nginx/1
+	8.2 geo dns
+	8.3 cdn
+	8.4 extandable design
+	通用措施：
+	1、动态资源和静态资源分离；
+	2、CDN；
+	3、负载均衡；
+	4、分布式缓存；
+	5、数据库读写分离或数据切分（垂直或水平）；
+	6、服务分布式部署。	
+	
+	服务和网络：
+		geo dns
+		cdn
+		负载均衡
+		服务分布式部署 extandable design
+	软件架构
+		动态资源和静态资源分离
+		分布式缓存
+		数据库读写分离或数据切分（垂直或水平）
+		
+	
