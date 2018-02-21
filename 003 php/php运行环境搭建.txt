@@ -1,0 +1,68 @@
+xampp (安装组件只选择php)，composer, phpstorm，node,(git for windows) or sourcetree
+
+
+in MINGW64(git for windows)
+
+ping 192.168.1.245
+ping 192.168.1.32
+ping www.google.com
+cd ~
+ll
+ll -a
+cd .eclipse/
+la
+ll -a
+cd ..
+cd workspace/
+ll
+pwd
+cd /c
+ll
+mkdir Code
+ll
+cd Code/
+mkdir web
+cd web
+git clone https://2853759768@bitbucket.org/usitrip/hotel_c.git
+cd hotel_c/
+git pull
+composer install
+npm install
+php artisan
+php artisan serve --port=9000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
