@@ -1,0 +1,188 @@
+#!bash
+
+sudo yum install glibc*.i686
+#locate /lib/ld-linux.so.2
+sudo tar zxvf /home/ec2-user/jdk-8u111-linux-x64.tar.gz   
+export JAVA_HOME=/home/ec2-user/jdk1.8.0_111
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+export JAVA_HOME=/root/jdk1.8.0_111
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+
+vi /home/ec2-user/EAP-7.0.0/standalone/configuration/standalone.xml
+cd /home/ec2-user/EAP-7.0.0/bin
+sh /home/ec2-user/EAP-7.0.0/bin/standalone.sh &
+    <interface name="public">
+        <any-address/>
+    </interface>
+sh startjboss.sh
+sh stopjboss.sh
+cd 
+./runtest
+sudo yum install tcl
+sudo yum install gcc
+sudo yum install glibc-devel
+sudo make
+cd deps
+sudo make
+cd lua
+sudo make generic
+
+cd deps/lineonise/ 
+sudo make
+fengyue1985
+
+ps -ef | grep redis
+
+kill -9 
+
+redis-server
+-----------------------------------------------------------------------------------------------------
+php
+
+yum --enablerepo=remi,epel install httpd
+
+yum --enablerepo=remi,epel install php php-mysql php-mcrypt
+
+# curl -sS https://getcomposer.org/installer | php
+# mv composer.phar /usr/local/bin/composer
+pcre
+apr
+apr-util
+sudo ./configure --prefix= /home/ec2-user/pcre --with-apr=/home/ec2-user/apr/bin/apr-1-config
+# chmod +x /usr/local/bin/composer
+sudo chown -R apache.apache /home/ec2-user/www/html/hotel_live
+
+yum install -y gcc gcc-c++
+
+yum install libxml2-devel -y
+ sudo chmod -R 755 /home/ec2-user/www/html/hotel_live
+
+
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all        
+        Require all granted
+
+./configure --prefix=/usr/local/httpd2 --with-apr=/usr/local/apr/bin/apr-1-config --with-apr-util=/usr/local/apr-util/bin/apu-1-config --with-pcre=/usr/local/pcre
+
+
+1、安装Apahce、PHP、MySQL和PHP连接MySQL数据库的包：
+# yum -y install httpd php mysql mysql-server php-mysql
+
+2、安装Apache常用扩展包：
+# yum -y install httpd-manual mod_ssl mod_perl mod_auth_mysql
+
+3、安装PHP常用扩展组包：
+# yum -y install php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel
+
+4、安装MySQL的常用扩展包：
+# yum -y install mysql-connector-odbc mysql-devel libdbi-dbd-mysql
+
+5、安装Tomcat6相关软件包：
+# yum -y install tomcat6 tomcat6-webapps tomcat6-admin-webapps tomcat6-docs-webapp tomcat6-javadoc
+说明：如果是CentOS 5.x，yum安装的是Tomcat5版本，如下：
+# yum -y install tomcat5 tomcat5-webapps tomcat5-admin-webapps tomcat5-docs-webapp tomcat5-javadoc
+
+6、全部软件包一键安装命令如下：
+yum -y install httpd php mysql mysql-server php-mysql httpd-manual mod_ssl mod_perl mod_auth_mysql php-gd php-xml php-mbstring php-ldap php-pear php-xmlrpc php-devel mysql-connector-odbc mysql-devel libdbi-dbd-mysql tomcat6 tomcat6-webapps tomcat6-admin-webapps tomcat6-docs-webapp
+
+7、配置Apache、MySQL、Tomcat服务开机自启动：
+
+# chkconfig httpd on
+# chkconfig mysqld on
+# chkconfig tomcat6 on
+
+8、重启Apache、MySQL、Tomcat服务：
+
+# /etc/init.d/httpd restart
+# /etc/init.d/mysqld restart
+# /etc/init.d/tomcat6 restart
+
+安装php7.1.0
+yum install --enablerepo=remi --enablerepo=remi-php71 php php-mysql php-opcache php-pecl-apcu php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof php-pdo php-pear php-fpm php-cli php-xml php-bcmath php-process php-gd php-common --skip-broken to work around the problem
+
+说明：
+
+Apache的配置文件是/etc/httpd/conf/里
+modules放在/usr/lib/httpd/里
+php的配置文件在/etc/php.d/里和/etc/php.ini
+php的modules放在/usr/lib/php/modules里
+MySQL的配置文件在/etc/my.cnf里
+Tomcat6安装目录位于/user/share/tomcat6/里
+Tomcat6的配置文件位于/etc/tomcat6/里
+
+9、在Apache的网站根目录下（默认为/var/www/html/）建个PHP环境测试页面：
+# vim phpinfo.php
+输入：
+<?php
+phpinfo();
+?>
+
+rpm -qa|grep httpd
+rpm -e 
+
+AddHandler application/x-httpd-php .php
+
+./configure --prefix=/usr/local/php --with-apxs2=/usr/local/httpd/bin/apxs --with-libxml2=/usr/local/libxml2
+
+
+tar -xzvf fcitx-3.4.2.tar.gz 
+
+fpm
+https://www.zybuluo.com/phper/note/72879
+
+chmod -R 777 /var/www/html
+
+openssl extension
+php7.1
+./configure --prefix=/usr/local/php71 --enable-fpm --with-openssl --with-pdo-mysql
+
+ln -s /usr/local/php/bin/php /usr/local/bin/php
+
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+./nginx -s reload
+./nginx -t
+
+    'key' => env('APP_KEY', '1234567890qwerty'),
+
+    'cipher' => 'AES-128-CBC',
+
+
+
+  location ~ \.php$ {
+            root          /var/www/html;
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+           fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+php -r "copy('.env.example', '.env');"
+
+pdo_mysql
+
+http://www.bjhee.com/nginx-sites.html
+
+
+ ./configure --prefix=/usr/local/memcache --enable-memcache --with-libevent=/usr/local/libevent --with-php-config=/usr/local/php/bin/php-config
+
+ln -s /usr/local/libtool/bin/libtoolize /usr/local/bin/libtoolize
+ git clone https://github.com/websupport-sk/pecl-memcache memcache
+
+http://www.lnmp.cn/install-memcache-and-memcached-extends-under-php7.html
+
+netstat -tnl | grep 9000
+
+kill -INT `cat /usr/local/php7/var/run/php-fpm.pid`
+
+ ./configure --prefix=/usr/local/memcached --enable-memcached --with-php-config=/usr/local/php/bin/php-config --with-libmemcached-dir=/usr/local/libmemcached  --disable-memcached-sasl
+
+
+  ./configure --prefix=/usr/local/curl --with-php-config=/usr/local/php/bin/php-config --with-curl=/usr/local/libcurl
